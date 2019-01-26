@@ -8,7 +8,7 @@ export default function (props) {
     };
 
   return (
-    <div className="header" style={styles}>
+    <div style={styles}>
       Header
     </div>
   );

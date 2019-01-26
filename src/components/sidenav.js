@@ -10,7 +10,7 @@ export default function (props) {
   };
 
   return (
-    <div className="sidenav" style={styles}>
+    <div style={styles}>
       <div>Menu 1</div>
       <div>Menu 2</div>
       <div>Menu 3</div>
