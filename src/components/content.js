@@ -1,6 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-export default function (props) {
+
+import UserListContainer from "./user/user-list-container";
+
+export default function () {
 
   const styles = {
       backgroundColor: '#e53a06',
@@ -10,6 +12,7 @@ export default function (props) {
   return (
     <div style={styles}>
       Hello
+      <UserListContainer />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-export default function (props) {
-
+export default function () {
   const styles = {
       backgroundColor: '#7142f4',
       gridArea: 'footer'

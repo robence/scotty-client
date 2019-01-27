@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-export default function (props) {
-
+export default function () {
   const styles = {
     display: 'inline-block',
     minWidth: '50px',
