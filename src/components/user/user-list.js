@@ -1,13 +1,18 @@
 import React from 'react';
 
-const UserList = props =>
-    (<ul>
-        {props.users.map(user => (
-            <div>
-                <li>{user.firstName}—{user.lastName}</li>
-                <li>{user.username}—{user.email}</li>
-            </div>
-        ))}
-    </ul>);
+const displayUsers = (users) => {
+  return users.map((user) => (
+    <div key={user._id}>
+      <li>
+        {user.firstName}—{user.lastName}
+      </li>
+      <li>
+        {user.username}—{user.email}
+      </li>
+    </div>
+  ));
+};
+
+const UserList = ({ users }) => <ul>{displayUsers(users)}</ul>;
 
 export default UserList;

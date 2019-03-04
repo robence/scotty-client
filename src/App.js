@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 
-import Header from './components/header';
-import Footer from './components/footer';
-import Sidenav from './components/sidenav';
-import Content from './components/content';
+import Header from './layout/header';
+import Sidenav from './layout/sidenav';
+import Content from './layout/content';
 
-class App extends Component {
-  render() {
-    const styles = `
+const App = () => {
+  const styles = `
       .main {
         display: grid;
         grid-template: "header header"
                         "sidebar  content"
-                        "sidebar  footer";
-        grid-template-rows:    100px auto 100px;
+                        "sidebar  content";
+        grid-template-rows:    40px auto 100px;
         grid-template-columns: 200px 1fr;
-      }`
+      }`;
 
-    return (
-      <div className="main">
-        <style>
-          {styles}
-        </style>
-        <Header/>
-        <Sidenav/>
-        <Content/>
-        <Footer/>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="main">
+      <style>{styles}</style>
+      <Header />
+      <Sidenav />
+      <Content />
+    </div>
+  );
+};
 
 export default App;
