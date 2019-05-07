@@ -11,7 +11,7 @@ export default class UserService {
   }
 
   // createUser(user) {
-  static createUser(user) {
+  static createUser(user: any) {
     return Http.post(BASE_URL, {
       data: user,
     });

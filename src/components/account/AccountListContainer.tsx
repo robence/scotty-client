@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import AccountService from './account-service';
-import AccountList from './account-list';
+
+import AccountService from './AccountService';
+import AccountList from './AccountList';
 
 const AccountListContainer = () => {
   const [accounts, setAccounts] = useState(0);
@@ -9,10 +10,7 @@ const AccountListContainer = () => {
     AccountService.getAllAccounts().then((result) => setAccounts(result));
   });
 
-  const getAccounts = () => {
-    return <AccountList accounts={accounts} />;
-  };
-
+  const getAccounts = () => <AccountList accounts={accounts} />;
   return <div>{accounts && getAccounts()}</div>;
 };
 

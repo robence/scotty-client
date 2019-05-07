@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AccountService from './account-service';
+import AccountService from './AccountService';
 
 const USERNAME = 'robence';
 
@@ -17,7 +17,7 @@ export default class CreateUser extends Component {
     AccountService.createAccount(account);
   };
 
-  onChange = (e) => {
+  onChange = (e: any) => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };

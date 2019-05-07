@@ -11,7 +11,7 @@ export default class AccountService {
       );
   }
 
-  static createAccount(data) {
+  static createAccount(data: any) {
     return Http.post(BASE_URL, data)
       .then((res) => console.log(res))
       .catch((error) =>
@@ -19,7 +19,7 @@ export default class AccountService {
       );
   }
 
-  static createUser(user) {
+  static createUser(user: any) {
     return Http.post(BASE_URL, {
       data: user,
     });
