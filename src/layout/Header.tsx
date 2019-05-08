@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuItem from '../components/ui/MenuItem';
-import Logo from '../components/ui/Logo';
 
 export default function HeaderComponent() {
   const Div = styled.div`
