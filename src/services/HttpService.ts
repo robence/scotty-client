@@ -11,14 +11,15 @@ class HttpService {
     return axios
       .get(url, this.config)
       .then((response) => response.data)
-      .catch((error) => Promise.reject(error));
+      .catch(error => Promise.reject(error))
   }
 
   post(url: string, data: any) {
     return axios
       .post(url, data, this.config)
       .then((response) => response.data)
-      .catch((error) => Promise.reject(error));
+
+         .catch((error) => Promise.reject(error))
   }
 
   put(url: string, data: any) {

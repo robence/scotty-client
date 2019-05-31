@@ -12,7 +12,7 @@ export default function MenuItemComponent({ children, style }: any) {
     margin: 0 5px;
 
     height: min-content;
-
+    
     &: hover {
       background-color: #06ce77;
     }
