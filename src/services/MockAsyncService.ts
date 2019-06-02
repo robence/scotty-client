@@ -1,7 +1,8 @@
-export default function callAsync() {
-  return new Promise((resolve, reject) =>
-    setTimeout(() => {
-      resolve('foo');
-    }, 300),
+export default function callAsync(): Promise<{}> {
+  return new Promise(
+    (resolve): number =>
+      setTimeout((): void => {
+        resolve('foo');
+      }, 300),
   );
 }

@@ -1,0 +1,19 @@
+.card {
+  width: auto;
+  height: auto;
+  margin: $l;
+  background-color: white;
+  padding: $m;
+  box-shadow: 0 $xs $s 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: $xs;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
