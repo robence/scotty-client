@@ -1,27 +1,48 @@
 {
-  "extends": ["airbnb-base", "prettier"],
-  "parser": "babel-eslint",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "airbnb-base"
+  ],
+  "parser": "@typescript-eslint/parser",
   "env": {
-    "node": false,
-    "browser": true
-  },
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
+    "browser": true,
+    "node": true,
+    "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true,
+      "legacyDecorators": true,
+      "modules": true
+    }
   },
   "rules": {
     "prettier/prettier": "error",
-    "no-unexpected-multiline": "error",
-    "indent": "off",
     "quotes": [2, "single", "avoid-escape"],
     "ignoreTemplateLiterals": true,
-    "padded-blocks": ["error", "never"],
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+    "indent": ["error", 2],
+    "implicit-arrow-linebreak": "off",
+
+    "semi": "off",
+    "no-undef": "off",
+
+    "@typescript-eslint/interface-name-prefix": ["error", "always"]
   },
-  "plugins": ["react", "prettier"]
+  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
 }

@@ -1,0 +1,27 @@
+.hamburger {
+  color: white;
+  border-radius: 5px;
+  width: min-content;
+  margin-left: 5vw;
+
+  background-image: url('http://www.iconninja.com/files/327/943/625/more-home-menu-hamburger-icon.png');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (min-width: $mobile) {
+    display: inline-block;
+  }
+
+  @media (min-width: $tablet) {
+    display: none;
+  }
+
+  & button {
+    background: none;
+    border: none;
+    outline: none;
+
+    width: 50px;
+    height: 50px;
+  }
+}

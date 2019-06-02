@@ -1,0 +1,18 @@
+.menu-list {
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $mobile) {
+    padding: 0 $s;
+  }
+
+  @media (min-width: $tablet) {
+    flex-grow: 1;
+    padding: 0 $xs;
+  }
+
+  @media (min-width: $desktop) {
+    flex-grow: 1;
+    padding: 0 $s;
+  }
+}
