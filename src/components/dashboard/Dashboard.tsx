@@ -16,6 +16,7 @@ function getCards(): JSX.Element[] {
 }
 
 export default function Dashboard(): JSX.Element {
-  const cardList = getCards();
+  // const cardList = getCards();
+  const cardList: any = [];
   return <div className="dashboard">{cardList}</div>;
 }
