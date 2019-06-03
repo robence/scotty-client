@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cc3443bb2b19efce31cab8f480a64203",
+    "revision": "2483a555adbf7db20fd99a69ba9428ad",
     "url": "/scotty-client/index.html"
   },
   {
-    "revision": "402f55a15013630b6b2d",
-    "url": "/scotty-client/static/css/main.cbecddb4.chunk.css"
+    "revision": "fb792f991af10957299a",
+    "url": "/scotty-client/static/css/main.e838ac4a.chunk.css"
   },
   {
     "revision": "72c252c37735d2180df8",
     "url": "/scotty-client/static/js/2.c2695c00.chunk.js"
   },
   {
-    "revision": "402f55a15013630b6b2d",
+    "revision": "fb792f991af10957299a",
     "url": "/scotty-client/static/js/main.84d6bb2d.chunk.js"
   },
   {
