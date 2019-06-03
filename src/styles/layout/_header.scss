@@ -1,0 +1,109 @@
+@keyframes scale-display {
+  0% {
+    opacity: 0;
+    max-height: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+.header {
+  width: 100%;
+  min-height: 3rem;
+  color: white;
+  background-color: $primary;
+  display: flex;
+
+  @media (min-width: $mobile) {
+    flex-direction: column;
+  }
+
+  @media (min-width: $tablet) {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  @media (min-width: $desktop) {
+    flex-wrap: nowrap;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @media (min-width: $mobile) and (max-width: $tablet+(-1px)) {
+    animation: scale-display 0.5s;
+    animation-delay: 0s;
+    overflow: hidden; // cuts overflowing content
+
+    &.is-hamburger {
+      display: none;
+    }
+  }
+
+  @media (min-width: $mobile) {
+    padding: $xs 0;
+    background-color: $primary-dark;
+  }
+
+  @media (min-width: $tablet) {
+    padding: 0 $xs;
+    min-height: 3rem;
+  }
+
+  @media (min-width: $desktop) {
+    background-color: $primary;
+  }
+
+  & ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+
+    @media (min-width: $mobile) {
+      flex-direction: column;
+    }
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+    }
+
+    & li {
+      user-select: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: $xs;
+      padding: $xs;
+      cursor: pointer;
+
+      align-self: center;
+      margin: 0 $xs;
+
+      @media (min-width: $mobile) {
+        &:hover {
+          background-color: darken($primary-dark, 2%);
+        }
+      }
+
+      @media (min-width: $tablet) {
+        margin: 0 $xxs;
+        &.pull-right {
+          margin-left: auto;
+        }
+      }
+
+      @media (min-width: $desktop) {
+        margin: 0 $xs;
+        &:hover {
+          background-color: $primary-dark;
+        }
+      }
+    }
+  }
+}
