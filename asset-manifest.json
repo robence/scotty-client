@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/scotty-client/static/css/main.4bbb8736.chunk.css",
+    "main.css": "/scotty-client/static/css/main.2e4ac975.chunk.css",
     "main.js": "/scotty-client/static/js/main.2b4124a8.chunk.js",
     "main.js.map": "/scotty-client/static/js/main.2b4124a8.chunk.js.map",
     "runtime~main.js": "/scotty-client/static/js/runtime~main.7897c2a9.js",
@@ -8,8 +8,8 @@
     "static/js/2.c2695c00.chunk.js": "/scotty-client/static/js/2.c2695c00.chunk.js",
     "static/js/2.c2695c00.chunk.js.map": "/scotty-client/static/js/2.c2695c00.chunk.js.map",
     "index.html": "/scotty-client/index.html",
-    "precache-manifest.23fee7e52dee804217522d75e56a5182.js": "/scotty-client/precache-manifest.23fee7e52dee804217522d75e56a5182.js",
+    "precache-manifest.c6b68f5815066ee2129c996f129cc08e.js": "/scotty-client/precache-manifest.c6b68f5815066ee2129c996f129cc08e.js",
     "service-worker.js": "/scotty-client/service-worker.js",
-    "static/css/main.4bbb8736.chunk.css.map": "/scotty-client/static/css/main.4bbb8736.chunk.css.map"
+    "static/css/main.2e4ac975.chunk.css.map": "/scotty-client/static/css/main.2e4ac975.chunk.css.map"
   }
 }
