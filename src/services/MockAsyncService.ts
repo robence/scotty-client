@@ -1,6 +1,6 @@
 export default function callAsync(): Promise<{}> {
   return new Promise(
-    (resolve): any =>
+    (resolve): NodeJS.Timeout =>
       setTimeout((): void => {
         resolve('foo');
       }, 300),
