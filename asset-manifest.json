@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/scotty-client/static/css/main.e838ac4a.chunk.css",
-    "main.js": "/scotty-client/static/js/main.84d6bb2d.chunk.js",
-    "main.js.map": "/scotty-client/static/js/main.84d6bb2d.chunk.js.map",
+    "main.css": "/scotty-client/static/css/main.1b53889b.chunk.css",
+    "main.js": "/scotty-client/static/js/main.2b4124a8.chunk.js",
+    "main.js.map": "/scotty-client/static/js/main.2b4124a8.chunk.js.map",
     "runtime~main.js": "/scotty-client/static/js/runtime~main.7897c2a9.js",
     "runtime~main.js.map": "/scotty-client/static/js/runtime~main.7897c2a9.js.map",
     "static/js/2.c2695c00.chunk.js": "/scotty-client/static/js/2.c2695c00.chunk.js",
     "static/js/2.c2695c00.chunk.js.map": "/scotty-client/static/js/2.c2695c00.chunk.js.map",
     "index.html": "/scotty-client/index.html",
-    "precache-manifest.c76404c3c51989569d04f1b0c42b6739.js": "/scotty-client/precache-manifest.c76404c3c51989569d04f1b0c42b6739.js",
+    "precache-manifest.ba0ed50b8709a5606052087e48fa5ef0.js": "/scotty-client/precache-manifest.ba0ed50b8709a5606052087e48fa5ef0.js",
     "service-worker.js": "/scotty-client/service-worker.js",
-    "static/css/main.e838ac4a.chunk.css.map": "/scotty-client/static/css/main.e838ac4a.chunk.css.map"
+    "static/css/main.1b53889b.chunk.css.map": "/scotty-client/static/css/main.1b53889b.chunk.css.map"
   }
 }
