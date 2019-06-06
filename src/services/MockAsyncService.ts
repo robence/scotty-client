@@ -1,6 +1,6 @@
 export default function callAsync(): Promise<{}> {
   return new Promise(
-    (resolve): number =>
+    (resolve): any =>
       setTimeout((): void => {
         resolve('foo');
       }, 300),
