@@ -80,13 +80,13 @@ nav {
       border-radius: $xs;
       padding: $xs;
       cursor: pointer;
-
+      transition: background-color 0.3s ease-out;
       align-self: center;
       margin: 0 $xs;
 
       @media (min-width: $mobile) {
         &:hover {
-          background-color: darken($primary-dark, 2%);
+          background-color: darken($primary-dark, 5%);
         }
       }
 
