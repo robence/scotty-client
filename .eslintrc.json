@@ -26,19 +26,18 @@
     "prettier/prettier": "error",
     "quotes": [2, "single", "avoid-escape"],
     "ignoreTemplateLiterals": true,
-    "indent": ["error", 2],
     "implicit-arrow-linebreak": "off",
-
     "semi": "off",
-    "no-undef": "off",
-
+    "indent": "off",
+    "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/interface-name-prefix": ["error", "always"]
   },
-  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".ts", ".tsx"]
       }
     },
     "react": {
