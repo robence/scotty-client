@@ -1,27 +1,55 @@
-import React, { useState } from 'react';
-import MenuItemContainer from '../components/menu/MenuItemContainer';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { colors, spaces } from '../styles';
 import Logo from '../components/Logo';
-import Hamburger from '../components/Hamburger';
-import { ISetHamburger, IUseHamburger } from '../types';
 
-function useHamburger(): IUseHamburger {
-  const [state, setState] = useState(true);
+const Header = styled.header`
+  min-height: 3rem;
+  color: white;
+  background-color: ${colors.primary};
+  width: 100%;
+`;
 
-  const setHamburger: ISetHamburger = (): void => {
-    setState(!state);
-  };
+const Nav = styled.nav``;
 
-  return [state, setHamburger];
-}
+const Ul = styled.ul`
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+`;
 
-export default function Header(): JSX.Element {
-  const [hamburger, setHamburger] = useHamburger();
+const Li = styled.li`
+  user-select: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: ${spaces.xs};
+  padding: ${spaces.xs};
+  cursor: pointer;
+  align-self: center;
+  margin: 0 ${spaces.xs};
+`;
 
+export default function HeaderComponent(): JSX.Element {
   return (
-    <div className="header">
-      <Logo />
-      <Hamburger setHamburger={setHamburger as ISetHamburger} />
-      <MenuItemContainer className={hamburger ? 'is-hamburger' : ''} />
-    </div>
+    <Header>
+      <Nav>
+        <Ul>
+          <Logo />
+          <Li>
+            <NavLink to="/">Dashboard</NavLink>
+          </Li>
+          <Li>
+            <NavLink to="/expense">New Expense</NavLink>
+          </Li>
+          <Li>
+            <NavLink to="/tag">New Tag</NavLink>
+          </Li>
+          <Li>
+            <NavLink to="/account">Account</NavLink>
+          </Li>
+        </Ul>
+      </Nav>
+    </Header>
   );
 }

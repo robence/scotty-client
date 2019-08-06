@@ -1,6 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 
-export default function Dashboard(): JSX.Element {
-  const cardList: JSX.Element[] = [];
-  return <div className="dashboard">{cardList}</div>;
+const Dashboard = styled.div``;
+
+export default function DashboardComponent(): JSX.Element {
+  return <Dashboard>Dashboard</Dashboard>;
 }

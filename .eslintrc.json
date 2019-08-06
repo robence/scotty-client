@@ -26,7 +26,6 @@
     "prettier/prettier": "error",
     "quotes": [2, "single", "avoid-escape"],
     "ignoreTemplateLiterals": true,
-    "implicit-arrow-linebreak": "off",
     "semi": "off",
     "indent": "off",
     "@typescript-eslint/semi": ["error"],
