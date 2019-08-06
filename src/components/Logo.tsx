@@ -8,7 +8,7 @@ const Logo = styled.h1`
   user-select: none;
   cursor: pointer;
   width: min-content;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 `;
 export default function LogoComponent(): JSX.Element {
   return <Logo>Scooty Wallet</Logo>;

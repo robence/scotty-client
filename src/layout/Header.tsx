@@ -28,10 +28,8 @@ const Li = styled.li`
   cursor: pointer;
   align-self: center;
   margin: 0 ${spaces.xs};
-  border: 2px solid ${colors.primary};
 
   :hover {
-    border: 2px solid white;
     background-color: ${colors.primaryDark};
   }
   & > a {
