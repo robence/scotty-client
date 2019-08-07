@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Dashboard from '../components/dashboard/Dashboard';
 import Expense from '../components/expense/Expense';
-import Tag from '../components/tag/Tag';
+import Tag from '../components/tag/Container';
 import Account from '../components/account/Account';
 import { spaces } from '../styles';
 

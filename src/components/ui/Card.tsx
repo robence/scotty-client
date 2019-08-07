@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { spaces } from '../../styles';
 
 const Card = styled.div`
-  width: auto;
-  height: auto;
+  /* min-width: 200px;
+  min-height: 300px; */
+  width: fit-content;
+  height: fit-content;
   margin: ${spaces.l};
   background-color: white;
   padding: ${spaces.m};
@@ -12,14 +14,9 @@ const Card = styled.div`
   transition: 0.3s;
   border-radius: ${spaces.xs};
 
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  :hover {
-    transform: scale(1.15);
-  }
 `;
 
 export default function CardComponent({
