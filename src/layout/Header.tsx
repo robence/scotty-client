@@ -5,18 +5,21 @@ import { colors, spaces } from '../styles';
 import Logo from '../components/Logo';
 
 const Header = styled.header`
-  min-height: 3rem;
+  height: 3rem;
   color: white;
   background-color: ${colors.primary};
   width: 100%;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  height: inherit;
+`;
 
 const Ul = styled.ul`
   display: flex;
   align-items: center;
   list-style-type: none;
+  height: 100%;
 `;
 
 const Li = styled.li`

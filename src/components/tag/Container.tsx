@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
-import { SelectValue } from 'antd/lib/select';
 import Presenter from './Presenter';
 
 const dataSource = ['Gyros', 'Cinema', 'Shampoo'];
@@ -27,7 +26,7 @@ export default function TagComponent() {
   const handleSubmit = () => {
     setLoading(true);
   };
-  const handleChange = (e: SelectValue) => setTag(e ? e.toString() : '');
+  const handleChange = (e: any) => setTag(e ? e.toString() : '');
 
   return (
     <Presenter

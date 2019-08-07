@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
-import { SelectValue } from 'antd/lib/select';
 import Card from '../ui/Card';
 import Label from './Label';
 
@@ -16,7 +15,7 @@ type PresenterProps = {
   tagExists: boolean;
   disabled: boolean;
   dataSource: string[];
-  handleChange: (e: SelectValue) => void;
+  handleChange: (e: any) => void;
   handleSubmit: () => void;
 };
 export default function Presenter({
