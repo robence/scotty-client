@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c2b224ac713ec3cc4f936bbcfcce40c5",
+    "revision": "727986e43b5c5f34dd4a8fd82226260e",
     "url": "/scotty-client/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scotty-client/static/css/2.1d6907fe.chunk.css"
   },
   {
-    "revision": "5e9307a36677912aa0ea",
+    "revision": "53d5e241e19de90dbefa",
     "url": "/scotty-client/static/css/main.b5137575.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scotty-client/static/js/2.bf2715c7.chunk.js"
   },
   {
-    "revision": "5e9307a36677912aa0ea",
-    "url": "/scotty-client/static/js/main.3ba0a719.chunk.js"
+    "revision": "53d5e241e19de90dbefa",
+    "url": "/scotty-client/static/js/main.5b0e574f.chunk.js"
   },
   {
     "revision": "af63a47b7f95faa53da7",
