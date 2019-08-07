@@ -30,7 +30,7 @@ export default function Presenter({
   return (
     <Card>
       <Tag>
-        <h2>Create a new tag:</h2>
+        <h1>Create a new tag:</h1>
         {tagExists && (
           <Label
             title="This tag already exists. Please enter a new one."

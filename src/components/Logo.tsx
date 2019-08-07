@@ -10,6 +10,7 @@ const Logo = styled.span`
   width: min-content;
   font-size: 1.2rem;
   color: white;
+  font-weight: bolder;
 `;
 export default function LogoComponent(): JSX.Element {
   return <Logo>Scooty Wallet</Logo>;
