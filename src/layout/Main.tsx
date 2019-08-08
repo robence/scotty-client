@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Dashboard from '../components/dashboard/Dashboard';
 import Expense from '../components/expense/Expense';
 import Tag from '../components/tag/Container';
-import Account from '../components/account/Account';
+import Account from '../components/account/Container';
 import { spaces } from '../styles';
 
 const Main = styled.main`

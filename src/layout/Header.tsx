@@ -6,61 +6,35 @@ import Logo from '../components/Logo';
 
 const Header = styled.header`
   height: 3rem;
-  color: white;
   background-color: ${colors.primary};
-  width: 100%;
-`;
 
-const Nav = styled.nav`
-  height: inherit;
-`;
-
-const Ul = styled.ul`
   display: flex;
   align-items: center;
-  list-style-type: none;
-  height: 100%;
 `;
 
-const Li = styled.li`
-  user-select: none;
+const StyledNavLink = styled(NavLink)`
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.80);
+  text-decoration: none;
   border-radius: ${spaces.xs};
-  padding: ${spaces.xs};
-  cursor: pointer;
-  align-self: center;
   margin: 0 ${spaces.xs};
+  padding: ${spaces.xs};
 
   :hover {
-    background-color: ${colors.primaryDark};
-  }
-  & > a {
-    color: white;
-    text-decoration: none;
+    /* background-color: ${colors.primaryDark}; */
+    color: #fff;
   }
 `;
 
-export default function HeaderComponent(): JSX.Element {
+export default function HeaderComponent() {
   return (
     <Header>
-      <Nav>
-        <Ul>
-          <Logo />
-          <Li>
-            <NavLink to="/">Dashboard</NavLink>
-          </Li>
-          <Li>
-            <NavLink to="/expense">New Expense</NavLink>
-          </Li>
-          <Li>
-            <NavLink to="/tag">New Tag</NavLink>
-          </Li>
-          <Li>
-            <NavLink to="/account">Account</NavLink>
-          </Li>
-        </Ul>
-      </Nav>
+      <Logo />
+      <StyledNavLink to="/">Dashboard</StyledNavLink>
+      <StyledNavLink to="/expense">New Expense</StyledNavLink>
+      <StyledNavLink to="/tag">New Tag</StyledNavLink>
+      <StyledNavLink to="/account">Account</StyledNavLink>
     </Header>
   );
 }

@@ -2,46 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
-import Label from './Label';
+import Label from '../tag/Label';
 
-const Tag = styled.div`
+const Account = styled.div`
   width: 350px;
 `;
 
 type PresenterProps = {
-  tag: string;
+  account: string;
   loading: boolean;
-  tagExists: boolean;
-  disabled: boolean;
+  accountExists: boolean;
   dataSource: string[];
+  handleCreate: () => void;
   handleChange: (e: any) => void;
-  handleSubmit: () => void;
+  handleSelect: (e: any) => void;
 };
 export default function Presenter({
-  tag,
+  account,
   loading,
-  tagExists,
-  disabled,
+  accountExists,
   dataSource,
   handleChange,
-  handleSubmit,
+  handleCreate,
 }: PresenterProps) {
   return (
     <Card>
-      <Tag>
-        <h1>Create a new tag:</h1>
-        {tagExists && (
-          <Label
-            title="This tag already exists. Please enter a new one."
-            color="red"
-          />
-        )}
+      <Account>
+        <h1>Select account</h1>
         <AutoComplete
           style={{ width: 200, marginRight: '1rem' }}
           dataSource={dataSource}
-          placeholder="Enter a new tag"
+          placeholder="Type to create a new account:"
           allowClear={true}
-          value={tag}
+          value={account}
           onChange={handleChange}
           filterOption={(inputValue: string, option: any): boolean =>
             option.props.children
@@ -49,15 +42,17 @@ export default function Presenter({
               .indexOf(inputValue.toUpperCase()) !== -1
           }
         />
-        <Button
-          type="primary"
-          disabled={disabled}
-          loading={loading}
-          onClick={handleSubmit}
-        >
-          Create
-        </Button>             
-      </Tag>
+
+        {!accountExists ? (
+          <Button type="primary" loading={loading} onClick={handleCreate}>
+            Create
+          </Button>
+        ) : (
+          <Button type="primary" onClick={() => {}}>
+            Select
+          </Button>
+        )}
+      </Account>
     </Card>
   );
 }
