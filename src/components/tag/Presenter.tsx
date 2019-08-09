@@ -15,7 +15,7 @@ type PresenterProps = {
   disabled: boolean;
   dataSource: string[];
   handleChange: (e: any) => void;
-  handleSubmit: () => void;
+  handleSubmit: (e: any) => void;
 };
 export default function Presenter({
   tag,

@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
 import Presenter from './Presenter';
+import AsyncService from '../../services/MockAsyncService';
 
-const dataSource = ['Gyros', 'Cinema', 'Shampoo'];
+const defaultDataSource = ['Gyros', 'Cinema', 'Shampoo'];
 
 export default function TagComponent() {
   const [tag, setTag] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [dataSource, setDataSource] = useState(defaultDataSource);
+  const [isLoading, setLoading] = useState(false);
 
   const tagExists = dataSource.includes(tag);
   const disabled = tagExists || tag === '';
 
   useEffect(() => {
-    if (loading) {
-      const timer = setTimeout(() => {
-        message.success('New tag was created successfully.');
+    if (isLoading) {
+      const createTag = async () => {
+        await AsyncService(tag);
         setLoading(false);
+        setDataSource([ ...dataSource, tag ]);
         setTag('');
-      }, 1234);
+        message.success(`Tag ${tag} was successfully created.`);
+      };
 
-      return () => clearTimeout(timer);
+      createTag();
     }
     return () => undefined;
-  }, [loading]);
+  }, [isLoading, dataSource, tag]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: any) => {
     setLoading(true);
   };
   const handleChange = (e: any) => setTag(e ? e.toString() : '');
@@ -32,7 +36,7 @@ export default function TagComponent() {
   return (
     <Presenter
       tag={tag}
-      loading={loading}
+      loading={isLoading}
       tagExists={tagExists}
       disabled={disabled}
       dataSource={dataSource}

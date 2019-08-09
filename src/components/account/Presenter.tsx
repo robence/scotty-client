@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
-import Label from '../tag/Label';
 
 const Account = styled.div`
   width: 350px;
