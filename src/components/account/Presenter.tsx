@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
-
+import WithTitle from '../enhancher/WithTitle'
 const Account = styled.div`
   width: 350px;
 `;
@@ -27,30 +27,32 @@ export default function Presenter({
   return (
     <Card>
       <Account>
-        <h1>Select account</h1>
-        <AutoComplete
-          style={{ width: 200, marginRight: '1rem' }}
-          dataSource={dataSource}
-          placeholder="Type to create a new account:"
-          allowClear={true}
-          value={account}
-          onChange={handleChange}
-          filterOption={(inputValue: string, option: any): boolean =>
-            option.props.children
-              .toUpperCase()
-              .indexOf(inputValue.toUpperCase()) !== -1
-          }
-        />
+        <WithTitle title={"Select account"}>
+          <AutoComplete
+            style={{ width: 200, marginRight: '1rem' }}
+            dataSource={dataSource}
+            placeholder="Type to create a new account:"
+            allowClear={true}
+            value={account}
+            onChange={handleChange}
+            filterOption={(inputValue: string, option: any): boolean =>
+              option.props.children
+                .toUpperCase()
+                .indexOf(inputValue.toUpperCase()) !== -1
+            }
+          />
 
-        {!accountExists ? (
-          <Button type="primary" loading={loading} onClick={handleCreate}>
-            Create
+          {!accountExists ? (
+            <Button type="primary" loading={loading} onClick={handleCreate}>
+              Create
           </Button>
-        ) : (
-          <Button type="primary" onClick={() => {}}>
-            Select
+          ) : (
+              <Button type="primary" onClick={() => { }}>
+                Select
           </Button>
-        )}
+            )}
+        </WithTitle>
+        
       </Account>
     </Card>
   );

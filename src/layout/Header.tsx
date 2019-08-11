@@ -6,10 +6,14 @@ import Logo from '../components/Logo';
 
 const Header = styled.header`
   height: 3rem;
+  width: 100%;
   background-color: ${colors.primary};
 
   display: flex;
   align-items: center;
+
+  position: fixed;
+  z-index: 2;
 `;
 
 const StyledNavLink = styled(NavLink)`
