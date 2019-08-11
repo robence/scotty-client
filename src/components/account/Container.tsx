@@ -14,6 +14,8 @@ export default function AccountComponent() {
     if (loading) {
       const timer = setTimeout(() => {
         message.success('New account was created successfully.');
+
+        // TODO: info ${account} was selected as default
         setLoading(false);
         setAccount('');
       }, 1234);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Dashboard from '../components/dashboard/Dashboard';
+import Dashboard from '../components/dashboard/Container';
 import Expense from '../components/expense/';
 import Tag from '../components/tag/Container';
 import Account from '../components/account/Container';
@@ -11,8 +11,6 @@ const Main = styled.main`
   display: flex;
   padding: 3rem ${spaces.s} ${spaces.s};
   min-height: 90vh;
-
-
 `;
 
 export default function MainComponent(): JSX.Element {

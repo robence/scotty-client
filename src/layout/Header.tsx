@@ -26,7 +26,6 @@ const StyledNavLink = styled(NavLink)`
   padding: ${spaces.xs};
 
   :hover {
-    /* background-color: ${colors.primaryDark}; */
     color: #fff;
   }
 `;

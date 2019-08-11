@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
 import Label from './Label';
-import WithTitle from '../enhancher/WithTitle';
+import WithTitle from '../enhancer/WithTitle';
 
 const Tag = styled.div`
   width: 350px;

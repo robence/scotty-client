@@ -5,7 +5,7 @@ import TagContainer from './tag/Container';
 import CategoryContainer from './category/Container';
 import AmountContainer from './amount/Container';
 import AccountContainer from './account/Container';
-import WithTitle from '../enhancher/WithTitle';
+import WithTitle from '../enhancer/WithTitle';
 import {Button} from 'antd';
 const Account = styled.div`
   width: 350px;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
-import WithTitle from '../enhancher/WithTitle'
+import WithTitle from '../enhancer/WithTitle'
 const Account = styled.div`
   width: 350px;
 `;
@@ -27,7 +27,7 @@ export default function Presenter({
   return (
     <Card>
       <Account>
-        <WithTitle title={"Select account"}>
+        <WithTitle title={"Switch between accounts"}>
           <AutoComplete
             style={{ width: 200, marginRight: '1rem' }}
             dataSource={dataSource}
