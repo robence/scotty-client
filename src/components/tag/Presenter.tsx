@@ -41,7 +41,7 @@ export default function Presenter({
         <AutoComplete
           style={{ width: 200, marginRight: '1rem' }}
           dataSource={dataSource}
-          placeholder="Enter a new tag"
+          placeholder="Type to create a new tag"
           allowClear={true}
           value={tag}
           onChange={handleChange}

@@ -10,8 +10,5 @@ export default function Container() {
     setRadio(e.target.value);
   }
 
-  return (
-    <Presenter radio={radio as ExpenseRadio} handleRadio={handleRadio} />
-
-  )
+  return <Presenter radio={radio as ExpenseRadio} handleRadio={handleRadio} />
 }

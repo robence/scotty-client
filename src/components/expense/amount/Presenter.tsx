@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import {Radio, Input} from 'antd';
 type ExpenseRadio = '-' | '+';
 
-const Div = styled.div`
-  
-`;
+const Div = styled.div``;
 
 const StyledInput = styled(Input)`
   margin-top: 1rem;

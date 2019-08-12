@@ -27,19 +27,19 @@ export default function Presenter() {
       <Account>
         <WithHeading title={'Add new transaction'} />
 
-        <WithTitle title={'Enter amount'}>
+        <WithTitle title={'Amount'}>
           <AmountContainer/>
         </WithTitle>
 
-        <WithTitle title={'Select category'}>
+        <WithTitle title={'Category'}>
           <CategoryContainer />
         </WithTitle>
 
-        <WithTitle title={'Select tags'}>
+        <WithTitle title={'Tags'}>
           <TagContainer />
         </WithTitle>
 
-        <WithTitle title={'Select account'}>
+        <WithTitle title={'Account'}>
           <AccountContainer />
         </WithTitle>
 
