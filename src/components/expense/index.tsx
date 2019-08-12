@@ -6,11 +6,18 @@ import CategoryContainer from './category/Container';
 import AmountContainer from './amount/Container';
 import AccountContainer from './account/Container';
 import WithTitle from '../enhancer/WithTitle';
+import WithHeading from '../enhancer/WithHeading';
 import {Button} from 'antd';
 const Account = styled.div`
   width: 350px;
+  display: flex;
+  flex-direction: column;
 `;
 
+const StyledButton = styled(Button)`
+  width: fit-content;
+  align-self: flex-end;
+`;
 
 export default function Presenter() {
 
@@ -18,9 +25,7 @@ export default function Presenter() {
   return (
     <Card>
       <Account>
-        <WithTitle title={'Add new transaction'}>
-        <hr/>
-        </WithTitle>
+        <WithHeading title={'Add new transaction'} />
 
         <WithTitle title={'Enter amount'}>
           <AmountContainer/>
@@ -38,7 +43,7 @@ export default function Presenter() {
           <AccountContainer />
         </WithTitle>
 
-        <Button type="primary">Submit</Button>
+        <StyledButton type="primary">Submit</StyledButton>
       </Account>
     </Card>
   );

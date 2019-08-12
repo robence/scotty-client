@@ -2,20 +2,20 @@ import React from 'react'
 import styled from 'styled-components';
 import { spaces } from '../../styles/index';
 
-type WithTitleType = {
+type WithHeadingType = {
   title: string;
-  children?: any;
 }
 
 const WithTitle = styled.div`
-  margin-bottom: ${spaces.s};
+  margin-bottom: ${spaces.m};
 `;
 
-export default function WithTitleComponent({ title, children }: WithTitleType) {
+export default function WithTitleComponent({ title }: WithHeadingType
+) {
   return (
     <WithTitle>
-      <h2>{title}</h2>
-      {children}
+      <h1>{title}</h1>
+      <hr/>
     </WithTitle>
   )
 }

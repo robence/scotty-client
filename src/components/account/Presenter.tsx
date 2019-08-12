@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
-import WithTitle from '../enhancer/WithTitle'
+import WithHeading from '../enhancer/WithHeading'
 const Account = styled.div`
   width: 350px;
 `;
@@ -27,32 +27,30 @@ export default function Presenter({
   return (
     <Card>
       <Account>
-        <WithTitle title={"Switch between accounts"}>
-          <AutoComplete
-            style={{ width: 200, marginRight: '1rem' }}
-            dataSource={dataSource}
-            placeholder="Type to create a new account:"
-            allowClear={true}
-            value={account}
-            onChange={handleChange}
-            filterOption={(inputValue: string, option: any): boolean =>
-              option.props.children
-                .toUpperCase()
-                .indexOf(inputValue.toUpperCase()) !== -1
-            }
-          />
+        <WithHeading title={"Switch between accounts"} />
+        <AutoComplete
+          style={{ width: 200, marginRight: '1rem' }}
+          dataSource={dataSource}
+          placeholder="Type to create a new account:"
+          allowClear={true}
+          value={account}
+          onChange={handleChange}
+          filterOption={(inputValue: string, option: any): boolean =>
+            option.props.children
+              .toUpperCase()
+              .indexOf(inputValue.toUpperCase()) !== -1
+          }
+        />
 
-          {!accountExists ? (
-            <Button type="primary" loading={loading} onClick={handleCreate}>
-              Create
-          </Button>
-          ) : (
-              <Button type="primary" onClick={() => { }}>
-                Select
-          </Button>
-            )}
-        </WithTitle>
-        
+        {!accountExists ? (
+          <Button type="primary" loading={loading} onClick={handleCreate}>
+            Create
+        </Button>
+        ) : (
+            <Button type="primary" onClick={() => { }}>
+              Select
+        </Button>
+          )}
       </Account>
     </Card>
   );

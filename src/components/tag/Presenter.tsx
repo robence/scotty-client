@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
 import Label from './Label';
-import WithTitle from '../enhancer/WithTitle';
+import WithHeading from '../enhancer/WithHeading';
 
 const Tag = styled.div`
   width: 350px;
@@ -31,35 +31,34 @@ export default function Presenter({
     
     <Card>
       <Tag>
-        <WithTitle title={"Create a new tag"}>
-          {tagExists && (
-            <Label
-              title="This tag already exists. Please enter a new one."
-              color="red"
-            />
-          )}
-          <AutoComplete
-            style={{ width: 200, marginRight: '1rem' }}
-            dataSource={dataSource}
-            placeholder="Enter a new tag"
-            allowClear={true}
-            value={tag}
-            onChange={handleChange}
-            filterOption={(inputValue: string, option: any): boolean =>
-              option.props.children
-                .toUpperCase()
-                .indexOf(inputValue.toUpperCase()) !== -1
-            }
+        <WithHeading title={"Create a new tag"} />
+        {tagExists && (
+          <Label
+            title="This tag already exists. Please enter a new one."
+            color="red"
           />
-          <Button
-            type="primary"
-            disabled={disabled}
-            loading={loading}
-            onClick={handleSubmit}
-          >
-            Create
-          </Button>
-          </WithTitle>
+        )}
+        <AutoComplete
+          style={{ width: 200, marginRight: '1rem' }}
+          dataSource={dataSource}
+          placeholder="Enter a new tag"
+          allowClear={true}
+          value={tag}
+          onChange={handleChange}
+          filterOption={(inputValue: string, option: any): boolean =>
+            option.props.children
+              .toUpperCase()
+              .indexOf(inputValue.toUpperCase()) !== -1
+          }
+        />
+        <Button
+          type="primary"
+          disabled={disabled}
+          loading={loading}
+          onClick={handleSubmit}
+        >
+          Create
+        </Button>
       </Tag>
     </Card>
   );
