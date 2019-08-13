@@ -7,28 +7,27 @@ import AmountContainer from './amount/Container';
 import AccountContainer from './account/Container';
 import WithTitle from '../enhancer/WithTitle';
 import WithHeading from '../enhancer/WithHeading';
-import {Button} from 'antd';
+import { Button } from 'antd';
+import { spaces, defaultCardWith } from '../../consts';
 const Account = styled.div`
-  width: 350px;
+  width: defaultCardWith;
   display: flex;
   flex-direction: column;
 `;
 
 const StyledButton = styled(Button)`
   width: fit-content;
-  align-self: flex-end;
+  margin-top: ${spaces.s};
 `;
 
 export default function Presenter() {
-
-
   return (
     <Card>
       <Account>
         <WithHeading title={'Add new transaction'} />
 
         <WithTitle title={'Amount'}>
-          <AmountContainer/>
+          <AmountContainer />
         </WithTitle>
 
         <WithTitle title={'Category'}>

@@ -5,11 +5,11 @@ import Dashboard from '../components/dashboard/Container';
 import Expense from '../components/expense/';
 import Tag from '../components/tag/Container';
 import Account from '../components/account/Container';
-import { spaces } from '../styles';
+import { spaces, headerSize } from '../consts';
 
 const Main = styled.main`
   display: flex;
-  padding: 3rem ${spaces.s} ${spaces.s};
+  padding: ${headerSize} ${spaces.m} ${spaces.m} ${spaces.m};
   min-height: 90vh;
 `;
 

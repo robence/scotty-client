@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors, spaces } from '../styles';
-import Logo from '../components/Logo';
+import { colors, spaces, headerSize } from '../consts';
+import Logo from '../components/ui/Logo';
 
 const Header = styled.header`
-  height: 3rem;
+  height: ${headerSize};
   width: 100%;
   background-color: ${colors.primary};
 
@@ -17,14 +17,14 @@ const Header = styled.header`
 `;
 
 const StyledNavLink = styled(NavLink)`
+  flex-shrink: 0;
   font-weight: 700;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.80);
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   border-radius: ${spaces.xs};
-  margin: 0 ${spaces.xs};
+  margin: 0 ${spaces.s};
   padding: ${spaces.xs};
-
   :hover {
     color: #fff;
   }

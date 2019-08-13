@@ -18,7 +18,7 @@ export default function TagComponent() {
       const createTag = async () => {
         await AsyncService(tag);
         setLoading(false);
-        setDataSource([ ...dataSource, tag ]);
+        setDataSource([...dataSource, tag]);
         setTag('');
         message.success(`Tag ${tag} was successfully created.`);
       };

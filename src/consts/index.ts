@@ -12,3 +12,6 @@ export const spaces = {
   l: '1.6rem',
   xl: '3.2rem',
 };
+
+export const headerSize = '4.8rem';
+export const defaultCardWith = '350px';

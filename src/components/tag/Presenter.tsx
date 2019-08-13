@@ -4,9 +4,10 @@ import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
 import Label from './Label';
 import WithHeading from '../enhancer/WithHeading';
+import { defaultCardWith } from '../../consts';
 
 const Tag = styled.div`
-  width: 350px;
+  width: ${defaultCardWith};
 `;
 
 type PresenterProps = {
@@ -28,10 +29,9 @@ export default function Presenter({
   handleSubmit,
 }: PresenterProps) {
   return (
-    
     <Card>
       <Tag>
-        <WithHeading title={"Create a new tag"} />
+        <WithHeading title={'Create a new tag'} />
         {tagExists && (
           <Label
             title="This tag already exists. Please enter a new one."

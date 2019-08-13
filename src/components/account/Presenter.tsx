@@ -2,55 +2,65 @@ import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
 import Card from '../ui/Card';
-import WithHeading from '../enhancer/WithHeading'
+import WithHeading from '../enhancer/WithHeading';
+import { defaultCardWith } from '../../consts';
+
 const Account = styled.div`
-  width: 350px;
+  width: ${defaultCardWith};
 `;
 
 type PresenterProps = {
-  account: string;
+  input: string;
   loading: boolean;
   accountExists: boolean;
   dataSource: string[];
-  handleCreate: () => void;
+  disabled: boolean;
+  handleCreate: (e: any) => void;
   handleChange: (e: any) => void;
   handleSelect: (e: any) => void;
 };
 export default function Presenter({
-  account,
+  input,
   loading,
   accountExists,
   dataSource,
+  disabled,
   handleChange,
   handleCreate,
+  handleSelect,
 }: PresenterProps) {
   return (
     <Card>
       <Account>
-        <WithHeading title={"Switch between accounts"} />
+        <WithHeading title={'Switch between accounts'} />
         <AutoComplete
           style={{ width: 200, marginRight: '1rem' }}
           dataSource={dataSource}
           placeholder="Type to create a new account:"
           allowClear={true}
-          value={account}
+          value={input}
           onChange={handleChange}
-          filterOption={(inputValue: string, option: any): boolean =>
-            option.props.children
-              .toUpperCase()
-              .indexOf(inputValue.toUpperCase()) !== -1
-          }
         />
 
         {!accountExists ? (
-          <Button type="primary" loading={loading} onClick={handleCreate}>
+          <Button
+            type="primary"
+            loading={loading}
+            onClick={handleCreate}
+            disabled={disabled}
+          >
             Create
-        </Button>
+          </Button>
         ) : (
-            <Button type="primary" onClick={() => { }}>
-              Select
-        </Button>
-          )}
+          <Button
+            type="primary"
+            loading={loading}
+            onClick={handleSelect}
+            disabled={disabled}
+          >
+            Select
+          </Button>
+        )}
       </Account>
     </Card>
   );

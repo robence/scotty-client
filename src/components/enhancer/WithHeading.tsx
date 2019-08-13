@@ -1,21 +1,20 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import { spaces } from '../../styles/index';
+import { spaces } from '../../consts/index';
 
 type WithHeadingType = {
   title: string;
-}
+};
 
 const WithTitle = styled.div`
   margin-bottom: ${spaces.m};
 `;
 
-export default function WithTitleComponent({ title }: WithHeadingType
-) {
+export default function WithTitleComponent({ title }: WithHeadingType) {
   return (
     <WithTitle>
-      <h1>{title}</h1>
-      <hr/>
+      <h2>{title}</h2>
+      <hr />
     </WithTitle>
-  )
+  );
 }

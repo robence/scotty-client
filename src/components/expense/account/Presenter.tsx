@@ -12,16 +12,16 @@ export default function Presenter({
   handleCategory,
 }: PresenterProps) {
   return (
-      <Select
-        value={selectedCategory}
-        onChange={handleCategory}
-        style={{ width: '100%' }}
-      >
-        {categoryList.map(item => (
-          <Select.Option key={item} value={item}>
-            {item}
-          </Select.Option>
-        ))}
-      </Select>
+    <Select
+      value={selectedCategory}
+      onChange={handleCategory}
+      style={{ width: '100%' }}
+    >
+      {categoryList.map(item => (
+        <Select.Option key={item} value={item}>
+          {item}
+        </Select.Option>
+      ))}
+    </Select>
   );
 }

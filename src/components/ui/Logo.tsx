@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Logo = styled.span`
-  margin-left: 5vw;
-  margin-right: calc(15vw - 6rem);
+const Logo = styled.h2`
+  margin: 0 calc(12vw - 5rem) 0 5vw;
   white-space: nowrap;
   user-select: none;
   cursor: pointer;
   width: min-content;
-  font-size: 1.2rem;
+  /* font-size: 2.4rem; */
   color: white;
   font-weight: bolder;
 `;

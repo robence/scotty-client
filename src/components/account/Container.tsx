@@ -1,44 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import { message } from 'antd';
 import Presenter from './Presenter';
 
-const dataSource = ['Account 1', 'Savings', 'House'];
+const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
+const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
+
+// type State = {
+//   account: string;
+//   accountList: string[];
+// };
+
+type Action =
+  | { type: 'SELECT_ACCOUNT'; payload: string }
+  | { type: 'CREATE_ACCOUNT'; payload: string };
+
+const initialState = {
+  account: '',
+  accountList: ['Account 1', 'Savings', 'House'],
+};
+
+function reducer(state: any, action: Action) {
+  switch (action.type) {
+    case SELECT_ACCOUNT:
+      return { ...state, account: action.payload };
+    case CREATE_ACCOUNT:
+      return { ...state, account: action.payload, accountList: [...state.accountList, action.payload] };
+    default:
+      return state;
+  }
+}
 
 export default function AccountComponent() {
-  const [account, setAccount] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [{account, accountList}, dispatch] = useReducer(reducer, initialState);
+  const [input, setInput] = useState('');
+  const [loading] = useState(false);
 
-  const accountExists = dataSource.includes(account);
+  const accountExists = accountList.includes(input);
+  const selectDisabled = input === account;
 
   useEffect(() => {
-    if (loading) {
-      const timer = setTimeout(() => {
-        message.success('New account was created successfully.');
-
-        // TODO: info ${account} was selected as default
-        setLoading(false);
-        setAccount('');
-      }, 1234);
-
-      return () => clearTimeout(timer);
+    if (account) {
+      message.success(
+        `${account} is now the default account.`,
+        1,
+      );
     }
-    return () => undefined;
-  }, [loading]);
-
-  const handleCreate = () => {
-    setLoading(true);
-  };
-  const handleChange = (e: any) => setAccount(e ? e.toString() : '');
+  }, [account]);
 
   return (
     <Presenter
-      account={account}
+      input={input}
       loading={loading}
       accountExists={accountExists}
-      dataSource={dataSource}
-      handleCreate={handleCreate}
-      handleChange={handleChange}
-      handleSelect={(e: any) => setAccount(e ? e.toString() : '')}
+      dataSource={accountList}
+      handleChange={e => setInput(e)}
+      handleCreate={() => dispatch({ type: CREATE_ACCOUNT, payload: input })}
+      handleSelect={() => dispatch({ type: SELECT_ACCOUNT, payload: input })}
+      disabled={selectDisabled}
     />
   );
 }
