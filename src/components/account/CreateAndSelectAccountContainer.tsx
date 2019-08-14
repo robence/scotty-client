@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useEffect } from 'react';
 import { message } from 'antd';
-import Presenter from './Presenter';
+import Presenter from './CreateAndSelectAccountComponent';
 
 const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
