@@ -8,9 +8,8 @@ import AccountContainer from './account/Container';
 import WithTitle from '../enhancer/WithTitle';
 import WithHeading from '../enhancer/WithHeading';
 import { Button } from 'antd';
-import { spaces, defaultCardWith } from '../../consts';
+import { spaces } from '../../consts';
 const Account = styled.div`
-  width: defaultCardWith;
   display: flex;
   flex-direction: column;
 `;

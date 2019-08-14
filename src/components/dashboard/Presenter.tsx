@@ -1,25 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../ui/Card';
-import WithHeading from '../enhancer/WithHeading';
+import ExpensePresenter from './expense/Container';
+import CategoryPresenter from './category/Container';
+import TagPresenter from './tag/Container';
+import { DashboardType } from '../../types/model';
 
 const Presenter = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
 `;
-export default function PresenterComponent() {
+export default function PresenterComponent({
+  tags,
+  expenses,
+  categories,
+}: DashboardType) {
   return (
     <Presenter>
-      <Card>
-        <WithHeading title={'All Expenses'} />
-      </Card>
-      <Card>
-        <WithHeading title={'Expenses by category'} />
-      </Card>
-      <Card>
-        <WithHeading title={'Expenses by tags'} />
-      </Card>
+      <ExpensePresenter
+        categories={categories}
+        tags={tags}
+        expenses={expenses}
+      />
+      <CategoryPresenter
+        categories={categories}
+        tags={tags}
+        expenses={expenses}
+      />
+      <TagPresenter categories={categories} tags={tags} expenses={expenses} />
     </Presenter>
   );
 }

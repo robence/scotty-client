@@ -1,7 +1,11 @@
 import React from 'react';
 import Presenter from './Presenter';
-import { DashboardType } from '../../../types/model';
 
+type DashboardType = {
+  tags: any;
+  expenses: any;
+  categories: any;
+};
 
 export default function Container({
   tags,
