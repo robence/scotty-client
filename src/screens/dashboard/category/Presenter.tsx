@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../ui/Card';
-import WithHeading from '../../enhancer/WithHeading';
+import Card from '../../../components/ui/Card';
+import WithHeading from '../../../components/enhancer/WithHeading';
 import { Table } from 'antd';
 import { DashboardType } from '../../../types/model';
 
@@ -44,10 +44,9 @@ export default function PresenterComponent({
 
   return (
     <Card>
-      <div>
-        <WithHeading title={'Expenses by category'} />
+      <WithHeading title={'Expenses by category'}>
         <Table size="small" columns={columns} dataSource={zyx} />
-      </div>
+      </WithHeading>
     </Card>
   );
 }

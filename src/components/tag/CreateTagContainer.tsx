@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
-import Presenter from './Presenter';
+import Presenter from './CreateTagComponent';
 import AsyncService from '../../services/MockAsyncService';
 
 const defaultDataSource = ['Gyros', 'Cinema', 'Shampoo'];
 
-export default function TagComponent() {
+export default function CreateTagContainer() {
   const [tag, setTag] = useState('');
   const [dataSource, setDataSource] = useState(defaultDataSource);
   const [isLoading, setLoading] = useState(false);
