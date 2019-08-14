@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../ui/Card';
-import WithHeading from '../../enhancer/WithHeading';
+import Card from '../../../components/ui/Card';
+import WithHeading from '../../../components/enhancer/WithHeading';
 
 type DashboardType = {
   tags: any;
@@ -15,7 +15,9 @@ export default function PresenterComponent({
 }: DashboardType) {
   return (
     <Card>
-      <WithHeading title={'All Expenses'} />
+      <WithHeading title={'All Expenses'}>
+        <div />
+      </WithHeading>
     </Card>
   );
 }

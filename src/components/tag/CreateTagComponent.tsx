@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
-import Card from '../ui/Card';
-import Label from './Label';
-import WithHeading from '../enhancer/WithHeading';
+import Label from '../Label';
 import { defaultCardWith } from '../../consts';
 
 const Tag = styled.div`
@@ -29,9 +27,8 @@ export default function Presenter({
   handleSubmit,
 }: PresenterProps) {
   return (
-    <Card>
       <Tag>
-        <WithHeading title={'Create a new tag'} />
+        
         {tagExists && (
           <Label
             title="This tag already exists. Please enter a new one."
@@ -60,6 +57,5 @@ export default function Presenter({
           Create
         </Button>
       </Tag>
-    </Card>
   );
 }
