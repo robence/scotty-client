@@ -7,7 +7,7 @@ type WithHeadingType = {
   children: JSX.Element;
 };
 
-const WithTitle = styled.div`
+const Hr = styled.hr`
   margin-bottom: ${spaces.m};
 `;
 
@@ -16,10 +16,10 @@ export default function WithTitleComponent({
   children,
 }: WithHeadingType) {
   return (
-    <WithTitle>
+    <div>
       <h2>{title}</h2>
-      <hr />
+      <Hr />
       {children}
-    </WithTitle>
+    </div>
   );
 }

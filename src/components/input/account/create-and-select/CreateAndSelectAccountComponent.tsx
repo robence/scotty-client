@@ -1,11 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
-import { defaultCardWith } from '../../consts';
-
-const Account = styled.div`
-  width: ${defaultCardWith};
-`;
 
 type PresenterProps = {
   input: string;
@@ -28,7 +22,7 @@ export default function Presenter({
   handleSelect,
 }: PresenterProps) {
   return (
-    <Account>
+    <div>
       <AutoComplete
         style={{ width: 200, marginRight: '1rem' }}
         dataSource={dataSource}
@@ -57,6 +51,6 @@ export default function Presenter({
           Select
         </Button>
       )}
-    </Account>
+    </div>
   );
 }

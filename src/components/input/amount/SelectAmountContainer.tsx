@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Presenter from './Presenter';
+import Presenter from './SelectAmountComponent';
 
 type ExpenseRadio = '-' | '+';
 const initialRadio: ExpenseRadio = '-';

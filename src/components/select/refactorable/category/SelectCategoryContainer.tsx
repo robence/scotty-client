@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Presenter from './Presenter';
+import Presenter from './SelectCategoryComponent';
 
 const defaultDataSource = ['Health', 'Entertainment', 'Consumables'];
 
@@ -16,3 +16,4 @@ export default function TagComponent() {
     />
   );
 }
+// TODO: ref same as ../account

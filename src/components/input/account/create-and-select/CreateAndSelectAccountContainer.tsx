@@ -24,14 +24,21 @@ function reducer(state: any, action: Action) {
     case SELECT_ACCOUNT:
       return { ...state, account: action.payload };
     case CREATE_ACCOUNT:
-      return { ...state, account: action.payload, accountList: [...state.accountList, action.payload] };
+      return {
+        ...state,
+        account: action.payload,
+        accountList: [...state.accountList, action.payload],
+      };
     default:
       return state;
   }
 }
 
 export default function AccountComponent() {
-  const [{account, accountList}, dispatch] = useReducer(reducer, initialState);
+  const [{ account, accountList }, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
   const [input, setInput] = useState('');
   const [loading] = useState(false);
 
@@ -40,10 +47,7 @@ export default function AccountComponent() {
 
   useEffect(() => {
     if (account) {
-      message.success(
-        `${account} is now the default account.`,
-        1,
-      );
+      message.success(`${account} is now the default account.`, 1);
     }
   }, [account]);
 
@@ -53,7 +57,7 @@ export default function AccountComponent() {
       loading={loading}
       accountExists={accountExists}
       dataSource={accountList}
-      handleChange={e => setInput(e)}
+      handleChange={(e) => setInput(e)}
       handleCreate={() => dispatch({ type: CREATE_ACCOUNT, payload: input })}
       handleSelect={() => dispatch({ type: SELECT_ACCOUNT, payload: input })}
       disabled={selectDisabled}

@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { AutoComplete, Button } from 'antd';
-import Label from '../Label';
-import { defaultCardWith } from '../../consts';
+import Label from '../../custom/Label';
 
-const Tag = styled.div`
-  width: ${defaultCardWith};
-`;
 
 type PresenterProps = {
   tag: string;
@@ -27,7 +22,7 @@ export default function Presenter({
   handleSubmit,
 }: PresenterProps) {
   return (
-      <Tag>
+      <div>
         
         {tagExists && (
           <Label
@@ -56,6 +51,6 @@ export default function Presenter({
         >
           Create
         </Button>
-      </Tag>
+      </div>
   );
 }

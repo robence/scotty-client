@@ -17,7 +17,7 @@ export default function Presenter({
       onChange={handleCategory}
       style={{ width: '100%' }}
     >
-      {categoryList.map(item => (
+      {categoryList.map((item) => (
         <Select.Option key={item} value={item}>
           {item}
         </Select.Option>
