@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Presenter from './Presenter';
+import Presenter from './SelectTagsComponent';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 

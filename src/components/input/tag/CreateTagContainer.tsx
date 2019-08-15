@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
 import Presenter from './CreateTagComponent';
-import AsyncService from '../../services/MockAsyncService';
+import AsyncService from '../../../services/MockAsyncService';
 
 const defaultDataSource = ['Gyros', 'Cinema', 'Shampoo'];
 

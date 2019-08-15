@@ -7,7 +7,6 @@ const Logo = styled.h2`
   user-select: none;
   cursor: pointer;
   width: min-content;
-  /* font-size: 2.4rem; */
   color: white;
   font-weight: bolder;
 `;
