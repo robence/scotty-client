@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import { Select } from 'antd';
 
 type PresenterProps = {
   selectedCategory: string;
   categoryList: string[];
-  handleCategory: (e: any) => void;
+  handleCategory: (e: SetStateAction<string>) => void;
 };
 export default function Presenter({
   selectedCategory,

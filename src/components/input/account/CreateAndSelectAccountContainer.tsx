@@ -5,10 +5,10 @@ import Presenter from './CreateAndSelectAccountComponent';
 const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
 const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 
-// type State = {
-//   account: string;
-//   accountList: string[];
-// };
+type State = {
+  account: string;
+  accountList: string[];
+};
 
 type Action =
   | { type: 'SELECT_ACCOUNT'; payload: string }
@@ -19,7 +19,7 @@ const initialState = {
   accountList: ['Account 1', 'Savings', 'House'],
 };
 
-function reducer(state: any, action: Action) {
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case SELECT_ACCOUNT:
       return { ...state, account: action.payload };

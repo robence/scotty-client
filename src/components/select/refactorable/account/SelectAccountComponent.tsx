@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import { Select } from 'antd';
 
 type PresenterProps = {
   selectedCategory: string;
   categoryList: string[];
-  handleCategory: (e: any) => void;
+  handleCategory: (e: SetStateAction<string>) => void;
 };
 export default function Presenter({
   selectedCategory,
@@ -17,7 +17,7 @@ export default function Presenter({
       onChange={handleCategory}
       style={{ width: '100%' }}
     >
-      {categoryList.map(item => (
+      {categoryList.map((item) => (
         <Select.Option key={item} value={item}>
           {item}
         </Select.Option>

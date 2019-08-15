@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { AutoComplete, Button } from 'antd';
 
 type PresenterProps = {
@@ -7,9 +7,9 @@ type PresenterProps = {
   accountExists: boolean;
   dataSource: string[];
   disabled: boolean;
-  handleCreate: (e: any) => void;
+  handleCreate: (e: MouseEvent) => void;
   handleChange: (e: any) => void;
-  handleSelect: (e: any) => void;
+  handleSelect: (e: MouseEvent) => void;
 };
 export default function Presenter({
   input,
