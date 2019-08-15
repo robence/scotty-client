@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9520d54c3d5f7db46164e717e5baf0d8",
+    "revision": "7a09413ec6625e8291798cc231c4ac19",
     "url": "/scotty-client/index.html"
   },
   {
-    "revision": "6ce2fe165fdd53480c2c",
+    "revision": "a5450fc85fd44e2adf11",
     "url": "/scotty-client/static/css/2.93e9ecf4.chunk.css"
   },
   {
-    "revision": "12d14f11f71842a53116",
+    "revision": "5f63d8091ef81150449b",
     "url": "/scotty-client/static/css/main.d8b9919d.chunk.css"
   },
   {
-    "revision": "6ce2fe165fdd53480c2c",
-    "url": "/scotty-client/static/js/2.fafb96a8.chunk.js"
+    "revision": "a5450fc85fd44e2adf11",
+    "url": "/scotty-client/static/js/2.1618344a.chunk.js"
   },
   {
-    "revision": "12d14f11f71842a53116",
-    "url": "/scotty-client/static/js/main.b40fe426.chunk.js"
+    "revision": "5f63d8091ef81150449b",
+    "url": "/scotty-client/static/js/main.bec4cf72.chunk.js"
   },
   {
     "revision": "1390c8758e08412fcc16",
