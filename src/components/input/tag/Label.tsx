@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
-  display: inline-block;
+  display: block;
   color: ${({ color }) => color || 'black'};
   font-size: 1.2rem;
 `;

@@ -28,7 +28,7 @@ export default function CreateTagContainer() {
     return () => undefined;
   }, [isLoading, dataSource, tag]);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = () => {
     setLoading(true);
   };
   const handleChange = (e: any) => setTag(e ? e.toString() : '');

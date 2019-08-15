@@ -4,7 +4,7 @@ import { Select } from 'antd';
 type PresenterType = {
   selectedTags: string[];
   filteredOptions: string[];
-  handleChange: (e: any) => void;
+  handleChange: (e: string[]) => void;
 };
 
 export default function Presenter({
@@ -20,7 +20,7 @@ export default function Presenter({
       onChange={handleChange}
       style={{ width: '100%' }}
     >
-      {filteredOptions.map(item => (
+      {filteredOptions.map((item) => (
         <Select.Option key={item} value={item}>
           {item}
         </Select.Option>

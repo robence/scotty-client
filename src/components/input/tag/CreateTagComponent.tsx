@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoComplete, Button } from 'antd';
-import Label from '../../custom/Label';
+import Label from './Label';
 
 
 type PresenterProps = {
@@ -10,9 +10,9 @@ type PresenterProps = {
   disabled: boolean;
   dataSource: string[];
   handleChange: (e: any) => void;
-  handleSubmit: (e: any) => void;
+  handleSubmit: () => void;
 };
-export default function Presenter({
+export default function CreateTagComponent({
   tag,
   loading,
   tagExists,
