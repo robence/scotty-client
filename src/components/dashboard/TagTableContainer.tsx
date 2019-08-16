@@ -1,5 +1,4 @@
 import React from 'react';
-import Presenter from './Presenter';
 
 type DashboardType = {
   tags: any;
@@ -12,5 +11,5 @@ export default function Container({
   expenses,
   categories,
 }: DashboardType) {
-  return <Presenter categories={categories} tags={tags} expenses={expenses} />;
+  return <div />;
 }

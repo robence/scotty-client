@@ -1,15 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Dashboard from '../screens/dashboard/Container';
-import { Expense, Tag, Account } from '../screens';
+import { Expense, Tag, Account, Dashboard } from '../screens';
 import { spaces, headerSize } from '../consts';
 
 const Main = styled.main`
-  display: flex;
+  /* display: flex; */
   padding: ${spaces.m};
   padding-top: ${headerSize};
-  min-height: 90vh;
+  min-height: 96vh;
 `;
 
 export default function MainComponent(): JSX.Element {
