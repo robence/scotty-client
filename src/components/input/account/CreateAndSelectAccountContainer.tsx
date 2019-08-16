@@ -47,7 +47,7 @@ export default function AccountComponent() {
 
   useEffect(() => {
     if (account) {
-      message.success(`${account} is now the default account.`, 1);
+      message.success(`${account} is now the default account.`);
     }
   }, [account]);
 
