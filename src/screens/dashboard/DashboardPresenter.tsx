@@ -10,14 +10,6 @@ import WithHeading from '../../components/enhancer/WithHeading';
 
 import { Carousel } from 'antd';
 
-const FlexLayout = styled.div`
-  /* width: 800; */
-  /* height: 500px; */
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-
 const MyCarousel = styled(Carousel)`
 height: 90vh;
 
@@ -84,36 +76,5 @@ export default function PresenterComponent({
         </Card>
       </MyCarousel>
     </div>
-
-    // <FlexLayout>
-    //   <Card>
-    //     <WithHeading title={'All Expenses'}>
-    //       <AllExpenses
-    //         categories={categories}
-    //         tags={tags}
-    //         expenses={expenses}
-    //       />
-    //     </WithHeading>
-    //   </Card>
-    //   <Card>
-    //     <WithHeading title={'Expenses by category'}>
-    //       <ExpensesByCategory
-    //         categories={categories}
-    //         tags={tags}
-    //         expenses={expenses}
-    //       />
-    //     </WithHeading>
-    //   </Card>
-
-    //   <Card>
-    //     <WithHeading title={'Expenses by tags'}>
-    //       <ExpensesByTags
-    //         categories={categories}
-    //         tags={tags}
-    //         expenses={expenses}
-    //       />
-    //     </WithHeading>
-    //   </Card>
-    // </FlexLayout>
   );
 }
