@@ -46,5 +46,13 @@ export default function Container({ expenses, categories }: DashboardType) {
     },
   );
 
-  return <Table size="small" columns={columns} dataSource={dataSource} />;
+  return (
+    <Table
+      size="small"
+      columns={columns}
+      dataSource={dataSource}
+      pagination={{ pageSize: 50 }}
+      scroll={{ y: 240 }}
+    />
+  );
 }

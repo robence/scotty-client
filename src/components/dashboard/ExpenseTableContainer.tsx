@@ -57,5 +57,13 @@ export default function Container({
     },
   );
 
-  return <Table size="small" columns={columns} dataSource={dataSource} />;
+  return (
+    <Table
+      size="small"
+      columns={columns}
+      dataSource={dataSource}
+      pagination={{ pageSize: 50 }}
+      scroll={{ y: 240 }}
+    />
+  );
 }
