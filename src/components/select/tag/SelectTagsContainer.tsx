@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Presenter from './SelectTagsComponent';
 
-const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
+const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters', 'Gadgets', 'Cleaning'];
 
 export default function TagContainer() {
   const [selectedTags, setTags] = useState([] as string[]);
