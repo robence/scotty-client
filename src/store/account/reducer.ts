@@ -10,12 +10,12 @@ export function accountReducer(
     case SELECT_ACCOUNT:
       return {
         ...state,
-        account: action.payload.account,
+        selectedAccount: action.payload.account,
       };
     case CREATE_ACCOUNT:
       return {
         ...state,
-        account: action.payload.account,
+        selectedAccount: action.payload.account,
         accountList: {
           ...state.accountList,
           [action.payload.account.id]: action.payload.account,

@@ -46,11 +46,11 @@ export default function Container() {
     }),
   );
 
-  const dataSource: any[] = expenses.map(
+  const dataSource: any[] = Object.values(expenses).map(
     ({ id, amount, categoryId, tagIds }) => {
       const category = categories.find((c) => c.id === Number(categoryId));
       const tagNames = tagIds.map((tagId) => {
-        const tag = tags.find((t) => t.id === tagId);
+        const tag = tags[tagId];
         return tag ? tag.name : '';
       });
 

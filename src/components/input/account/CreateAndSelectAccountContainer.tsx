@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import { bindActionCreators } from 'redux';
 import { message } from 'antd';
 import Presenter from './CreateAndSelectAccountComponent';
-import { Account, AccountList } from '../../../types/model';
+import { useSelector, useDispatch } from 'react-redux';
+import * as accountActionCreators from '../../../store/account/actions';
+import { State } from '../../../store/initialState';
 
-type ConnectProps = {
-  account: Account;
-  accountList: AccountList;
-  createAccount: (account: Account) => void;
-  selectAccount: (account: Account) => void;
-};
+export default function AccountComponent() {
+  const { selectedAccount, accountList } = useSelector(
+    ({ selectedAccount, accountList }: State) => ({
+      selectedAccount,
+      accountList,
+    }),
+  );
+  const dispatch = useDispatch();
+  const { createAccount, selectAccount } = bindActionCreators(
+    accountActionCreators,
+    dispatch,
+  );
 
-export default function AccountComponent({
-  account,
-  accountList,
-  createAccount,
-  selectAccount,
-}: ConnectProps) {
-  const [input, setInput] = useState(account ? account.name : '');
+  const [input, setInput] = useState(
+    selectedAccount ? selectedAccount.name : '',
+  );
   const [loading] = useState(false);
 
   const accountExists =
     Object.values(accountList).find(({ name }) => name === input) !== undefined;
-  const selectDisabled = input === account.name;
+  const selectDisabled = input === selectedAccount.name;
 
   useEffect(() => {
-    if (account) {
-      message.success(`${account.name} is now the default account.`);
+    if (selectedAccount) {
+      message.success(`${selectedAccount.name} is now the default account.`);
     }
-  }, [account]);
+  }, [selectedAccount]);
 
   return (
     <Presenter

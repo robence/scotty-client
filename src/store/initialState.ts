@@ -1,16 +1,23 @@
-import { categories, tags, expenses, account, accountList } from '../assets';
-import { Category, Tag, Expense, Account, AccountList } from '../types/model';
+import {
+  categories,
+  tags,
+  expenses,
+  selectedAccount,
+  accountList,
+} from '../assets';
+import { Category, TagList, ExpenseList, Account, AccountList } from '../types/model';
 
 export type State = {
-  account: any;
+  // TODO: fix this
+  selectedAccount: any;
   accountList: AccountList;
   categories: Category[];
-  tags: Tag[];
-  expenses: Expense[];
+  tags: TagList;
+  expenses: ExpenseList;
 };
 
 const initialState: State = {
-  account,
+  selectedAccount,
   accountList,
   categories,
   tags,

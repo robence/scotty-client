@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
 import Presenter from './CreateTagComponent';
 import AsyncService from '../../../services/MockAsyncService';
+import { useSelector } from 'react-redux';
+import { State } from '../../../store/initialState';
 
 const defaultDataSource = ['Gyros', 'Cinema', 'Shampoo'];
 
 export default function CreateTagContainer() {
+
+  const { tags } = useSelector(({tags}:State) => ({tags}))
   const [tag, setTag] = useState('');
   const [dataSource, setDataSource] = useState(defaultDataSource);
   const [isLoading, setLoading] = useState(false);

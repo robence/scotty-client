@@ -43,11 +43,11 @@ export default function Container() {
     expenses,
   }));
 
-  const categorizedExpenses = groupExpensesByTag(expenses);
+  const categorizedExpenses = groupExpensesByTag(Object.values(expenses));
 
   const dataSource = Object.entries(categorizedExpenses).map(
     ([tagId, amount]) => {
-      const tag = tags.find((c) => c.id === Number(tagId));
+      const tag = tags[Number(tagId)];
       return {
         amount,
         key: Number(tagId),

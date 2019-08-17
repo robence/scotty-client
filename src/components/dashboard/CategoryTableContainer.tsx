@@ -1,5 +1,5 @@
 import React from 'react';
-import { Expense } from '../../types/model';
+import { ExpenseList } from '../../types/model';
 import { Table } from 'antd';
 import { State } from '../../store/initialState';
 import { useSelector } from 'react-redux';
@@ -18,9 +18,9 @@ const columns = [
 ];
 
 const groupExpensesByCategory = (
-  expenses: Expense[],
+  expenses: ExpenseList,
 ): { [key: number]: number } => {
-  return expenses.reduce(
+  return Object.values(expenses).reduce(
     (
       memo: { [categoryId: number]: number },
       { amount, categoryId }: { amount: number; categoryId: number },

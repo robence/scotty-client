@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/ui/Card';
-import CreateAndSelectAccountContainer from '../components/input/account/AccountConnectContainer';
+import CreateAndSelectAccountContainer from '../components/input/account/CreateAndSelectAccountContainer';
 import WithHeading from '../components/enhancer/WithHeading';
 
 export default function Container() {
