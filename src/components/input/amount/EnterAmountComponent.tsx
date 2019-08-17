@@ -4,8 +4,10 @@ import { Radio, Input } from 'antd';
 import { spaces } from '../../../consts';
 type ExpenseRadio = '-' | '+';
 
-
-const Div = styled.div``;
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledInput = styled(Input)`
   margin-top: ${spaces.l};

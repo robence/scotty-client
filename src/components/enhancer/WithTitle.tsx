@@ -2,7 +2,7 @@ import React from 'react';
 
 type WithTitleType = {
   title: string;
-  children: any;
+  children: JSX.Element;
 };
 
 export default function WithTitleComponent({ title, children }: WithTitleType) {

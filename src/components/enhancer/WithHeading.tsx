@@ -7,6 +7,10 @@ type WithHeadingType = {
   children: JSX.Element;
 };
 
+const Container = styled.div`
+  width: 100%;
+`;
+
 const Hr = styled.hr`
   margin-bottom: ${spaces.m};
 `;
@@ -16,10 +20,10 @@ export default function WithTitleComponent({
   children,
 }: WithHeadingType) {
   return (
-    <div>
+    <Container>
       <h2>{title}</h2>
       <Hr />
       {children}
-    </div>
+    </Container>
   );
 }

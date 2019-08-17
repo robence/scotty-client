@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { spaces } from '../../consts';
 
 const Card = styled.div`
+  min-width: 300px;
   width: fit-content;
   height: fit-content;
   margin: ${spaces.l};
