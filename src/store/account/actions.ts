@@ -3,10 +3,10 @@ import { Account } from '../../types/model';
 
 export const createAccount = (account: Account) => ({
   type: CREATE_ACCOUNT,
-  payload: { account },
+  account,
 });
 
 export const selectAccount = (account: Account) => ({
   type: SELECT_ACCOUNT,
-  payload: { account },
+  account,
 });

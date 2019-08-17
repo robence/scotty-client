@@ -48,7 +48,7 @@ export default function Container() {
 
   const dataSource: any[] = Object.values(expenses).map(
     ({ id, amount, categoryId, tagIds }) => {
-      const category = categories.find((c) => c.id === Number(categoryId));
+      const category = categories[categoryId];
       const tagNames = tagIds.map((tagId) => {
         const tag = tags[tagId];
         return tag ? tag.name : '';

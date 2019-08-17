@@ -43,7 +43,7 @@ export default function Container() {
 
   const dataSource = Object.entries(categorizedExpenses).map(
     ([categoryId, amount]) => {
-      const category = categories.find((c) => c.id === Number(categoryId));
+      const category = categories[Number(categoryId)];
       return {
         amount,
         key: Number(categoryId),

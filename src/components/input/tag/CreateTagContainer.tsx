@@ -8,8 +8,7 @@ import { State } from '../../../store/initialState';
 const defaultDataSource = ['Gyros', 'Cinema', 'Shampoo'];
 
 export default function CreateTagContainer() {
-
-  const { tags } = useSelector(({tags}:State) => ({tags}))
+  const { tags } = useSelector(({ tags }: State) => ({ tags }));
   const [tag, setTag] = useState('');
   const [dataSource, setDataSource] = useState(defaultDataSource);
   const [isLoading, setLoading] = useState(false);
@@ -43,7 +42,7 @@ export default function CreateTagContainer() {
       loading={isLoading}
       tagExists={tagExists}
       disabled={disabled}
-      dataSource={dataSource}
+      tagNames={dataSource}
       handleSubmit={handleSubmit}
       handleChange={handleChange}
     />

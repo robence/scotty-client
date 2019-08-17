@@ -5,13 +5,12 @@ import {
   selectedAccount,
   accountList,
 } from '../assets';
-import { Category, TagList, ExpenseList, Account, AccountList } from '../types/model';
+import { CategoryList, TagList, ExpenseList, Account, AccountList } from '../types/model';
 
 export type State = {
-  // TODO: fix this
-  selectedAccount: any;
+  selectedAccount: Account;
   accountList: AccountList;
-  categories: Category[];
+  categories: CategoryList;
   tags: TagList;
   expenses: ExpenseList;
 };

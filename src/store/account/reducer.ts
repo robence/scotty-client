@@ -3,22 +3,21 @@ import { State } from '../initialState';
 
 export function accountReducer(
   state: State,
-  // { type, payload: { account } }: AccountActionTypes,
-  action: AccountActionTypes,
+  { type, account}: AccountActionTypes,
 ) {
-  switch (action.type) {
+  switch (type) {
     case SELECT_ACCOUNT:
       return {
         ...state,
-        selectedAccount: action.payload.account,
+        selectedAccount: account,
       };
     case CREATE_ACCOUNT:
       return {
         ...state,
-        selectedAccount: action.payload.account,
+        selectedAccount: account,
         accountList: {
           ...state.accountList,
-          [action.payload.account.id]: action.payload.account,
+          [account.id]: account,
         },
       };
     default:

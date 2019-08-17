@@ -8,7 +8,7 @@ type PresenterProps = {
   loading: boolean;
   tagExists: boolean;
   disabled: boolean;
-  dataSource: string[];
+  tagNames: string[];
   handleChange: (e: any) => void;
   handleSubmit: () => void;
 };
@@ -17,7 +17,7 @@ export default function CreateTagComponent({
   loading,
   tagExists,
   disabled,
-  dataSource,
+  tagNames,
   handleChange,
   handleSubmit,
 }: PresenterProps) {
@@ -32,7 +32,7 @@ export default function CreateTagComponent({
         )}
         <AutoComplete
           style={{ width: 200, marginRight: '1rem' }}
-          dataSource={dataSource}
+          dataSource={tagNames}
           placeholder="Type to create a new tag"
           allowClear={true}
           value={tag}

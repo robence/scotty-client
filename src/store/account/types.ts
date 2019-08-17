@@ -1,14 +1,16 @@
+import { Account } from '../../types/model';
+
 export const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
 export const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 
 interface SelectAccountAction {
   type: typeof SELECT_ACCOUNT;
-  payload: { account: Account };
+  account: Account;
 }
 
 interface CreateAccountAction {
   type: typeof CREATE_ACCOUNT;
-  payload: { account: Account };
+  account: Account;
 }
 
 export type AccountActionTypes = SelectAccountAction | CreateAccountAction;
