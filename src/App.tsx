@@ -12,7 +12,7 @@ message.config({
 
 const App = styled.div`
   background-color: rgb(224, 223, 223);
-  height: 100vh;
+  height: inherit;
 `;
 export default function AppComponent(): JSX.Element {
   return (

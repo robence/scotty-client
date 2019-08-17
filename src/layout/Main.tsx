@@ -5,10 +5,8 @@ import { Expense, Tag, Account, Dashboard } from '../screens';
 import { spaces, headerSize } from '../consts';
 
 const Main = styled.main`
-  /* display: flex; */
-  padding: ${spaces.m};
-  padding-top: ${headerSize};
-  min-height: 96vh;
+  padding: calc(${headerSize} + 1rem) ${spaces.m} 1rem;
+  min-height: 100vh;
 `;
 
 export default function MainComponent(): JSX.Element {
