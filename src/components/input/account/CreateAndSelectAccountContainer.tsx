@@ -1,53 +1,31 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
 import Presenter from './CreateAndSelectAccountComponent';
+import { Account, AccountList } from '../../../types/model';
 
-const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
-const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
-
-type State = {
-  account: string;
-  accountList: string[];
+type ConnectProps = {
+  account: Account;
+  accountList: AccountList;
+  createAccount: (account: Account) => void;
+  selectAccount: (account: Account) => void;
 };
 
-type Action =
-  | { type: 'SELECT_ACCOUNT'; payload: string }
-  | { type: 'CREATE_ACCOUNT'; payload: string };
-
-const initialState = {
-  account: '',
-  accountList: ['Account 1', 'Savings', 'House'],
-};
-
-function reducer(state: State, action: Action) {
-  switch (action.type) {
-    case SELECT_ACCOUNT:
-      return { ...state, account: action.payload };
-    case CREATE_ACCOUNT:
-      return {
-        ...state,
-        account: action.payload,
-        accountList: [...state.accountList, action.payload],
-      };
-    default:
-      return state;
-  }
-}
-
-export default function AccountComponent() {
-  const [{ account, accountList }, dispatch] = useReducer(
-    reducer,
-    initialState,
-  );
-  const [input, setInput] = useState('');
+export default function AccountComponent({
+  account,
+  accountList,
+  createAccount,
+  selectAccount,
+}: ConnectProps) {
+  const [input, setInput] = useState(account ? account.name : '');
   const [loading] = useState(false);
 
-  const accountExists = accountList.includes(input);
-  const selectDisabled = input === account;
+  const accountExists =
+    Object.values(accountList).find(({ name }) => name === input) !== undefined;
+  const selectDisabled = input === account.name;
 
   useEffect(() => {
     if (account) {
-      message.success(`${account} is now the default account.`);
+      message.success(`${account.name} is now the default account.`);
     }
   }, [account]);
 
@@ -56,10 +34,19 @@ export default function AccountComponent() {
       input={input}
       loading={loading}
       accountExists={accountExists}
-      dataSource={accountList}
+      dataSource={Object.values(accountList).map(({ name }) => name)}
       handleChange={(e) => setInput(e)}
-      handleCreate={() => dispatch({ type: CREATE_ACCOUNT, payload: input })}
-      handleSelect={() => dispatch({ type: SELECT_ACCOUNT, payload: input })}
+      handleCreate={() =>
+        createAccount({
+          id: Math.floor(Math.random() * 999) + 20,
+          name: input,
+        })
+      }
+      handleSelect={() =>
+        selectAccount(
+          Object.values(accountList).find(({ name }) => name === input),
+        )
+      }
       disabled={selectDisabled}
     />
   );

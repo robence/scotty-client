@@ -1,6 +1,8 @@
 import React from 'react';
 import { Table, Tag } from 'antd';
-import { DashboardType } from '../../types/model';
+
+import { State } from '../../store/initialState';
+import { useSelector } from 'react-redux';
 
 const columns = [
   {
@@ -35,11 +37,15 @@ const columns = [
   },
 ];
 
-export default function Container({
-  tags,
-  expenses,
-  categories,
-}: DashboardType) {
+export default function Container() {
+  const { tags, expenses, categories } = useSelector(
+    ({ tags, expenses, categories }: State) => ({
+      tags,
+      expenses,
+      categories,
+    }),
+  );
+
   const dataSource: any[] = expenses.map(
     ({ id, amount, categoryId, tagIds }) => {
       const category = categories.find((c) => c.id === Number(categoryId));

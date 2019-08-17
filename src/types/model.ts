@@ -15,8 +15,11 @@ export type Expense = {
   tagIds: number[];
 };
 
-export type DashboardType = {
-  tags: Tag[];
-  expenses: Expense[];
-  categories: Category[];
-};
+export interface Account {
+  id: number;
+  name: string;
+}
+
+export interface AccountList {
+  [key: number]: Account;
+}

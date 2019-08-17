@@ -1,6 +1,8 @@
 import React from 'react';
-import { DashboardType, Expense } from '../../types/model';
+import { Expense } from '../../types/model';
 import { Table } from 'antd';
+import { State } from '../../store/initialState';
+import { useSelector } from 'react-redux';
 
 const columns = [
   {
@@ -32,7 +34,11 @@ const groupExpensesByCategory = (
   );
 };
 
-export default function Container({ expenses, categories }: DashboardType) {
+export default function Container() {
+  const { categories, expenses } = useSelector(
+    ({ categories, expenses }: State) => ({ categories, expenses }),
+  );
+
   const categorizedExpenses = groupExpensesByCategory(expenses);
 
   const dataSource = Object.entries(categorizedExpenses).map(
@@ -40,7 +46,7 @@ export default function Container({ expenses, categories }: DashboardType) {
       const category = categories.find((c) => c.id === Number(categoryId));
       return {
         amount,
-        key: categoryId,
+        key: Number(categoryId),
         category: category ? category.name : '',
       };
     },

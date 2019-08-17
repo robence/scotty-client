@@ -1,16 +1,22 @@
-import React from 'react';
-import Presenter from './DashboardPresenter';
-import { Category, Tag, Expense } from '../../types/model';
+import { gen } from '../utils';
+import { Category, Tag, Expense, Account, AccountList } from '../types/model';
 
-const gen = (size: number, name: string) =>
-  Array(size)
-    .fill(null)
-    .map((_, id) => ({ id, name: `${name}${id + 1}` }));
+export const categories: Category[] = gen(10, 'Category');
+export const tags: Tag[] = gen(10, 'Tag');
+export const accountList: AccountList = gen(10, 'Account').reduce(
+  (memo: AccountList, x: Account) => ({
+    ...memo,
+    [x.id]: x,
+  }),
+  {},
+);
 
-const categories: Category[] = gen(10, 'Category');
-const tags: Tag[] = gen(10, 'Tag');
+console.log('accountList');
+console.log(accountList);
 
-const expenses: Expense[] = [
+export const account: Account = accountList[0];
+
+export const expenses: Expense[] = [
   { amount: 500, categoryId: 0, tagIds: [0, 1] },
   { amount: 1500, categoryId: 1, tagIds: [2, 3, 4] },
   { amount: 2500, categoryId: 3, tagIds: [4] },
@@ -76,8 +82,3 @@ const expenses: Expense[] = [
   { amount: 100, categoryId: 1, tagIds: [0] },
   { amount: 500, categoryId: 1, tagIds: [3] },
 ].map((x, id) => ({ ...x, id }));
-
-export default function DashboardComponent() {
-  return <Presenter categories={categories} tags={tags} expenses={expenses} />;
-  // return <Caro />;
-}
