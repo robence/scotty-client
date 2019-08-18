@@ -1,48 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { message } from 'antd';
+import React, { useState } from 'react';
 import Presenter from './CreateTagComponent';
-import AsyncService from '../../../services/MockAsyncService';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { State } from '../../../store/initialState';
-
-const defaultDataSource = ['Gyros', 'Cinema', 'Shampoo'];
+import * as tagActionCreators from '../../../store/tag/actions';
+import { message } from 'antd';
 
 export default function CreateTagContainer() {
   const { tags } = useSelector(({ tags }: State) => ({ tags }));
-  const [tag, setTag] = useState('');
-  const [dataSource, setDataSource] = useState(defaultDataSource);
-  const [isLoading, setLoading] = useState(false);
 
-  const tagExists = dataSource.includes(tag);
-  const disabled = tagExists || tag === '';
+  const dispatch = useDispatch();
+  const { createTag } = bindActionCreators(tagActionCreators, dispatch);
 
-  useEffect(() => {
-    if (isLoading) {
-      const createTag = async () => {
-        await AsyncService(tag);
-        setLoading(false);
-        setDataSource([...dataSource, tag]);
-        setTag('');
-        message.success(`Tag ${tag} was successfully created.`);
-      };
+  const [input, setInput] = useState('');
 
-      createTag();
-    }
-    return () => undefined;
-  }, [isLoading, dataSource, tag]);
+  const tagNames = Object.values(tags).map(({ name }) => name);
+  const tagExists = tagNames.includes(input);
+  const disabled = tagExists || input === '';
 
   const handleSubmit = () => {
-    setLoading(true);
+    createTag({ id: Math.floor(Math.random() * 999) + 20, name: input });
+    message.success(`Tag ${input} was successfully created`);
+    setInput('');
   };
-  const handleChange = (e: any) => setTag(e ? e.toString() : '');
+  const handleChange = (e: any) => setInput(e ? e.toString() : '');
 
   return (
     <Presenter
-      tag={tag}
-      loading={isLoading}
+      input={input}
       tagExists={tagExists}
       disabled={disabled}
-      tagNames={dataSource}
+      tagNames={tagNames}
       handleSubmit={handleSubmit}
       handleChange={handleChange}
     />
