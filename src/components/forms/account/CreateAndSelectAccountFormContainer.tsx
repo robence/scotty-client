@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { message } from 'antd';
-import Presenter from './CreateAndSelectAccountComponent';
+import Presenter from './CreateAndSelectAccountFormComponent';
 import { useSelector, useDispatch } from 'react-redux';
 import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';

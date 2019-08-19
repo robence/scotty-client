@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import AllExpenses from '../components/dashboard/ExpenseTableContainer';
-import ExpensesByCategory from '../components/dashboard/CategoryTableContainer';
-import ExpensesByTags from '../components/dashboard/TagTableContainer';
+import AllExpenses from '../components/tables/ExpenseTableContainer';
+import ExpensesByCategory from '../components/tables/CategoryTableContainer';
+import ExpensesByTags from '../components/tables/TagTableContainer';
 
 import Card from '../components/ui/Card';
 import WithHeading from '../components/enhancer/WithHeading';
@@ -11,27 +11,25 @@ import { Carousel } from 'antd';
 
 export default function PresenterComponent() {
   return (
-    <div>
-      <MyCarousel>
-        <Card>
-          <WithHeading title={'All Expenses'}>
-            <AllExpenses />
-          </WithHeading>
-        </Card>
+    <MyCarousel>
+      <Card>
+        <WithHeading title={'All Expenses'}>
+          <AllExpenses />
+        </WithHeading>
+      </Card>
 
-        <Card>
-          <WithHeading title={'Expenses by category'}>
-            <ExpensesByCategory />
-          </WithHeading>
-        </Card>
+      <Card>
+        <WithHeading title={'Expenses by category'}>
+          <ExpensesByCategory />
+        </WithHeading>
+      </Card>
 
-        <Card>
-          <WithHeading title={'Expenses by tags'}>
-            <ExpensesByTags />
-          </WithHeading>
-        </Card>
-      </MyCarousel>
-    </div>
+      <Card>
+        <WithHeading title={'Expenses by tags'}>
+          <ExpensesByTags />
+        </WithHeading>
+      </Card>
+    </MyCarousel>
   );
 }
 

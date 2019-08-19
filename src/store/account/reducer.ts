@@ -3,7 +3,7 @@ import { State } from '../initialState';
 
 export function accountReducer(
   state: State,
-  { type, account}: AccountActionTypes,
+  { type, account }: AccountActionTypes,
 ) {
   switch (type) {
     case SELECT_ACCOUNT:

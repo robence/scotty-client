@@ -1,5 +1,4 @@
 import React from 'react';
-import { Expense } from '../../types/model';
 import Table from './TableComponent';
 
 import { State } from '../../store/initialState';

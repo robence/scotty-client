@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../components/ui/Card';
-import CreateTagContainer from '../components/input/tag/CreateTagContainer';
+import CreateTagContainer from '../components/forms/tag/CreateTagFormContainer';
 import WithHeading from '../components/enhancer/WithHeading';
 
 export default function Container() {

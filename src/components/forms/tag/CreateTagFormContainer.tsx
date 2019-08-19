@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Presenter from './CreateTagComponent';
+import Presenter from './CreateTagFormComponent';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { State } from '../../../store/initialState';

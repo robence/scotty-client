@@ -5,7 +5,13 @@ import {
   selectedAccount,
   accountList,
 } from '../assets';
-import { CategoryList, TagList, ExpenseList, Account, AccountList } from '../types/model';
+import {
+  CategoryList,
+  TagList,
+  ExpenseList,
+  Account,
+  AccountList,
+} from '../types/model';
 
 export type State = {
   selectedAccount: Account;
