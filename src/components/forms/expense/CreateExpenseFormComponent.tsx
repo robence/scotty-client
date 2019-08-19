@@ -18,9 +18,11 @@ export type CreateExpenseFormProps = {
   selectedAccount: string;
   handleAccountSelect: (e: SetStateAction<string>) => void;
 
-  tagOptions: string[];
-  selectedTags: string[];
-  handleTagSelect: (e: string[]) => void;
+  tagOptions: { id: number; name: string }[];
+  // tagOptions: string[];
+
+  selectedTags: any[];
+  handleTagSelect: (e: any[]) => void;
 
   handleSubmit: () => void;
 };

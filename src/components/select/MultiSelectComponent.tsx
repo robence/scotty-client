@@ -3,7 +3,7 @@ import { Select } from 'antd';
 
 type PresenterType = {
   selected: string[];
-  options: string[];
+  options: { id: number; name: string }[];
   handleSelect: (e: string[]) => void;
   placeholder: string;
 };
@@ -22,9 +22,9 @@ export default function MultiSelectComponent({
       onChange={handleSelect}
       style={{ width: '100%' }}
     >
-      {options.map((item) => (
-        <Select.Option key={item} value={item}>
-          {item}
+      {options.map(({ id, name }) => (
+        <Select.Option key={id} value={id}>
+          {name}
         </Select.Option>
       ))}
     </Select>

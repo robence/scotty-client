@@ -12,49 +12,51 @@ export default function CreateExpenseFormContainer() {
     }),
   );
 
+  // TODO: handle similar form elements better
+
   const categoryOptions = Object.values(categories);
   const accountOptions = Object.values(accountList);
-  const tagOptions = Object.values(tags).map(({ name }) => name);
+  const tagOptions = Object.values(tags);
 
-  // TODO: handle similar form elements better
-  const [category, setCategory] = useState(categories[0]);
-  const [account, setAccount] = useState(accountOptions[0]);
+  const [categoryId, setCategory] = useState(categories[0].id);
+  const [accountId, setAccount] = useState(accountOptions[0].id);
+  const [tagIds, setTags] = useState([] as number[]);
 
   const handleCategorySelect = (id: SetStateAction<string>) =>
-    setCategory(categories[Number(id)]);
+    setCategory(Number(id));
 
   const handleAccountSelect = (id: SetStateAction<string>) =>
-    setAccount(accountList[Number(id)]);
+    setAccount(Number(id));
 
-  const [selectedTags, setTags] = useState([] as string[]);
-  const filteredOptions = tagOptions.filter((o) => !selectedTags.includes(o));
+  const handleTagSelect = (newSelection: any[]) => {
+    console.log('newSelection');
+    console.log(typeof newSelection[0]);
+    console.log(newSelection);
 
-  const handleTagSelect = (newSelection: string[]) => {
     setTags(newSelection);
   };
 
   const handleSubmit = () => {
-    // TODO: check whether sending ids is sufficient
-
-    const req = {
-      category,
-      account,
+    const newExpense = {
+      categoryId,
+      accountId,
+      tagIds,
     };
 
     console.log('Sent');
-    console.log(req);
+    console.log(newExpense);
   };
 
   return (
     <CreateExpenseFormComponent
       categoryOptions={categoryOptions}
-      selectedCategory={category.name}
+      selectedCategory={categories[categoryId].name}
       handleCategorySelect={handleCategorySelect}
       accountOptions={accountOptions}
-      selectedAccount={account.name}
+      selectedAccount={accountList[accountId].name}
       handleAccountSelect={handleAccountSelect}
-      tagOptions={filteredOptions}
-      selectedTags={selectedTags}
+      tagOptions={tagOptions}
+      selectedTags={tagIds}
       handleTagSelect={handleTagSelect}
       handleSubmit={handleSubmit}
     />
