@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import Presenter from './CreateTagFormComponent';
+import CreateTagFormComponent from './CreateTagFormComponent';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { State } from '../../../store/initialState';
 import * as tagActionCreators from '../../../store/tag/actions';
 import { message } from 'antd';
+import { genId } from '../../../utils';
 
-export default function CreateTagContainer() {
+export default function CreateTagFormContainer() {
   const { tags } = useSelector(({ tags }: State) => ({ tags }));
 
   const dispatch = useDispatch();
@@ -19,14 +20,14 @@ export default function CreateTagContainer() {
   const disabled = tagExists || input === '';
 
   const handleSubmit = () => {
-    createTag({ id: Math.floor(Math.random() * 999) + 20, name: input });
+    createTag({ id: genId(20), name: input });
     message.success(`Tag ${input} was successfully created`);
     setInput('');
   };
   const handleChange = (e: any) => setInput(e ? e.toString() : '');
 
   return (
-    <Presenter
+    <CreateTagFormComponent
       input={input}
       tagExists={tagExists}
       disabled={disabled}

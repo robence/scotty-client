@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
-import { message } from 'antd';
-import Presenter from './CreateAndSelectAccountFormComponent';
 import { useSelector, useDispatch } from 'react-redux';
+import { message } from 'antd';
+import CreateAndSelectAccountFormComponent from './CreateAndSelectAccountFormComponent';
 import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';
+import { genId } from '../../../utils';
 
-export default function AccountComponent() {
+export default function CreateAndSelectAccountFormContainer() {
   const { selectedAccount, accountList } = useSelector(
     ({ selectedAccount, accountList }: State) => ({
       selectedAccount,
@@ -35,7 +36,7 @@ export default function AccountComponent() {
   }, [selectedAccount]);
 
   return (
-    <Presenter
+    <CreateAndSelectAccountFormComponent
       input={input}
       loading={loading}
       accountExists={accountExists}
@@ -43,7 +44,7 @@ export default function AccountComponent() {
       handleChange={(e) => setInput(e)}
       handleCreate={() =>
         createAccount({
-          id: Math.floor(Math.random() * 999) + 20,
+          id: genId(20),
           name: input,
         })
       }

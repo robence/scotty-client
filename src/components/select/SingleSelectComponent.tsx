@@ -1,9 +1,10 @@
 import React, { SetStateAction } from 'react';
 import { Select } from 'antd';
+import { IdNameTuple } from '../../types/form';
 
 type PresenterProps = {
   selected: string;
-  options: { id: number; name: string }[];
+  options: IdNameTuple[];
   handleSelect: (e: SetStateAction<string>) => void;
 };
 export default function SingleSelectComponent({

@@ -1,72 +1,76 @@
-import React, { SetStateAction } from 'react';
+import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 
-import EnterAmount from '../../input/amount/EnterAmountContainer';
-import SingleSelectComponent from '../../select/SingleSelectComponent';
-import MultiSelectComponent from '../../select/MultiSelectComponent';
+import {
+  RadioGroupComponent,
+  SingleSelectComponent,
+  MultiSelectComponent,
+} from '../../select';
 
+import { FormElementProps } from '../../../types/form';
 import { WithTitle } from '../../enhancer';
 import { spaces } from '../../../consts';
 
-export type CreateExpenseFormProps = {
-  categoryOptions: { id: number; name: string }[];
-  selectedCategory: string;
-  handleCategorySelect: (e: SetStateAction<string>) => void;
+type CreateExpenseFormProps = {
+  category: FormElementProps;
+  tag: FormElementProps;
+  radio: FormElementProps;
+  account: FormElementProps;
 
-  accountOptions: { id: number; name: string }[];
-  selectedAccount: string;
-  handleAccountSelect: (e: SetStateAction<string>) => void;
-
-  tagOptions: { id: number; name: string }[];
-  // tagOptions: string[];
-
-  selectedTags: any[];
-  handleTagSelect: (e: any[]) => void;
+  unsignedAmount: number;
+  handleAmount: (e: ChangeEvent<HTMLInputElement>) => void;
 
   handleSubmit: () => void;
 };
 
 export default function CreateExpenseComponent({
-  categoryOptions,
-  selectedCategory,
-  handleCategorySelect,
-  accountOptions,
-  selectedAccount,
-  handleAccountSelect,
-  tagOptions,
-  selectedTags,
-  handleTagSelect,
+  category,
+  tag,
+  radio,
+  account,
   handleSubmit,
+  unsignedAmount,
+  handleAmount,
 }: CreateExpenseFormProps) {
   return (
     <Expense>
       <WithTitle title={'Amount'}>
-        <EnterAmount />
+        <RadioGroupComponent
+          selected={radio.selected}
+          options={radio.options}
+          handleSelect={radio.onChange}
+        />
       </WithTitle>
+
+      <StyledInput
+        value={`${radio.selected} ${unsignedAmount}`}
+        onChange={handleAmount}
+        placeholder="Enter amount"
+      />
 
       <WithTitle title={'Category'}>
         <SingleSelectComponent
-          options={categoryOptions}
-          selected={selectedCategory}
-          handleSelect={handleCategorySelect}
+          options={category.options}
+          selected={category.selected}
+          handleSelect={category.onChange}
         />
       </WithTitle>
 
       <WithTitle title={'Tags'}>
         <MultiSelectComponent
-          options={tagOptions}
-          selected={selectedTags}
-          handleSelect={handleTagSelect}
+          options={tag.options}
+          selected={tag.selected}
+          handleSelect={tag.onChange}
           placeholder="Select tags"
         />
       </WithTitle>
 
       <WithTitle title={'Account'}>
         <SingleSelectComponent
-          options={accountOptions}
-          selected={selectedAccount}
-          handleSelect={handleAccountSelect}
+          options={account.options}
+          selected={account.selected}
+          handleSelect={account.onChange}
         />
       </WithTitle>
 
@@ -77,7 +81,6 @@ export default function CreateExpenseComponent({
   );
 }
 
-// TODO: check if this should be a form element
 const Expense = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,4 +89,8 @@ const Expense = styled.div`
   button {
     margin-top: ${spaces.m};
   }
+`;
+
+const StyledInput = styled(Input)`
+  margin: ${spaces.s} 0;
 `;

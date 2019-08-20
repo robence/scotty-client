@@ -1,9 +1,10 @@
 import React from 'react';
 import { Select } from 'antd';
+import { IdNameTuple } from '../../types/form';
 
 type PresenterType = {
   selected: string[];
-  options: { id: number; name: string }[];
+  options: IdNameTuple[];
   handleSelect: (e: string[]) => void;
   placeholder: string;
 };

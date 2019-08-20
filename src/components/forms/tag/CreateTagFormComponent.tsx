@@ -11,7 +11,7 @@ type PresenterProps = {
   // loading: boolean;
   handleSubmit: () => void;
 };
-export default function CreateTagComponent({
+export default function CreateTagFormComponent({
   input,
   tagExists,
   tagNames,

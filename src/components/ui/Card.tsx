@@ -18,10 +18,10 @@ const Card = styled.div`
   justify-content: center;
 `;
 
-export default function CardComponent({
-  children,
-}: {
+type CardProps = {
   children: JSX.Element;
-}): JSX.Element {
+};
+
+export default function CardComponent({ children }: CardProps): JSX.Element {
   return <Card>{children}</Card>;
 }

@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import { AutoComplete, Button } from 'antd';
 
-type PresenterProps = {
+type CreateAndSelectAccountProps = {
   input: string;
   loading: boolean;
   accountExists: boolean;
@@ -11,7 +11,7 @@ type PresenterProps = {
   handleChange: (e: any) => void;
   handleSelect: (e: MouseEvent) => void;
 };
-export default function Presenter({
+export default function CreateAndSelectAccountFormComponent({
   input,
   loading,
   accountExists,
@@ -20,7 +20,7 @@ export default function Presenter({
   handleChange,
   handleCreate,
   handleSelect,
-}: PresenterProps) {
+}: CreateAndSelectAccountProps) {
   return (
     <div>
       <AutoComplete

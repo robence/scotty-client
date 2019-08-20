@@ -16,7 +16,5 @@ export const gen = (size: number, name: string) =>
 export const genObj = (size: number, name: string): { [key: string]: any } =>
   objectify(gen(size, name));
 
-const x = genObj(100, 'Test');
-
-console.log('test');
-console.log(x);
+export const genId = (from: number) =>
+  Math.floor(Math.random() * 999 + from + 1);
