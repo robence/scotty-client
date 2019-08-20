@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/ui/Card';
 import Centered from '../components/ui/Center';
-import CreateAndSelectAccountContainer from '../components/forms/account/create-and-select/CreateAndSelectAccountFormContainer';
+import CreateAndSelectAccountContainer from '../components/forms/account/CreateAndSelectAccountFormContainer';
 import WithHeading from '../components/enhancer/WithHeading';
 
 export default function Container() {

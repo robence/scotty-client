@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Carousel } from 'antd';
+
 import AllExpenses from '../components/tables/ExpenseTableContainer';
 import ExpensesByCategory from '../components/tables/CategoryTableContainer';
 import ExpensesByTags from '../components/tables/TagTableContainer';
-import SelectAccountContainer from '../components/forms/account/select/SelectAccountContainer';
-
+import SelectAccountContainer from '../components/dropdowns/account/SelectAccountContainer';
+import SelectPeriodContainer from '../components/dropdowns/period/SelectPeriodContainer';
+import Balance from '../components/readonly/Balance';
 import { Card, Center, Align } from '../components/ui';
-
 import WithHeading from '../components/enhancer/WithHeading';
-
-import { Carousel } from 'antd';
 
 export default function PresenterComponent() {
   return (
@@ -38,12 +38,25 @@ export default function PresenterComponent() {
           <Align type="vertical">
             <Card>
               <WithHeading title={'Current Balance'}>
-                <p>Hello there</p>
+                <Balance />
+              </WithHeading>
+            </Card>
+            <Card>
+              <WithHeading title={'Money Flow'}>
+                <Align>
+                  <h2>+ $50.000</h2>
+                  <span>Last week</span>
+                </Align>
               </WithHeading>
             </Card>
             <Card>
               <WithHeading title={'Select Account'}>
                 <SelectAccountContainer></SelectAccountContainer>
+              </WithHeading>
+            </Card>
+            <Card>
+              <WithHeading title={'Select Period'}>
+                <SelectPeriodContainer />
               </WithHeading>
             </Card>
           </Align>

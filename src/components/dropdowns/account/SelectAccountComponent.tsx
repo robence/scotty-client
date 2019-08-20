@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormElementProps } from '../../../../types/form';
-import { SingleSelectComponent } from '../../../select';
+import { FormElementProps } from '../../../types/form';
+import { SingleSelectComponent } from '../../select';
 
 type CreateAndSelectAccountProps = {
   account: FormElementProps;

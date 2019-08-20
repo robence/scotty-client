@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
 import { AutoComplete, Button } from 'antd';
-import { Align } from '../../../ui';
+import { Align } from '../../ui';
 
 type CreateAndSelectAccountProps = {
   input: string;

@@ -13,7 +13,7 @@ export const generateArray = (size: number, name: string) =>
     .fill(null)
     .map((_, id) => ({ id, name: `${name}${id + 1}` }));
 
-export const mapArrayToObject = (
+export const generateObject = (
   size: number,
   name: string,
 ): { [key: string]: any } => objectify(generateArray(size, name));

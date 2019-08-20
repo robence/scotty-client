@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { message } from 'antd';
 import SelectAccountComponent from './SelectAccountComponent';
-import * as accountActionCreators from '../../../../store/account/actions';
-import { State } from '../../../../store/initialState';
+import * as accountActionCreators from '../../../store/account/actions';
+import { State } from '../../../store/initialState';
 
-export default function CreateAndSelectAccountFormContainer() {
+export default function SelectAccountContainer() {
   const { selectedAccount, accountList } = useSelector(
     ({ selectedAccount, accountList }: State) => ({
       selectedAccount,
