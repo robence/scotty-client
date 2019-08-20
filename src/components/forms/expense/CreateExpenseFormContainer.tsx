@@ -20,20 +20,23 @@ export default function CreateExpenseFormContainer() {
   const dispatch = useDispatch();
   const { createExpense } = bindActionCreators(expenseActionCreators, dispatch);
 
-  // TODO: handle similar form elements better
+  const [categoryId, setCategory] = useState(categories[0].id);
+  const [accountId, setAccount] = useState(selectedAccount.id);
+  const [tagNames, setTagNames] = useState([] as string[]);
+  const [radioId, setRadio] = useState('-');
+  const [unsignedAmount, setAmount] = useState(0);
+
   const categoryOptions = Object.values(categories);
   const accountOptions = Object.values(accountList);
   const tagOptions = Object.values(tags.byIds);
+  const filteredTagOptions = tagOptions.filter(
+    ({ name }) => !tagNames.includes(name),
+  );
+
   const radioOptions = [
     { id: '-', name: 'Expense' },
     { id: '+', name: 'Income' },
   ];
-
-  const [categoryId, setCategory] = useState(categories[0].id);
-  const [accountId, setAccount] = useState(selectedAccount.id);
-  const [tagNames, setTagNames] = useState([] as string[]);
-  const [radioId, setRadio] = useState(radioOptions[0].id);
-  const [unsignedAmount, setAmount] = useState(0);
 
   const handleCategorySelect = (id: SetStateAction<string>) =>
     setCategory(Number(id));
@@ -78,7 +81,7 @@ export default function CreateExpenseFormContainer() {
 
   const tag = {
     selected: tagNames,
-    options: tagOptions,
+    options: filteredTagOptions,
     onChange: handleTagSelect,
   };
 

@@ -2,7 +2,6 @@ import React from 'react';
 import Table from './TableComponent';
 import { State } from '../../store/initialState';
 import { useSelector } from 'react-redux';
-
 import { columns } from './column-configurations/category';
 import {
   groupExpensesByCategory,
@@ -11,7 +10,10 @@ import {
 
 export default function Container() {
   const { categories, expenses } = useSelector(
-    ({ categories, expenses }: State) => ({ categories, expenses }),
+    ({ categories, expenses }: State) => ({
+      categories,
+      expenses,
+    }),
   );
 
   const categorizedExpenses = groupExpensesByCategory(expenses);

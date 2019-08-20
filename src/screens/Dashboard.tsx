@@ -3,35 +3,65 @@ import styled from 'styled-components';
 import AllExpenses from '../components/tables/ExpenseTableContainer';
 import ExpensesByCategory from '../components/tables/CategoryTableContainer';
 import ExpensesByTags from '../components/tables/TagTableContainer';
+import SelectAccountContainer from '../components/forms/account/select/SelectAccountContainer';
 
-import Card from '../components/ui/Card';
+import { Card, Center, Align } from '../components/ui';
+
 import WithHeading from '../components/enhancer/WithHeading';
 
 import { Carousel } from 'antd';
 
 export default function PresenterComponent() {
   return (
-    <MyCarousel>
-      <Card>
-        <WithHeading title={'All Expenses'}>
-          <AllExpenses />
-        </WithHeading>
-      </Card>
+    <SplitView>
+      <MyCarousel>
+        <Card>
+          <WithHeading title={'All Expenses'}>
+            <AllExpenses />
+          </WithHeading>
+        </Card>
 
-      <Card>
-        <WithHeading title={'Expenses by category'}>
-          <ExpensesByCategory />
-        </WithHeading>
-      </Card>
+        <Card>
+          <WithHeading title={'Expenses by category'}>
+            <ExpensesByCategory />
+          </WithHeading>
+        </Card>
 
-      <Card>
-        <WithHeading title={'Expenses by tags'}>
-          <ExpensesByTags />
-        </WithHeading>
-      </Card>
-    </MyCarousel>
+        <Card>
+          <WithHeading title={'Expenses by tags'}>
+            <ExpensesByTags />
+          </WithHeading>
+        </Card>
+      </MyCarousel>
+      <AccountInfo>
+        <Center>
+          <Align type="vertical">
+            <Card>
+              <WithHeading title={'Current Balance'}>
+                <p>Hello there</p>
+              </WithHeading>
+            </Card>
+            <Card>
+              <WithHeading title={'Select Account'}>
+                <SelectAccountContainer></SelectAccountContainer>
+              </WithHeading>
+            </Card>
+          </Align>
+        </Center>
+      </AccountInfo>
+    </SplitView>
   );
 }
+
+const SplitView = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+`;
+
+const AccountInfo = styled.div`
+  /* display: flex;
+  flex-direction: column; */
+`;
 
 const MyCarousel = styled(Carousel)`
   height: 90vh;

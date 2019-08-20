@@ -2,10 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import { spaces } from '../../consts';
 
+type CardProps = {
+  children: JSX.Element;
+} & StyledProps;
+
+type StyledProps = {
+  width?: string;
+};
+
+export default function CardComponent({
+  children,
+  width,
+}: CardProps): JSX.Element {
+  return <Card width={width}>{children}</Card>;
+}
+
 const Card = styled.div`
   min-width: 300px;
-  width: fit-content;
   height: fit-content;
+  width: ${({ width }: StyledProps) => width || 'fit-content'};
+
   margin: ${spaces.l};
   background-color: white;
   padding: ${spaces.l};
@@ -17,11 +33,3 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-type CardProps = {
-  children: JSX.Element;
-};
-
-export default function CardComponent({ children }: CardProps): JSX.Element {
-  return <Card>{children}</Card>;
-}

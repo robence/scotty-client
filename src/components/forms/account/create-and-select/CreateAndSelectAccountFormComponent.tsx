@@ -1,5 +1,6 @@
 import React, { MouseEvent } from 'react';
 import { AutoComplete, Button } from 'antd';
+import { Align } from '../../../ui';
 
 type CreateAndSelectAccountProps = {
   input: string;
@@ -22,9 +23,9 @@ export default function CreateAndSelectAccountFormComponent({
   handleSelect,
 }: CreateAndSelectAccountProps) {
   return (
-    <div>
+    <Align>
       <AutoComplete
-        style={{ width: 200, marginRight: '1rem' }}
+        style={{ width: 200 }}
         dataSource={dataSource}
         placeholder="Type to create a new account:"
         allowClear={true}
@@ -51,6 +52,6 @@ export default function CreateAndSelectAccountFormComponent({
           Select
         </Button>
       )}
-    </div>
+    </Align>
   );
 }

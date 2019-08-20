@@ -8,7 +8,7 @@ type TableComponentProps = {
     key: string;
   }[];
 
-  dataSource: any[];
+  dataSource: { key: number; [props: string]: any | any[] }[];
 };
 
 export default function TableComponent({

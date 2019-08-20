@@ -1,5 +1,4 @@
-import { TagList } from '../../../types/model';
-import { Expense } from '../../../types/model';
+import { TagList, Expense } from '../../../types/model';
 
 export const groupExpensesByTag = (
   expenses: Expense[],
@@ -22,12 +21,17 @@ export const groupExpensesByTag = (
   );
 };
 
+type TagDataItem = { key: number } & {
+  amount: number;
+  tag: string;
+};
+
 export const createTagDataSource = (
   categorizedExpenses: {
     [key: number]: number;
   },
   tags: TagList,
-) =>
+): TagDataItem[] =>
   Object.entries(categorizedExpenses).map(([tagId, amount]) => {
     const tag = tags.byIds[Number(tagId)];
     return {

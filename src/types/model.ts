@@ -13,6 +13,7 @@ export type Expense = {
   amount: number;
   categoryId: number;
   tagIds: number[];
+  accountId: number;
 };
 
 export type Account = {
@@ -24,6 +25,7 @@ export type TagList = {
   byIds: { [key: number]: Tag };
   byNames: { [key: string]: Tag };
 };
+
 export type CategoryList = { [key: number]: Account };
 export type ExpenseList = { [key: number]: Expense };
 export type AccountList = { [key: number]: Account };

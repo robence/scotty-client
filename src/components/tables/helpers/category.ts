@@ -17,12 +17,17 @@ export const groupExpensesByCategory = (
   );
 };
 
+type CategoryDataItem = { key: number } & {
+  amount: number;
+  category: string;
+};
+
 export const createCategoryDataSource = (
   categorizedExpenses: {
     [key: number]: number;
   },
   categories: CategoryList,
-) =>
+): CategoryDataItem[] =>
   Object.entries(categorizedExpenses).map(([categoryId, amount]) => {
     const category = categories[Number(categoryId)];
     return {

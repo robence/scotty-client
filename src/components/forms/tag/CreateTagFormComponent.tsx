@@ -1,6 +1,7 @@
 import React from 'react';
 import { AutoComplete, Button } from 'antd';
 import Label from './Label';
+import Align from '../../ui/Align';
 
 type PresenterProps = {
   input: string;
@@ -10,6 +11,7 @@ type PresenterProps = {
   disabled: boolean;
   handleSubmit: () => void;
 };
+
 export default function CreateTagFormComponent({
   input,
   tagExists,
@@ -26,25 +28,27 @@ export default function CreateTagFormComponent({
           color="red"
         />
       )}
-      <AutoComplete
-        style={{
-          width: 200,
-          marginRight: '1rem',
-        }}
-        dataSource={tagNames}
-        placeholder="Type to create a new tag"
-        allowClear={true}
-        value={input}
-        onChange={handleChange}
-        filterOption={(inputValue: string, option: any): boolean =>
-          option.props.children
-            .toUpperCase()
-            .indexOf(inputValue.toUpperCase()) !== -1
-        }
-      />
-      <Button type="primary" disabled={disabled} onClick={handleSubmit}>
-        Create
-      </Button>
+      <Align>
+        <AutoComplete
+          style={{
+            width: 200,
+            marginRight: '1rem',
+          }}
+          dataSource={tagNames}
+          placeholder="Type to create a new tag"
+          allowClear={true}
+          value={input}
+          onChange={handleChange}
+          filterOption={(inputValue: string, option: any): boolean =>
+            option.props.children
+              .toUpperCase()
+              .indexOf(inputValue.toUpperCase()) !== -1
+          }
+        />
+        <Button type="primary" disabled={disabled} onClick={handleSubmit}>
+          Create
+        </Button>
+      </Align>
     </div>
   );
 }
