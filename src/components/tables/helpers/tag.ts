@@ -29,7 +29,7 @@ export const createTagDataSource = (
   tags: TagList,
 ) =>
   Object.entries(categorizedExpenses).map(([tagId, amount]) => {
-    const tag = tags[Number(tagId)];
+    const tag = tags.byIds[Number(tagId)];
     return {
       amount,
       key: Number(tagId),

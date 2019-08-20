@@ -8,7 +8,6 @@ type PresenterProps = {
   tagNames: string[];
   handleChange: (e: any) => void;
   disabled: boolean;
-  // loading: boolean;
   handleSubmit: () => void;
 };
 export default function CreateTagFormComponent({
@@ -17,7 +16,6 @@ export default function CreateTagFormComponent({
   tagNames,
   handleChange,
   disabled,
-  // loading,
   handleSubmit,
 }: PresenterProps) {
   return (
@@ -44,12 +42,7 @@ export default function CreateTagFormComponent({
             .indexOf(inputValue.toUpperCase()) !== -1
         }
       />
-      <Button
-        type="primary"
-        disabled={disabled}
-        // loading={loading}
-        onClick={handleSubmit}
-      >
+      <Button type="primary" disabled={disabled} onClick={handleSubmit}>
         Create
       </Button>
     </div>

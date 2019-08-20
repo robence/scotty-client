@@ -5,7 +5,6 @@ import { IdNameTuple } from '../../types/form';
 
 type PresenterType = {
   selected: string | number | string[];
-  // selected: keyof IdNameArray;
   options: IdNameTuple[];
   handleSelect: (e: RadioChangeEvent) => void;
 };

@@ -15,23 +15,15 @@ export type Expense = {
   tagIds: number[];
 };
 
-export interface Account {
+export type Account = {
   id: number;
   name: string;
-}
+};
 
 export type TagList = {
-  [key: number]: Tag;
+  byIds: { [key: number]: Tag };
+  byNames: { [key: string]: Tag };
 };
-
-export type CategoryList = {
-  [key: number]: Account;
-};
-
-export type ExpenseList = {
-  [key: number]: Expense;
-};
-
-export interface AccountList {
-  [key: number]: Account;
-}
+export type CategoryList = { [key: number]: Account };
+export type ExpenseList = { [key: number]: Expense };
+export type AccountList = { [key: number]: Account };

@@ -23,7 +23,7 @@ export default function CreateExpenseFormContainer() {
   // TODO: handle similar form elements better
   const categoryOptions = Object.values(categories);
   const accountOptions = Object.values(accountList);
-  const tagOptions = Object.values(tags);
+  const tagOptions = Object.values(tags.byIds);
   const radioOptions = [
     { id: '-', name: 'Expense' },
     { id: '+', name: 'Income' },
@@ -31,7 +31,7 @@ export default function CreateExpenseFormContainer() {
 
   const [categoryId, setCategory] = useState(categories[0].id);
   const [accountId, setAccount] = useState(selectedAccount.id);
-  const [tagIds, setTags] = useState([] as number[]);
+  const [tagNames, setTagNames] = useState([] as string[]);
   const [radioId, setRadio] = useState(radioOptions[0].id);
   const [unsignedAmount, setAmount] = useState(0);
 
@@ -41,7 +41,7 @@ export default function CreateExpenseFormContainer() {
   const handleAccountSelect = (id: SetStateAction<string>) =>
     setAccount(Number(id));
 
-  const handleTagSelect = (newSelection: number[]) => setTags(newSelection);
+  const handleTagSelect = (newSelection: string[]) => setTagNames(newSelection);
   const handleRadioSelect = (e: RadioChangeEvent) => setRadio(e.target.value);
 
   // removes sign and extra space
@@ -52,6 +52,8 @@ export default function CreateExpenseFormContainer() {
 
   const handleSubmit = () => {
     const amount = radioId === '-' ? unsignedAmount * -1 : unsignedAmount;
+    const tagIds = tagNames.map((name) => tags.byNames[name].id);
+
     const newExpense = {
       id: genId(100),
       amount,
@@ -75,7 +77,7 @@ export default function CreateExpenseFormContainer() {
   };
 
   const tag = {
-    selected: tagIds,
+    selected: tagNames,
     options: tagOptions,
     onChange: handleTagSelect,
   };

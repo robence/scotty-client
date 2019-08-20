@@ -24,7 +24,7 @@ export default function MultiSelectComponent({
       style={{ width: '100%' }}
     >
       {options.map(({ id, name }) => (
-        <Select.Option key={id} value={id}>
+        <Select.Option key={id} value={name}>
           {name}
         </Select.Option>
       ))}

@@ -4,13 +4,10 @@ export const createExpenseDataSource = (
   expenses: ExpenseList,
   categories: CategoryList,
   tags: TagList,
-) =>
-  Object.values(expenses).map(({ id, amount, categoryId, tagIds }) => {
+) => {
+  return Object.values(expenses).map(({ id, amount, categoryId, tagIds }) => {
     const category = categories[categoryId];
-    const tagNames = tagIds.map((tagId) => {
-      const tag = tags[tagId];
-      return tag ? tag.name : '';
-    });
+    const tagNames = tagIds.map((tagId) => tags.byIds[tagId].name);
 
     return {
       amount,
@@ -19,3 +16,4 @@ export const createExpenseDataSource = (
       tags: tagNames,
     };
   });
+};

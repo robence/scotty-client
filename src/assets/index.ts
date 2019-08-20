@@ -1,21 +1,19 @@
-import { gen, genObj, objectify } from '../utils';
+import { generateArray, mapArrayToObject, objectify } from '../utils';
 import {
-  Category,
-  Tag,
+  CategoryList,
+  TagList,
   ExpenseList,
-  Account,
   AccountList,
 } from '../types/model';
 
-export const categories: Category[] = gen(10, 'Category');
-export const tags: Tag[] = gen(10, 'Tag');
-export const accountList: AccountList = genObj(10, 'Account');
+export const categories: CategoryList = generateArray(10, 'Category');
+export const tagArray = generateArray(10, 'Tag');
+export const tags: TagList = {
+  byIds: objectify(tagArray, 'id'),
+  byNames: objectify(tagArray, 'name'),
+};
 
-console.log('accountList');
-console.log(accountList);
-
-export const selectedAccount: Account = accountList[0];
-
+export const accountList: AccountList = mapArrayToObject(10, 'Account');
 export const expenses: ExpenseList = objectify(
   [
     { amount: 500, categoryId: 0, tagIds: [0, 1] },
@@ -84,3 +82,6 @@ export const expenses: ExpenseList = objectify(
     { amount: 500, categoryId: 1, tagIds: [3] },
   ].map((x, id) => ({ ...x, id })),
 );
+
+console.log('hello expenses');
+console.log(expenses);

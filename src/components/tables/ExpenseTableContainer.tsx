@@ -17,6 +17,8 @@ export default function Container() {
 
   const dataSource: any[] = createExpenseDataSource(expenses, categories, tags);
   console.log('dataSource');
+  console.log(dataSource);
+  console.log('expenses');
   console.log(expenses);
 
   return <Table columns={columns} dataSource={dataSource} />;

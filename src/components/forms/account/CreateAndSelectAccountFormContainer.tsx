@@ -48,11 +48,12 @@ export default function CreateAndSelectAccountFormContainer() {
           name: input,
         })
       }
-      handleSelect={() =>
-        selectAccount(
-          Object.values(accountList).find(({ name }) => name === input),
-        )
-      }
+      handleSelect={() => {
+        const accountSelected = Object.values(accountList).find(
+          ({ name }) => name === input,
+        );
+        selectAccount(accountSelected || { id: 2, name: 'Account3' });
+      }}
       disabled={selectDisabled}
     />
   );

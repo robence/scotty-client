@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, SetStateAction } from 'react';
 import CreateTagFormComponent from './CreateTagFormComponent';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,7 +15,7 @@ export default function CreateTagFormContainer() {
 
   const [input, setInput] = useState('');
 
-  const tagNames = Object.values(tags).map(({ name }) => name);
+  const tagNames = Object.keys(tags.byNames);
   const tagExists = tagNames.includes(input);
   const disabled = tagExists || input === '';
 
@@ -24,7 +24,7 @@ export default function CreateTagFormContainer() {
     message.success(`Tag ${input} was successfully created`);
     setInput('');
   };
-  const handleChange = (e: any) => setInput(e ? e.toString() : '');
+  const handleChange = (e: SetStateAction<string>) => setInput(e);
 
   return (
     <CreateTagFormComponent

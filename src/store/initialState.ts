@@ -1,10 +1,4 @@
-import {
-  categories,
-  tags,
-  expenses,
-  selectedAccount,
-  accountList,
-} from '../assets';
+import { categories, tags, expenses, accountList } from '../assets';
 import {
   CategoryList,
   TagList,
@@ -13,6 +7,8 @@ import {
   AccountList,
 } from '../types/model';
 
+// TODO: move effects to somewhere else
+
 export type State = {
   selectedAccount: Account;
   accountList: AccountList;
@@ -20,6 +16,8 @@ export type State = {
   tags: TagList;
   expenses: ExpenseList;
 };
+
+const selectedAccount = Object.values(accountList)[0];
 
 const initialState: State = {
   selectedAccount,
