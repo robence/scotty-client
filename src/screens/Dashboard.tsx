@@ -11,55 +11,60 @@ import Balance from '../components/readonly/Balance';
 import MoneyFlow from '../components/readonly/MoneyFlow';
 import { Card, Center, Align } from '../components/ui';
 import WithHeading from '../components/enhancer/WithHeading';
+import { Tabs } from 'antd';
+
+const { TabPane } = Tabs;
 
 export default function PresenterComponent() {
   return (
     <SplitView>
-      <MyCarousel>
-        <Card>
-          <WithHeading title={'All Expenses'}>
-            <AllExpenses />
-          </WithHeading>
-        </Card>
-
-        <Card>
-          <WithHeading title={'Expenses by category'}>
-            <ExpensesByCategory />
-          </WithHeading>
-        </Card>
-
-        <Card>
-          <WithHeading title={'Expenses by tags'}>
-            <ExpensesByTags />
-          </WithHeading>
-        </Card>
-      </MyCarousel>
-      <AccountInfo>
-        <Center>
-          <Align type="vertical">
-            <Card>
-              <WithHeading title={'Current Balance'}>
-                <Balance />
-              </WithHeading>
-            </Card>
-            <Card>
-              <WithHeading title={'Money Flow'}>
-                <MoneyFlow />
-              </WithHeading>
-            </Card>
-            <Card>
-              <WithHeading title={'Select Account'}>
-                <SelectAccountContainer></SelectAccountContainer>
-              </WithHeading>
-            </Card>
-            <Card>
-              <WithHeading title={'Select Period'}>
-                <SelectPeriodContainer />
-              </WithHeading>
-            </Card>
-          </Align>
-        </Center>
-      </AccountInfo>
+      <Tabs type="card">
+        <TabPane tab="All Expenses" key="1">
+          <Card>
+            <WithHeading title={'All Expenses'}>
+              <AllExpenses />
+            </WithHeading>
+          </Card>
+        </TabPane>
+        <TabPane tab="Expenses by Categories" key="2">
+          <Card>
+            <WithHeading title={'Expenses by Categories'}>
+              <ExpensesByCategory />
+            </WithHeading>
+          </Card>
+        </TabPane>
+        <TabPane tab="Expenses by Tags" key="3">
+          <Card>
+            <WithHeading title={'Expenses by Tags'}>
+              <ExpensesByTags />
+            </WithHeading>
+          </Card>
+        </TabPane>
+      </Tabs>
+      <Center>
+        <Align type="vertical">
+          <Card>
+            <WithHeading title={'Current Balance'}>
+              <Balance />
+            </WithHeading>
+          </Card>
+          <Card>
+            <WithHeading title={'Money Flow'}>
+              <MoneyFlow />
+            </WithHeading>
+          </Card>
+          <Card>
+            <WithHeading title={'Select Account'}>
+              <SelectAccountContainer></SelectAccountContainer>
+            </WithHeading>
+          </Card>
+          <Card>
+            <WithHeading title={'Select Period'}>
+              <SelectPeriodContainer />
+            </WithHeading>
+          </Card>
+        </Align>
+      </Center>
     </SplitView>
   );
 }
@@ -67,37 +72,4 @@ export default function PresenterComponent() {
 const SplitView = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
-`;
-
-const AccountInfo = styled.div`
-  /* display: flex;
-  flex-direction: column; */
-`;
-
-const MyCarousel = styled(Carousel)`
-  height: 90vh;
-
-  & .ant-carousel {
-    height: 100%;
-  }
-
-  & div.slick-list div.slick-active.slick-current {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  & ul.slick-dots {
-    margin-top: 100px;
-    height: 30px;
-
-    & li {
-      height: inherit;
-
-      & button {
-        height: 100%;
-        min-width: 50px;
-      }
-    }
-  }
 `;
