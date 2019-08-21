@@ -32,12 +32,6 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "yarn test"
-    }
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -48,8 +42,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.1.1",
-    "husky": "^3.0.3"
+    "gh-pages": "^2.1.1"
   },
   "peerDependencies": {}
 }

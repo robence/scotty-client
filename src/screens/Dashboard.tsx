@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Carousel } from 'antd';
-
 import AllExpenses from '../components/tables/ExpenseTableContainer';
 import ExpensesByCategory from '../components/tables/CategoryTableContainer';
 import ExpensesByTags from '../components/tables/TagTableContainer';
