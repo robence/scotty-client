@@ -1,23 +1,31 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { State } from '../../store/initialState';
-import { filterExpensesByAccount, filterExpensesByPeriod } from '../tables/helpers/common';
+import { filterExpenses } from '../tables/helpers/common';
 import { sumExpenses } from './utils';
+import { Align } from '../ui';
 
 export default function MoneyFlow() {
   const { expenses, selectedAccount, selectedPeriod } = useSelector(
     ({ expenses, selectedAccount, selectedPeriod }: State) => ({
       expenses,
-      selectedAccount, selectedPeriod
+      selectedAccount,
+      selectedPeriod,
     }),
   );
 
-  const accountExpenses = filterExpensesByAccount(
+  const accountExpenses = filterExpenses(
     Object.values(expenses),
     selectedAccount.id,
+    selectedPeriod.id,
   );
 
-  const balance = sumExpenses(accountExpenses);
+  const moneyFlow = sumExpenses(accountExpenses);
 
-  return <h1>{`${balance} Ft`}</h1>;
+  return (
+    <Align>
+      <h2>{`${moneyFlow} Ft`}</h2>
+      <span>{selectedPeriod.name}</span>
+    </Align>
+  );
 }

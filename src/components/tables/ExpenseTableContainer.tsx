@@ -4,10 +4,7 @@ import { State } from '../../store/initialState';
 import { useSelector } from 'react-redux';
 import { columns } from './column-configurations/expense';
 import { createExpenseDataSource } from './helpers/expense';
-import {
-  filterExpensesByAccount,
-  filterExpensesByPeriod,
-} from './helpers/common';
+import { filterExpenses } from './helpers/common';
 
 export default function Container() {
   const {
@@ -32,29 +29,17 @@ export default function Container() {
     }),
   );
 
-  const filteredExpensesByAccount = filterExpensesByAccount(
+  const filteredExpenses = filterExpenses(
     Object.values(expenses),
     selectedAccount.id,
+    selectedPeriod.id,
   );
 
-  const startPeriod = new Date();
-  startPeriod.setMinutes(startPeriod.getMinutes() - selectedPeriod.id);
-
-  const filteredExpensesByPeriod =
-    selectedPeriod.id === -1
-      ? filteredExpensesByAccount
-      : filterExpensesByPeriod(filteredExpensesByAccount, startPeriod);
-
   const dataSource = createExpenseDataSource(
-    filteredExpensesByPeriod,
+    filteredExpenses,
     categories,
     tags,
   );
-
-  console.log('rerender');
-  console.log('selectedPeriod');
-  console.log(selectedPeriod);
-  console.log(filteredExpensesByPeriod);
 
   return <Table columns={columns} dataSource={dataSource} />;
 }

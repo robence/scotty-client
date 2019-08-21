@@ -7,21 +7,23 @@ import {
   groupExpensesByCategory,
   createCategoryDataSource,
 } from './helpers/category';
-import { filterExpensesByAccount } from './helpers/common';
+import { filterExpenses } from './helpers/common';
 
 export default function Container() {
-  const { categories, expenses, selectedAccount } = useSelector(
-    ({ categories, expenses, selectedAccount }: State) => ({
+  const { categories, expenses, selectedAccount, selectedPeriod } = useSelector(
+    ({ categories, expenses, selectedAccount, selectedPeriod }: State) => ({
       categories,
       expenses,
-      selectedAccount,
+      selectedAccount, selectedPeriod
     }),
   );
 
-  const filteredExpenses = filterExpensesByAccount(
+  const filteredExpenses = filterExpenses(
     Object.values(expenses),
     selectedAccount.id,
+    selectedPeriod.id,
   );
+
   const categorizedExpenses = groupExpensesByCategory(filteredExpenses);
   const dataSource = createCategoryDataSource(categorizedExpenses, categories);
 

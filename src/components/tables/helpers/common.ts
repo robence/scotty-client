@@ -3,13 +3,29 @@ import { Expense } from '../../../types/model';
 export const filterExpensesByAccount = (
   expenses: Expense[],
   id: number,
-): any[] => expenses.filter(({ accountId }) => accountId === id);
+): Expense[] => expenses.filter(({ accountId }) => accountId === id);
 
-export const filterExpensesByPeriod = (
+const filterExpensesByPeriod = (
   expenses: Expense[],
   startPeriod: Date,
-): any[] => {
-  return expenses.filter(
-    ({ createdTs }) => createdTs > startPeriod
-    );
+): Expense[] => {
+  return expenses.filter(({ createdTs }) => createdTs > startPeriod);
+};
+
+export const filterExpenses = (
+  expenses: Expense[],
+  accountId: number,
+  periodId: number,
+): Expense[] => {
+  const x = filterExpensesByAccount(expenses, accountId);
+
+  if (periodId === -1) {
+    return x;
+  }
+
+  const startPeriod = new Date();
+  startPeriod.setMinutes(startPeriod.getMinutes() - periodId);
+
+  const y = filterExpensesByPeriod(x, startPeriod);
+  return y;
 };

@@ -8,6 +8,7 @@ import ExpensesByTags from '../components/tables/TagTableContainer';
 import SelectAccountContainer from '../components/dropdowns/account/SelectAccountContainer';
 import SelectPeriodContainer from '../components/dropdowns/period/SelectPeriodContainer';
 import Balance from '../components/readonly/Balance';
+import MoneyFlow from '../components/readonly/MoneyFlow';
 import { Card, Center, Align } from '../components/ui';
 import WithHeading from '../components/enhancer/WithHeading';
 
@@ -43,10 +44,7 @@ export default function PresenterComponent() {
             </Card>
             <Card>
               <WithHeading title={'Money Flow'}>
-                <Align>
-                  <h2>+ $50.000</h2>
-                  <span>Last week</span>
-                </Align>
+                <MoneyFlow />
               </WithHeading>
             </Card>
             <Card>

@@ -33,7 +33,7 @@ export const columns = [
     ),
   },
   {
-    title: 'Created At',
+    title: 'Added',
     dataIndex: 'created',
     key: 'created',
   },
