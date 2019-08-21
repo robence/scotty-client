@@ -4,6 +4,18 @@ import styled from 'styled-components';
 import { colors, spaces, headerSize } from '../consts';
 import Logo from '../components/ui/Logo';
 
+export default function HeaderComponent() {
+  return (
+    <Header>
+      <Logo />
+      <StyledNavLink to="/">Dashboard</StyledNavLink>
+      <StyledNavLink to="/expense">New Expense</StyledNavLink>
+      <StyledNavLink to="/tag">New Tag</StyledNavLink>
+      <StyledNavLink to="/account">Account</StyledNavLink>
+    </Header>
+  );
+}
+
 const Header = styled.header`
   height: ${headerSize};
   width: 100%;
@@ -29,15 +41,3 @@ const StyledNavLink = styled(NavLink)`
     color: #fff;
   }
 `;
-
-export default function HeaderComponent() {
-  return (
-    <Header>
-      <Logo />
-      <StyledNavLink to="/">Dashboard</StyledNavLink>
-      <StyledNavLink to="/expense">New Expense</StyledNavLink>
-      <StyledNavLink to="/tag">New Tag</StyledNavLink>
-      <StyledNavLink to="/account">Account</StyledNavLink>
-    </Header>
-  );
-}

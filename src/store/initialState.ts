@@ -1,4 +1,11 @@
-import { categories, tags, expenses, accountList, periodList } from '../assets';
+import {
+  categories,
+  tags,
+  expenses,
+  accountList,
+  periodList,
+  MONTH_IN_MINUTES,
+} from '../assets';
 import {
   CategoryList,
   TagList,
@@ -22,7 +29,7 @@ export type State = {
 };
 
 const selectedAccount = Object.values(accountList)[0];
-const selectedPeriod = Object.values(periodList)[0];
+const selectedPeriod = periodList[MONTH_IN_MINUTES];
 
 const initialState: State = {
   selectedPeriod,

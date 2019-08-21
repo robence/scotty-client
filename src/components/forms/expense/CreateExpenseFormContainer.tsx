@@ -63,6 +63,7 @@ export default function CreateExpenseFormContainer() {
       categoryId,
       accountId,
       tagIds,
+      createdTs: new Date(),
     };
     createExpense(newExpense);
   };

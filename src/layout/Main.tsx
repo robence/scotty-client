@@ -4,11 +4,6 @@ import styled from 'styled-components';
 import { Expense, Tag, Account, Dashboard } from '../screens';
 import { spaces, headerSize } from '../consts';
 
-const Main = styled.main`
-  padding: calc(${headerSize} + 1rem) ${spaces.m} 1rem;
-  min-height: 100vh;
-`;
-
 export default function MainComponent(): JSX.Element {
   return (
     <Main>
@@ -21,3 +16,8 @@ export default function MainComponent(): JSX.Element {
     </Main>
   );
 }
+
+const Main = styled.main`
+  padding: calc(${headerSize} + 1rem) ${spaces.m} 1rem;
+  min-height: 100vh;
+`;

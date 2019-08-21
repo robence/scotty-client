@@ -1,11 +1,11 @@
-// import { combineReducers } from 'redux';
+import initialState, { State } from './initialState';
+
 import { accountReducer } from './account/reducer';
 import { tagReducer } from './tag/reducer';
 import { expenseReducer } from './expense/reducer';
+import { periodReducer } from './period/reducer';
 
-import initialState, { State } from './initialState';
-
-const reducers = [accountReducer, tagReducer, expenseReducer];
+const reducers = [accountReducer, tagReducer, expenseReducer, periodReducer];
 
 // the reducer is called whenever a dispatch action is made.
 // the action.type is a string which maps to a function in Actions.

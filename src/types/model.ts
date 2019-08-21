@@ -16,6 +16,7 @@ export type Expense = {
   categoryId: number;
   tagIds: number[];
   accountId: number;
+  createdTs: Date;
 };
 
 export type TagList = {
@@ -26,4 +27,4 @@ export type TagList = {
 export type CategoryList = { [key: number]: Account };
 export type ExpenseList = { [key: number]: Expense };
 export type AccountList = { [key: number]: Account };
-export type PeriodList = { [key: number]: Account };
+export type PeriodList = { [key: number]: Period };

@@ -4,6 +4,7 @@ type ExpenseDataItem = { key: number } & {
   amount: number;
   category: string;
   tags: string[];
+  created: string;
 };
 
 export const createExpenseDataSource = (
@@ -11,7 +12,7 @@ export const createExpenseDataSource = (
   categories: CategoryList,
   tags: TagList,
 ): ExpenseDataItem[] => {
-  return expenses.map(({ id, amount, categoryId, tagIds }) => {
+  return expenses.map(({ id, amount, categoryId, tagIds, createdTs }) => {
     const category = categories[categoryId];
     const tagNames = tagIds.map((tagId) => tags.byIds[tagId].name);
 
@@ -20,6 +21,7 @@ export const createExpenseDataSource = (
       key: id,
       category: category ? category.name : '',
       tags: tagNames,
+      created: createdTs.toDateString(),
     };
   });
 };

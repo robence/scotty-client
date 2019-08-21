@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import SelectPeriodComponent from './SelectPeriodComponent';
@@ -14,8 +14,13 @@ export default function SelectAccountContainer() {
   );
   const dispatch = useDispatch();
   const { selectPeriod } = bindActionCreators(periodActionCreators, dispatch);
-  const handlePeriodSelect = (id: SetStateAction<string>) =>
-    selectPeriod(periodList[Number(id)]);
+  const handlePeriodSelect = (id: number) => {
+    console.log(typeof id);
+    console.log(id);
+    console.log(periodList);
+
+    selectPeriod(periodList[id]);
+  };
 
   const period = {
     options: Object.values(periodList),

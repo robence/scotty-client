@@ -32,4 +32,9 @@ export const columns = [
       </span>
     ),
   },
+  {
+    title: 'Created At',
+    dataIndex: 'created',
+    key: 'created',
+  },
 ];

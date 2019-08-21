@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+export default function LogoComponent(): JSX.Element {
+  return <Logo>Scooty Wallet</Logo>;
+}
+
 const Logo = styled.h2`
   margin: 0 calc(12vw - 5rem) 0 5vw;
   white-space: nowrap;
@@ -10,6 +14,3 @@ const Logo = styled.h2`
   color: white;
   font-weight: bolder;
 `;
-export default function LogoComponent(): JSX.Element {
-  return <Logo>Scooty Wallet</Logo>;
-}
