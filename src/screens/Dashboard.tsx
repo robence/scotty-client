@@ -69,5 +69,5 @@ export default function PresenterComponent() {
 
 const SplitView = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 60% 40%;
 `;

@@ -1,17 +1,24 @@
 import React from 'react';
-import Card from '../components/ui/Card';
-import Centered from '../components/ui/Center';
-import CreateExpenseFormContainer from '../components/forms/expense/CreateExpenseFormContainer';
+import { Center, Align, Card } from '../components/ui/';
 import { WithHeading } from '../components/enhancer';
+import CreateExpenseFormContainer from '../components/forms/expense/CreateExpenseFormContainer';
+import CommonExpensesListContainer from '../components/list/common-expenses/CommonExpensesListContainer';
 
-export default function Presenter() {
+export default function ExpenseComponent() {
   return (
-    <Centered>
-      <Card width={'350px'}>
-        <WithHeading title={'Add new transaction'}>
-          <CreateExpenseFormContainer />
-        </WithHeading>
-      </Card>
-    </Centered>
+    <Center>
+      <Align content="evenly">
+        <Card width={'350px'}>
+          <WithHeading title={'Add New Transaction'}>
+            <CreateExpenseFormContainer />
+          </WithHeading>
+        </Card>
+        <Card width={'60%'}>
+          <WithHeading title={'Add Common Transaction'}>
+            <CommonExpensesListContainer />
+          </WithHeading>
+        </Card>
+      </Align>
+    </Center>
   );
 }

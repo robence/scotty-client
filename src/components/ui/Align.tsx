@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 type AlignType = 'horizontal' | 'vertical';
+type ContentType = 'between' | 'evenly';
+
 type StyledProps = {
   type?: AlignType;
+  content?: ContentType;
 };
 
 type AlignProps = {
@@ -13,19 +16,16 @@ type AlignProps = {
 export default function AlignComponent({
   children,
   type = 'horizontal',
+  content = 'between',
 }: AlignProps) {
-  return <Align type={type}>{children}</Align>;
+  return <Align type={type} content={content}>{children}</Align>;
 }
 
 const Align = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-
-  /* justify-content: ${({ type }: StyledProps) =>
-    type === 'horizontal' ? 'space-between' : 'unset'};
-
-  align-items: ${({ type }: StyledProps) =>
-    type === 'vertical' ? 'space-between' : 'unset'}; */
+  justify-content: ${({ content }: StyledProps) =>
+    content === 'evenly' ? 'space-evenly' : 'space-between'};
 
   flex-direction: ${({ type }: StyledProps) =>
     type === 'vertical' ? 'column' : 'row'};

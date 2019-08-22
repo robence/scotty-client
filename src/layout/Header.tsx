@@ -9,9 +9,9 @@ export default function HeaderComponent() {
     <Header>
       <Logo />
       <StyledNavLink to="/">Dashboard</StyledNavLink>
-      <StyledNavLink to="/expense">New Expense</StyledNavLink>
+      <StyledNavLink to="/expense">New Transaction</StyledNavLink>
       <StyledNavLink to="/tag">New Tag</StyledNavLink>
-      <StyledNavLink to="/account">Account</StyledNavLink>
+      <StyledNavLink to="/account">New Account</StyledNavLink>
     </Header>
   );
 }

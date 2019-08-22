@@ -19,6 +19,12 @@ export type Expense = {
   createdTs: Date;
 };
 
+export type ExpenseAsStringType = {
+  amount: number;
+  categoryName: string;
+  tagNames: string[];
+}
+
 export type TagList = {
   byIds: { [key: number]: Tag };
   byNames: { [key: string]: Tag };
