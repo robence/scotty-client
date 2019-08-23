@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import AllExpenses from '../components/tables/ExpenseTableContainer';
 import ExpensesByCategory from '../components/tables/CategoryTableContainer';
 import ExpensesByTags from '../components/tables/TagTableContainer';
@@ -15,7 +14,7 @@ const { TabPane } = Tabs;
 
 export default function PresenterComponent() {
   return (
-    <SplitView>
+    <Align content="evenly">
       <Tabs type="card">
         <TabPane tab="All Expenses" key="1">
           <Card>
@@ -63,11 +62,6 @@ export default function PresenterComponent() {
           </Card>
         </Align>
       </Center>
-    </SplitView>
+    </Align>
   );
 }
-
-const SplitView = styled.div`
-  display: grid;
-  grid-template-columns: 60% 40%;
-`;
