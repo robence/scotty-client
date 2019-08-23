@@ -15,7 +15,7 @@ export default function Expense({
       <h3>{categoryName}</h3>
       <div>
         {tagNames.map((tag, id) => (
-          <Tag color="green" key={id}>
+          <Tag color="blue" key={id}>
             {tag.toUpperCase()}
           </Tag>
         ))}

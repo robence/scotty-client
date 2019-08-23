@@ -1,7 +1,5 @@
 export const colors = {
-  primaryLight: '#19e68c',
-  primary: '#18d884',
-  primaryDark: '#14b870',
+  primary: '#1890ff',
 };
 
 export const spaces = {

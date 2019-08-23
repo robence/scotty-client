@@ -14,7 +14,9 @@ export default function CommonExpensesList({
   return (
     <Align>
       <Expense item={item}></Expense>
-      <Button onClick={onClick}>Add</Button>
+      <Button color="blue" onClick={onClick}>
+        Add
+      </Button>
     </Align>
   );
 }

@@ -20,7 +20,7 @@ export default function SelectAccountContainer() {
 
   useEffect(() => {
     if (selectedAccount) {
-      message.success(`${selectedAccount.name} is now the default account.`);
+      message.info(`${selectedAccount.name} is now the default account.`);
     }
   }, [selectedAccount]);
 

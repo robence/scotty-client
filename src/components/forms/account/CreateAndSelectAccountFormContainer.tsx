@@ -31,7 +31,7 @@ export default function CreateAndSelectAccountFormContainer() {
 
   useEffect(() => {
     if (selectedAccount) {
-      message.success(`${selectedAccount.name} is now the default account.`);
+      message.info(`${selectedAccount.name} is now the default account.`);
     }
   }, [selectedAccount]);
 

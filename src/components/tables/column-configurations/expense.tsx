@@ -19,7 +19,7 @@ export const columns = [
     render: (tagNames: string[]) => (
       <span>
         {tagNames.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
+          let color = tag.length > 5 ? 'geekblue' : 'blue';
           if (tag === 'loser') {
             color = 'volcano';
           }
