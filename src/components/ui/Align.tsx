@@ -18,7 +18,11 @@ export default function AlignComponent({
   type = 'horizontal',
   content = 'between',
 }: AlignProps) {
-  return <Align type={type} content={content}>{children}</Align>;
+  return (
+    <Align type={type} content={content}>
+      {children}
+    </Align>
+  );
 }
 
 const Align = styled.div`

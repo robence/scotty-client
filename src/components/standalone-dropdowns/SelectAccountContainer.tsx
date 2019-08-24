@@ -2,9 +2,10 @@ import React, { SetStateAction, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { message } from 'antd';
-import SelectAccountComponent from './SelectAccountComponent';
-import * as accountActionCreators from '../../../store/account/actions';
-import { State } from '../../../store/initialState';
+import { SingleSelectComponent } from '../select';
+import * as accountActionCreators from '../../store/account/actions';
+import { State } from '../../store/initialState';
+import { FormElementProps } from '../../types/form';
 
 export default function SelectAccountContainer() {
   const { selectedAccount, accountList } = useSelector(
@@ -24,11 +25,17 @@ export default function SelectAccountContainer() {
     }
   }, [selectedAccount]);
 
-  const account = {
+  const account: FormElementProps = {
     options: Object.values(accountList),
     selected: selectedAccount.id,
     onChange: handleAccountSelect,
   };
 
-  return <SelectAccountComponent account={account} />;
+  return (
+    <SingleSelectComponent
+      options={account.options}
+      selected={account.selected}
+      handleSelect={account.onChange}
+    />
+  );
 }
