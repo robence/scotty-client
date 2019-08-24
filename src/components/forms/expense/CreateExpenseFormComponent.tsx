@@ -47,11 +47,7 @@ export default function CreateExpenseComponent({
       />
 
       <WithTitle title={'Category'}>
-        <SingleSelectComponent
-          options={category.options}
-          selected={category.selected}
-          handleSelect={category.onChange}
-        />
+        <SingleSelectComponent props={category} />
       </WithTitle>
 
       <WithTitle title={'Tags'}>
@@ -64,11 +60,7 @@ export default function CreateExpenseComponent({
       </WithTitle>
 
       <WithTitle title={'Account'}>
-        <SingleSelectComponent
-          options={account.options}
-          selected={account.selected}
-          handleSelect={account.onChange}
-        />
+        <SingleSelectComponent props={account} />
       </WithTitle>
 
       <Button type="primary" onClick={handleSubmit}>

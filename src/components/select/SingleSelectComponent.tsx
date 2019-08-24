@@ -3,17 +3,17 @@ import { Select } from 'antd';
 import { IdNameTuple } from '../../types/form';
 
 type PresenterProps = {
-  selected: string;
-  options: IdNameTuple[];
-  handleSelect: (e: SetStateAction<string>) => void;
+  props: {
+    selected: string;
+    options: IdNameTuple[];
+    onChange: (e: SetStateAction<string>) => void;
+  };
 };
 export default function SingleSelectComponent({
-  selected,
-  options,
-  handleSelect,
+  props: { selected, options, onChange },
 }: PresenterProps) {
   return (
-    <Select value={selected} onChange={handleSelect} style={{ width: '100%' }}>
+    <Select value={selected} onChange={onChange} style={{ width: '100%' }}>
       {options.map(({ id, name }) => (
         <Select.Option key={id} value={id}>
           {name}

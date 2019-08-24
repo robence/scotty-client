@@ -31,11 +31,5 @@ export default function SelectAccountContainer() {
     onChange: handleAccountSelect,
   };
 
-  return (
-    <SingleSelectComponent
-      options={account.options}
-      selected={account.selected}
-      handleSelect={account.onChange}
-    />
-  );
+  return <SingleSelectComponent props={account} />;
 }

@@ -6,7 +6,6 @@ import * as periodActionCreators from '../../store/period/actions';
 import { State } from '../../store/initialState';
 import { FormElementProps } from '../../types/form';
 
-
 export default function SelectPeriodContainer() {
   const { selectedPeriod, periodList } = useSelector(
     ({ selectedPeriod, periodList }: State) => ({
@@ -26,11 +25,5 @@ export default function SelectPeriodContainer() {
     onChange: handlePeriodSelect,
   };
 
-  return (
-    <SingleSelectComponent
-      options={period.options}
-      selected={period.selected}
-      handleSelect={period.onChange}
-    />
-  );
+  return <SingleSelectComponent props={period} />;
 }
