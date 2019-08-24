@@ -1,13 +1,11 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from 'antd';
-
 import {
   RadioGroupComponent,
   SingleSelectComponent,
   MultiSelectComponent,
 } from '../../select';
-
 import { FormElementProps } from '../../../types/form';
 import { WithTitle } from '../../enhancer';
 import { spaces } from '../../../consts';
@@ -17,10 +15,10 @@ type CreateExpenseFormProps = {
   tag: FormElementProps;
   radio: FormElementProps;
   account: FormElementProps;
-
-  unsignedAmount: number;
-  handleAmount: (e: ChangeEvent<HTMLInputElement>) => void;
-
+  amount: {
+    unsignedAmount: number;
+    handleAmount: (e: ChangeEvent<HTMLInputElement>) => void;
+  };
   handleSubmit: () => void;
 };
 
@@ -30,8 +28,7 @@ export default function CreateExpenseComponent({
   radio,
   account,
   handleSubmit,
-  unsignedAmount,
-  handleAmount,
+  amount: { unsignedAmount, handleAmount },
 }: CreateExpenseFormProps) {
   return (
     <Expense>
