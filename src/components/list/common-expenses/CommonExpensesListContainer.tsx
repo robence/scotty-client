@@ -1,43 +1,51 @@
 import React from 'react';
 import CommonExpensesList from './CommonExpensesList';
 import { State } from '../../../store/initialState';
-import { useSelector } from 'react-redux';
-import { ExpenseAsStringType } from '../../../types/model';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ExpensePopulated } from '../../../types/model';
+import { filterExpensesByAccount } from '../../tables/helpers/common';
+import * as expenseActionCreators from '../../../store/expense/actions';
+import { genId } from '../../../utils';
+import { Expense } from '../../../types/model';
 
 export default function CommonExpensesListContainer() {
-  const { expenses, categories, tags } = useSelector(
-    ({ expenses, categories, tags }: State) => ({
+  const { expenses, categories, tags, selectedAccount } = useSelector(
+    ({ expenses, categories, tags, selectedAccount }: State) => ({
       expenses,
       categories,
       tags,
+      selectedAccount,
     }),
   );
 
+  const dispatch = useDispatch();
+  const { createExpense } = bindActionCreators(expenseActionCreators, dispatch);
+
   // TODO: get most common expenses
-  const dataSource: ExpenseAsStringType[] = Object.values(expenses)
+  const dataSource: ExpensePopulated[] = filterExpensesByAccount(
+    Object.values(expenses),
+    selectedAccount.id,
+  )
     .slice(0, 5)
-    .map(
-      ({ amount, categoryId, tagIds }): ExpenseAsStringType => {
-        const categoryName = categories[categoryId].name;
-        const tagNames = tagIds.map((tagId) => tags.byIds[tagId].name);
+    .map(({ amount, categoryId, tagIds }) => {
+      const category = categories[categoryId];
+      const tagList = tagIds.map((tagId) => tags.byIds[tagId]);
 
-        return { amount, categoryName, tagNames };
-      },
-    );
+      return { amount, category, tags: tagList };
+    });
 
-  const onClick = () => {
-    console.log('Item added');
+  const onClick = (item: ExpensePopulated) => () => {
+    const expense: Expense = {
+      id: genId(20),
+      amount: item.amount,
+      categoryId: item.category.id,
+      tagIds: item.tags.map(({ id }) => id),
+      accountId: selectedAccount.id,
+      createdTs: new Date(),
+    };
 
-
-    /*
-    
-      const innerOnnCick(item: Expense) => {
-        createExpense(item);
-      }
-
-      return innerOnClick;
-    
-    */
+    createExpense(expense);
   };
 
   return <CommonExpensesList dataSource={dataSource} onClick={onClick} />;

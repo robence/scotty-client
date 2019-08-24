@@ -1,22 +1,21 @@
 import React from 'react';
-import { ExpenseAsStringType } from '../../types/model';
+import { ExpensePopulated } from '../../types/model';
 import { Tag } from 'antd';
 import styled from 'styled-components';
 
 export default function Expense({
-  item: { amount, categoryName, tagNames },
+  item: { amount, category, tags },
 }: {
-  item: ExpenseAsStringType;
+  item: ExpensePopulated;
 }) {
   return (
-    // TODO: make prettier
     <Inline>
       <h2>{amount}</h2>
-      <h3>{categoryName}</h3>
+      <h3>{category.name}</h3>
       <div>
-        {tagNames.map((tag, id) => (
+        {tags.map(({name, id}) => (
           <Tag color="blue" key={id}>
-            {tag.toUpperCase()}
+            {name.toUpperCase()}
           </Tag>
         ))}
       </div>

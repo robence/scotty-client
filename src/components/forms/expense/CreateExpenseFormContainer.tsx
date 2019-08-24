@@ -1,9 +1,10 @@
-import React, { ChangeEvent, SetStateAction, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import CreateExpenseFormComponent from './CreateExpenseFormComponent';
 import { State } from '../../../store/initialState';
 import * as expenseActionCreators from '../../../store/expense/actions';
+import * as accountActionCreators from '../../../store/account/actions';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { genId } from '../../../utils';
 
@@ -18,10 +19,12 @@ export default function CreateExpenseFormContainer() {
   );
 
   const dispatch = useDispatch();
-  const { createExpense } = bindActionCreators(expenseActionCreators, dispatch);
+  const { createExpense, selectAccount } = bindActionCreators(
+    { ...expenseActionCreators, ...accountActionCreators },
+    dispatch,
+  );
 
   const [categoryId, setCategory] = useState(categories[0].id);
-  const [accountId, setAccount] = useState(selectedAccount.id);
   const [tagNames, setTagNames] = useState([] as string[]);
   const [radioId, setRadio] = useState('-');
   const [unsignedAmount, setAmount] = useState(0);
@@ -38,12 +41,8 @@ export default function CreateExpenseFormContainer() {
     { id: '+', name: 'Income' },
   ];
 
-  const handleCategorySelect = (id: SetStateAction<string>) =>
-    setCategory(Number(id));
-
-  const handleAccountSelect = (id: SetStateAction<string>) =>
-    setAccount(Number(id));
-
+  const handleCategorySelect = (id: number) => setCategory(id);
+  const handleAccountSelect = (id: number) => selectAccount(accountList[id]);
   const handleTagSelect = (newSelection: string[]) => setTagNames(newSelection);
   const handleRadioSelect = (e: RadioChangeEvent) => setRadio(e.target.value);
 
@@ -62,7 +61,7 @@ export default function CreateExpenseFormContainer() {
       id: genId(100),
       amount,
       categoryId,
-      accountId,
+      accountId: selectedAccount.id,
       tagIds,
       createdTs: new Date(),
     };
@@ -76,7 +75,7 @@ export default function CreateExpenseFormContainer() {
   };
 
   const account = {
-    selected: accountId,
+    selected: selectedAccount.id,
     options: accountOptions,
     onChange: handleAccountSelect,
   };

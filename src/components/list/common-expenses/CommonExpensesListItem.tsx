@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button } from 'antd';
 import { Align } from '../../ui';
-import { ExpenseAsStringType } from '../../../types/model';
+import { ExpensePopulated } from '../../../types/model';
 import Expense from '../../readonly/Expense';
 
 export default function CommonExpensesList({
   item,
   onClick,
 }: {
-  item: ExpenseAsStringType;
+  item: ExpensePopulated;
   onClick: () => void;
 }) {
   return (

@@ -1,11 +1,11 @@
 import React from 'react';
 import { List } from 'antd';
 import CommonExpensesListItem from './CommonExpensesListItem';
-import { ExpenseAsStringType } from '../../../types/model';
+import { ExpensePopulated } from '../../../types/model';
 
 type CommonExpensesListProps = {
-  dataSource: ExpenseAsStringType[];
-  onClick: () => void;
+  dataSource: ExpensePopulated[];
+  onClick: (item: ExpensePopulated) => () => void;
 };
 
 export default function CommonExpensesList({
@@ -18,7 +18,7 @@ export default function CommonExpensesList({
       dataSource={dataSource}
       renderItem={(item) => (
         <List.Item>
-          <CommonExpensesListItem item={item} onClick={onClick} />
+          <CommonExpensesListItem item={item} onClick={onClick(item)} />
         </List.Item>
       )}
     />

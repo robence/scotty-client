@@ -34,7 +34,7 @@ export const periodList: PeriodList = objectify([
   { id: -1, name: 'Full history' },
 ]);
 
-export const expenses: ExpenseList = objectify(
+export const expenses: ExpenseList = false ? [] : objectify(
   [
     { amount: -500, createdTs: createDate(-1 * DAY_IN_MINUTES * 0), categoryId: 0, accountId: 0, tagIds: [0, 1] },
     { amount: -1500, createdTs: createDate(-1 * DAY_IN_MINUTES * 1), categoryId: 1, accountId: 1, tagIds: [2, 3, 4] },

@@ -3,8 +3,6 @@ type Base = {
   name: string;
 };
 
-type MapObj<T> = { [key: number]: T };
-
 export type Tag = Base;
 export type Category = Base;
 export type Account = Base;
@@ -19,11 +17,11 @@ export type Expense = {
   createdTs: Date;
 };
 
-export type ExpenseAsStringType = {
+export type ExpensePopulated = {
   amount: number;
-  categoryName: string;
-  tagNames: string[];
-}
+  category: Category;
+  tags: Tag[];
+};
 
 export type TagList = {
   byIds: { [key: number]: Tag };

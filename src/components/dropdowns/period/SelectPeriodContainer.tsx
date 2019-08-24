@@ -15,10 +15,6 @@ export default function SelectAccountContainer() {
   const dispatch = useDispatch();
   const { selectPeriod } = bindActionCreators(periodActionCreators, dispatch);
   const handlePeriodSelect = (id: number) => {
-    console.log(typeof id);
-    console.log(id);
-    console.log(periodList);
-
     selectPeriod(periodList[id]);
   };
 
