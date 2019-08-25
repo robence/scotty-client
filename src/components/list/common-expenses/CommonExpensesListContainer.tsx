@@ -9,6 +9,36 @@ import * as expenseActionCreators from '../../../store/expense/actions';
 import { genId } from '../../../utils';
 import { Expense } from '../../../types/model';
 
+type ExpensesByCount = {
+  [id: string]: { count: number; expense: Partial<Expense> };
+};
+
+const groupExpensesByCount = (expenses: Expense[]): ExpensesByCount =>
+  expenses.reduce(
+    (
+      groupedExpenses: ExpensesByCount,
+      { amount, categoryId, tagIds }: Expense,
+    ) => {
+      const id = `${categoryId}-${amount}-${tagIds.join(',')}`;
+
+      return {
+        ...groupedExpenses,
+        [id]: {
+          count:
+            groupedExpenses[id] && groupedExpenses[id].count
+              ? groupedExpenses[id].count + 1
+              : 1,
+          expense: {
+            amount,
+            categoryId,
+            tagIds,
+          },
+        },
+      };
+    },
+    {},
+  );
+
 export default function CommonExpensesListContainer() {
   const { expenses, categories, tags, selectedAccount } = useSelector(
     ({ expenses, categories, tags, selectedAccount }: State) => ({
@@ -23,6 +53,12 @@ export default function CommonExpensesListContainer() {
   const { createExpense } = bindActionCreators(expenseActionCreators, dispatch);
 
   // TODO: get most common expenses
+
+  const expensesByCount = groupExpensesByCount(Object.values(expenses));
+
+  console.log('expensesByCount');
+  console.log(expensesByCount);
+
   const dataSource: ExpensePopulated[] = filterExpensesByAccount(
     Object.values(expenses),
     selectedAccount.id,
