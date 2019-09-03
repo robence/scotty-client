@@ -1,8 +1,8 @@
 import { Tag } from '../../types/model';
 
-export const CREATE_TAG = 'CREATE_TAG';
-
-interface CreateTagAction {
+const CREATE_TAG = 'CREATE_TAG';
+export default CREATE_TAG;
+export interface CreateTagAction {
   type: typeof CREATE_TAG;
   tag: Tag;
 }

@@ -8,9 +8,7 @@ export const filterExpensesByAccount = (
 const filterExpensesByPeriod = (
   expenses: Expense[],
   startPeriod: Date,
-): Expense[] => {
-  return expenses.filter(({ createdTs }) => createdTs > startPeriod);
-};
+): Expense[] => expenses.filter(({ createdTs }) => createdTs > startPeriod);
 
 export const filterExpenses = (
   expenses: Expense[],

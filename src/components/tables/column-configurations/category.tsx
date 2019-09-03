@@ -1,4 +1,4 @@
-export const columns = [
+const columns = [
   {
     title: 'Category',
     dataIndex: 'category',
@@ -10,3 +10,5 @@ export const columns = [
     key: 'amount',
   },
 ];
+
+export default columns;

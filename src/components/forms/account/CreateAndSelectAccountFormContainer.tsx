@@ -7,13 +7,8 @@ import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';
 import { genId } from '../../../utils';
 
-export default function CreateAndSelectAccountFormContainer() {
-  const { selectedAccount, accountList } = useSelector(
-    ({ selectedAccount, accountList }: State) => ({
-      selectedAccount,
-      accountList,
-    }),
-  );
+export default function CreateAndSelectAccountFormContainer(): JSX.Element {
+  const { selectedAccount, accountList } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const { createAccount, selectAccount } = bindActionCreators(
     accountActionCreators,
@@ -41,14 +36,14 @@ export default function CreateAndSelectAccountFormContainer() {
       loading={loading}
       accountExists={accountExists}
       dataSource={Object.values(accountList).map(({ name }) => name)}
-      handleChange={(e) => setInput(e)}
-      handleCreate={() =>
+      handleChange={(e): void => setInput(e)}
+      handleCreate={(): void => {
         createAccount({
           id: genId(20),
           name: input,
-        })
-      }
-      handleSelect={() => {
+        });
+      }}
+      handleSelect={(): void => {
         const accountSelected = Object.values(accountList).find(
           ({ name }) => name === input,
         );

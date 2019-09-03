@@ -1,10 +1,10 @@
 import { SELECT_ACCOUNT, CREATE_ACCOUNT, AccountActionTypes } from './types';
 import { State } from '../initialState';
 
-export function accountReducer(
+export default function accountReducer(
   state: State,
   { type, account }: AccountActionTypes,
-) {
+): State {
   switch (type) {
     case SELECT_ACCOUNT:
       return {

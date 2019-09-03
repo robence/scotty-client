@@ -1,7 +1,7 @@
-import React from 'react';
 import { Tag } from 'antd';
+import React from 'react';
 
-export const columns = [
+const columns = [
   {
     title: 'Category',
     dataIndex: 'category',
@@ -16,10 +16,11 @@ export const columns = [
     title: 'Tags',
     dataIndex: 'tags',
     key: 'tags',
-    render: (tagNames: string[]) => (
+    /* eslint-disable-next-line react/display-name */
+    render: (tagNames: string[]): JSX.Element => (
       <span>
         {tagNames.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'blue';
+          let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
           }
@@ -38,3 +39,5 @@ export const columns = [
     key: 'created',
   },
 ];
+
+export default columns;

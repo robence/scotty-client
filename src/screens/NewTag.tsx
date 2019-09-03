@@ -4,11 +4,11 @@ import Centered from '../components/ui/Center';
 import CreateTagContainer from '../components/forms/tag/CreateTagFormContainer';
 import WithHeading from '../components/enhancer/WithHeading';
 
-export default function Container() {
+export default function Container(): JSX.Element {
   return (
     <Centered>
-      <Card width={'325px'}>
-        <WithHeading title={'Create a new tag'}>
+      <Card width="325px">
+        <WithHeading title="Create a new tag">
           <CreateTagContainer />
         </WithHeading>
       </Card>

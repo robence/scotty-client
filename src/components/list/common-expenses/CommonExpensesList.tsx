@@ -11,12 +11,12 @@ type CommonExpensesListProps = {
 export default function CommonExpensesList({
   dataSource,
   onClick,
-}: CommonExpensesListProps) {
+}: CommonExpensesListProps): JSX.Element {
   return (
     <List
       itemLayout="horizontal"
       dataSource={dataSource}
-      renderItem={(item) => (
+      renderItem={(item): JSX.Element => (
         <List.Item>
           <CommonExpensesListItem item={item} onClick={onClick(item)} />
         </List.Item>

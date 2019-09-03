@@ -4,11 +4,11 @@ import Centered from '../components/ui/Center';
 import CreateAndSelectAccountContainer from '../components/forms/account/CreateAndSelectAccountFormContainer';
 import WithHeading from '../components/enhancer/WithHeading';
 
-export default function Container() {
+export default function Container(): JSX.Element {
   return (
     <Centered>
-      <Card width={'325px'}>
-        <WithHeading title={'Create or Select account'}>
+      <Card width="325px">
+        <WithHeading title="Create or Select account">
           <CreateAndSelectAccountContainer />
         </WithHeading>
       </Card>

@@ -14,7 +14,7 @@ export default function MultiSelectComponent({
   options,
   handleSelect,
   placeholder,
-}: PresenterType) {
+}: PresenterType): JSX.Element {
   return (
     <Select
       mode="multiple"

@@ -13,7 +13,7 @@ export default function RadioGroupComponent({
   selected,
   handleSelect,
   options,
-}: PresenterType) {
+}: PresenterType): JSX.Element {
   return (
     <Radio.Group value={selected} onChange={handleSelect}>
       {options.map(({ id, name }) => (

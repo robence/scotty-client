@@ -1,31 +1,26 @@
 import React from 'react';
-import CommonExpensesList from './CommonExpensesList';
-import { State } from '../../../store/initialState';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ExpensePopulated } from '../../../types/model';
+import CommonExpensesList from './CommonExpensesList';
+import { State } from '../../../store/initialState';
+import { ExpensePopulated, Expense } from '../../../types/model';
 import { filterExpensesByAccount } from '../../tables/helpers/common';
-import * as expenseActionCreators from '../../../store/expense/actions';
+import createExpense from '../../../store/expense/actions';
 import { genId } from '../../../utils';
-import { Expense } from '../../../types/model';
+
 import {
   groupCommonExpenses,
   groupCommonExpenseIdsByCount,
   sortExpenseIdsByCount,
 } from './utils';
 
-export default function CommonExpensesListContainer() {
+export default function CommonExpensesListContainer(): JSX.Element {
   const { expenses, categories, tags, selectedAccount } = useSelector(
-    ({ expenses, categories, tags, selectedAccount }: State) => ({
-      expenses,
-      categories,
-      tags,
-      selectedAccount,
-    }),
+    (state: State) => state,
   );
 
   const dispatch = useDispatch();
-  const { createExpense } = bindActionCreators(expenseActionCreators, dispatch);
+  const boundCreateExpense = bindActionCreators(createExpense, dispatch);
 
   const accountExpenses = filterExpensesByAccount(
     Object.values(expenses),
@@ -45,7 +40,7 @@ export default function CommonExpensesListContainer() {
       return { amount, category, tags: tagList };
     });
 
-  const onClick = (item: ExpensePopulated) => () => {
+  const onClick = (item: ExpensePopulated) => (): void => {
     const expense: Expense = {
       id: genId(20),
       amount: item.amount,
@@ -55,7 +50,7 @@ export default function CommonExpensesListContainer() {
       createdTs: new Date(),
     };
 
-    createExpense(expense);
+    boundCreateExpense(expense);
   };
 
   return (

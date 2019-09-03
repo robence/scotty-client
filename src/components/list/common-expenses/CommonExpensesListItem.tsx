@@ -10,10 +10,10 @@ export default function CommonExpensesList({
 }: {
   item: ExpensePopulated;
   onClick: () => void;
-}) {
+}): JSX.Element {
   return (
     <Align>
-      <Expense item={item}></Expense>
+      <Expense item={item} />
       <Button color="blue" onClick={onClick}>
         Add
       </Button>

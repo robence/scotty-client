@@ -2,20 +2,17 @@ import { ExpenseList, CategoryList } from '../../../types/model';
 
 export const groupExpensesByCategory = (
   expenses: ExpenseList,
-): { [key: number]: number } => {
-  return Object.values(expenses).reduce(
+): { [key: number]: number } =>
+  Object.values(expenses).reduce(
     (
       memo: { [categoryId: number]: number },
       { amount, categoryId }: { amount: number; categoryId: number },
-    ) => {
-      return {
-        ...memo,
-        [categoryId]: memo[categoryId] ? memo[categoryId] + amount : amount,
-      };
-    },
+    ) => ({
+      ...memo,
+      [categoryId]: memo[categoryId] ? memo[categoryId] + amount : amount,
+    }),
     {},
   );
-};
 
 type CategoryDataItem = { key: number } & {
   amount: number;

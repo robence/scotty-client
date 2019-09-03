@@ -1,10 +1,10 @@
-import { SELECT_PERIOD, PeriodActionTypes } from './types';
+import SELECT_PERIOD, { PeriodActionTypes } from './types';
 import { State } from '../initialState';
 
-export function periodReducer(
+export default function periodReducer(
   state: State,
   { type, period }: PeriodActionTypes,
-) {
+): State {
   switch (type) {
     case SELECT_PERIOD:
       return {

@@ -1,8 +1,9 @@
 import { Period } from '../../types/model';
 
-export const SELECT_PERIOD = 'SELECT_PERIOD';
+const SELECT_PERIOD = 'SELECT_PERIOD';
+export default SELECT_PERIOD;
 
-interface SelectPeriodAction {
+export interface SelectPeriodAction {
   type: typeof SELECT_PERIOD;
   period: Period;
 }

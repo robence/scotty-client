@@ -7,17 +7,13 @@ import * as accountActionCreators from '../../store/account/actions';
 import { State } from '../../store/initialState';
 import { FormElementProps } from '../../types/form';
 
-export default function SelectAccountContainer() {
-  const { selectedAccount, accountList } = useSelector(
-    ({ selectedAccount, accountList }: State) => ({
-      selectedAccount,
-      accountList,
-    }),
-  );
+export default function SelectAccountContainer(): JSX.Element {
+  const { selectedAccount, accountList } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const { selectAccount } = bindActionCreators(accountActionCreators, dispatch);
-  const handleAccountSelect = (id: SetStateAction<string>) =>
+  const handleAccountSelect = (id: SetStateAction<string>): void => {
     selectAccount(accountList[Number(id)]);
+  };
 
   useEffect(() => {
     if (selectedAccount) {

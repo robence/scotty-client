@@ -29,10 +29,10 @@ export default function CreateExpenseComponent({
   account,
   handleSubmit,
   amount: { unsignedAmount, handleAmount },
-}: CreateExpenseFormProps) {
+}: CreateExpenseFormProps): JSX.Element {
   return (
     <Expense>
-      <WithTitle title={'Amount'}>
+      <WithTitle title="Amount">
         <RadioGroupComponent
           selected={radio.selected}
           options={radio.options}
@@ -46,11 +46,11 @@ export default function CreateExpenseComponent({
         placeholder="Enter amount"
       />
 
-      <WithTitle title={'Category'}>
+      <WithTitle title="Category">
         <SingleSelectComponent props={category} />
       </WithTitle>
 
-      <WithTitle title={'Tags'}>
+      <WithTitle title="Tags">
         <MultiSelectComponent
           options={tag.options}
           selected={tag.selected}
@@ -59,7 +59,7 @@ export default function CreateExpenseComponent({
         />
       </WithTitle>
 
-      <WithTitle title={'Account'}>
+      <WithTitle title="Account">
         <SingleSelectComponent props={account} />
       </WithTitle>
 

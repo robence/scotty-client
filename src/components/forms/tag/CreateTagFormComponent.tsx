@@ -19,7 +19,7 @@ export default function CreateTagFormComponent({
   handleChange,
   disabled,
   handleSubmit,
-}: PresenterProps) {
+}: PresenterProps): JSX.Element {
   return (
     <div>
       {tagExists && (
@@ -36,7 +36,7 @@ export default function CreateTagFormComponent({
           }}
           dataSource={tagNames}
           placeholder="Type to create a new tag"
-          allowClear={true}
+          allowClear
           value={input}
           onChange={handleChange}
           filterOption={(inputValue: string, option: any): boolean =>

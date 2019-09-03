@@ -11,7 +11,7 @@ type PresenterProps = {
 };
 export default function SingleSelectComponent({
   props: { selected, options, onChange },
-}: PresenterProps) {
+}: PresenterProps): JSX.Element {
   return (
     <Select value={selected} onChange={onChange} style={{ width: '100%' }}>
       {options.map(({ id, name }) => (

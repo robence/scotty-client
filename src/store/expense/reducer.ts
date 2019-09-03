@@ -1,10 +1,10 @@
-import { CREATE_EXPENSE, ExpenseActionTypes } from './types';
+import CREATE_EXPENSE, { ExpenseActionTypes } from './types';
 import { State } from '../initialState';
 
-export function expenseReducer(
+export default function expenseReducer(
   state: State,
   { type, expense }: ExpenseActionTypes,
-) {
+): State {
   switch (type) {
     case CREATE_EXPENSE:
       return {

@@ -1,8 +1,9 @@
 import { Expense } from '../../types/model';
 
-export const CREATE_EXPENSE = 'CREATE_EXPENSE';
+const CREATE_EXPENSE = 'CREATE_EXPENSE';
+export default CREATE_EXPENSE;
 
-interface CreateExpenseAction {
+export interface CreateExpenseAction {
   type: typeof CREATE_EXPENSE;
   expense: Expense;
 }

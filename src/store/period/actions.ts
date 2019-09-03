@@ -1,7 +1,9 @@
-import { SELECT_PERIOD } from './types';
+import SELECT_PERIOD, { SelectPeriodAction } from './types';
 import { Period } from '../../types/model';
 
-export const selectPeriod = (period: Period) => ({
-  type: SELECT_PERIOD,
-  period,
-});
+export default function selectPeriod(period: Period): SelectPeriodAction {
+  return {
+    type: SELECT_PERIOD,
+    period,
+  };
+}

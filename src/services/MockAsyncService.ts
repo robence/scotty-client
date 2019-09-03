@@ -1,9 +1,8 @@
-const asyncService = (self: any, time = 1234) => {
-  return new Promise((resolve) => {
+const asyncService = (data: any, time = 1234): Promise<any> =>
+  new Promise((resolve): void => {
     setTimeout(() => {
-      resolve(self);
+      resolve(data);
     }, time);
   });
-};
 
 export default asyncService;

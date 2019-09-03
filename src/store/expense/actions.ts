@@ -1,7 +1,9 @@
-import { CREATE_EXPENSE } from './types';
+import CREATE_EXPENSE, { CreateExpenseAction } from './types';
 import { Expense } from '../../types/model';
 
-export const createExpense = (expense: Expense) => ({
-  type: CREATE_EXPENSE,
-  expense,
-});
+export default function createExpense(expense: Expense): CreateExpenseAction {
+  return {
+    type: CREATE_EXPENSE,
+    expense,
+  };
+}

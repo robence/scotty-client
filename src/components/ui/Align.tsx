@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 type AlignType = 'horizontal' | 'vertical';
@@ -10,14 +10,14 @@ type StyledProps = {
 };
 
 type AlignProps = {
-  children: JSX.Element[];
+  children: ReactNode[];
 } & StyledProps;
 
 export default function AlignComponent({
   children,
   type = 'horizontal',
   content = 'between',
-}: AlignProps) {
+}: AlignProps): JSX.Element {
   return (
     <Align type={type} content={content}>
       {children}
@@ -25,12 +25,17 @@ export default function AlignComponent({
   );
 }
 
+AlignComponent.defaultProps = {
+  type: 'horizontal',
+  content: 'between',
+};
+
 const Align = styled.div`
   width: 100%;
   display: flex;
-  justify-content: ${({ content }: StyledProps) =>
+  justify-content: ${({ content }: StyledProps): string =>
     content === 'evenly' ? 'space-evenly' : 'space-between'};
 
-  flex-direction: ${({ type }: StyledProps) =>
+  flex-direction: ${({ type }: StyledProps): string =>
     type === 'vertical' ? 'column' : 'row'};
 `;

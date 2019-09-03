@@ -3,29 +3,26 @@ import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import CreateExpenseFormComponent from './CreateExpenseFormComponent';
 import { State } from '../../../store/initialState';
-import * as expenseActionCreators from '../../../store/expense/actions';
+import createExpense from '../../../store/expense/actions';
 import * as accountActionCreators from '../../../store/account/actions';
 import { useRadio, useCategory, useTags, useAmount } from '../hooks';
 import { genId } from '../../../utils';
 
-export default function CreateExpenseFormContainer() {
+export default function CreateExpenseFormContainer(): JSX.Element {
   const { categories, tags, accountList, selectedAccount } = useSelector(
-    ({ accountList, categories, tags, selectedAccount }: State) => ({
-      categories,
-      tags,
-      accountList,
-      selectedAccount,
-    }),
+    (state: State) => state,
   );
 
   const dispatch = useDispatch();
-  const { createExpense, selectAccount } = bindActionCreators(
-    { ...expenseActionCreators, ...accountActionCreators },
+  const boundActionsCreators = bindActionCreators(
+    { createExpense, ...accountActionCreators },
     dispatch,
   );
 
   const accountOptions = Object.values(accountList);
-  const handleAccountSelect = (id: number) => selectAccount(accountList[id]);
+  const handleAccountSelect = (id: number): void => {
+    boundActionsCreators.selectAccount(accountList[id]);
+  };
 
   const tag = useTags(tags);
   const radio = useRadio();
@@ -38,7 +35,7 @@ export default function CreateExpenseFormContainer() {
     onChange: handleAccountSelect,
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (): void => {
     const tagIds = tag.selected.map((name: string) => tags.byNames[name].id);
     const signedAmount =
       radio.selected === '-'
@@ -53,7 +50,7 @@ export default function CreateExpenseFormContainer() {
       tagIds,
       createdTs: new Date(),
     };
-    createExpense(newExpense);
+    boundActionsCreators.createExpense(newExpense);
   };
 
   return (

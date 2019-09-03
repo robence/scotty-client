@@ -1,7 +1,10 @@
-import { CREATE_TAG, TagActionTypes } from './types';
+import CREATE_TAG, { TagActionTypes } from './types';
 import { State } from '../initialState';
 
-export function tagReducer(state: State, { type, tag }: TagActionTypes) {
+export default function tagReducer(
+  state: State,
+  { type, tag }: TagActionTypes,
+): State {
   switch (type) {
     case CREATE_TAG:
       return {

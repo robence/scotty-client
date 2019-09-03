@@ -1,4 +1,5 @@
 import { Expense } from '../../../types/model';
 
-export const sumExpenses = (expenseArray: Expense[]): number =>
-  expenseArray.reduce((sum, { amount }) => sum + amount, 0);
+export default function sumExpenses(expenseArray: Expense[]): number {
+  return expenseArray.reduce((sum, { amount }) => sum + amount, 0);
+}

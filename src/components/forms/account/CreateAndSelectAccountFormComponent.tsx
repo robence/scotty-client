@@ -21,14 +21,14 @@ export default function CreateAndSelectAccountFormComponent({
   handleChange,
   handleCreate,
   handleSelect,
-}: CreateAndSelectAccountProps) {
+}: CreateAndSelectAccountProps): JSX.Element {
   return (
     <Align>
       <AutoComplete
         style={{ width: 200 }}
         dataSource={dataSource}
         placeholder="Type to create a new account:"
-        allowClear={true}
+        allowClear
         value={input}
         onChange={handleChange}
       />

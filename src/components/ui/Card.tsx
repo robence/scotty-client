@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { spaces } from '../../consts';
-
-type CardProps = {
-  children: JSX.Element;
-} & StyledProps;
 
 type StyledProps = {
   width?: string;
 };
+
+type CardProps = {
+  children: ReactNode;
+} & StyledProps;
 
 export default function CardComponent({
   children,
@@ -17,10 +17,14 @@ export default function CardComponent({
   return <Card width={width}>{children}</Card>;
 }
 
+CardComponent.defaultProps = {
+  width: 'fit-content',
+};
+
 const Card = styled.div`
   min-width: 300px;
   height: fit-content;
-  width: ${({ width }: StyledProps) => width || 'fit-content'};
+  width: ${({ width }: StyledProps): string => width || 'fit-content'};
 
   margin: ${spaces.l};
   background-color: white;

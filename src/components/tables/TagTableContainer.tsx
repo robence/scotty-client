@@ -1,19 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Table from './TableComponent';
 import { State } from '../../store/initialState';
-import { useSelector } from 'react-redux';
-import { columns } from './column-configurations/tag';
+import columns from './column-configurations/tag';
 import { groupExpensesByTag, createTagDataSource } from './helpers/tag';
 import { filterExpenses } from './helpers/common';
 
-export default function Container() {
+export default function Container(): JSX.Element {
   const { tags, expenses, selectedAccount, selectedPeriod } = useSelector(
-    ({ tags, expenses, selectedAccount, selectedPeriod }: State) => ({
-      tags,
-      expenses,
-      selectedAccount,
-      selectedPeriod,
-    }),
+    (state: State) => state,
   );
 
   const filteredExpenses = filterExpenses(
@@ -25,7 +20,7 @@ export default function Container() {
   const categorizedExpenses = groupExpensesByTag(
     Object.values(filteredExpenses),
   );
-  
+
   const dataSource = createTagDataSource(categorizedExpenses, tags);
 
   return <Table columns={columns} dataSource={dataSource} />;

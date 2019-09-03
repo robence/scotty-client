@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { colors, spaces, headerSize } from '../consts';
 import Logo from '../components/ui/Logo';
 
-export default function HeaderComponent() {
+export default function HeaderComponent(): JSX.Element {
   return (
     <Header>
       <Logo />

@@ -10,11 +10,11 @@ type TableComponentProps = {
 
   dataSource: { key: number; [props: string]: any | any[] }[];
 };
-
+/* eslint-disable-next-line */
 export default function TableComponent({
   columns,
   dataSource,
-}: TableComponentProps) {
+}: TableComponentProps): JSX.Element {
   return (
     <Table
       size="small"

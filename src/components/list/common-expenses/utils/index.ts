@@ -40,28 +40,25 @@ export const groupCommonExpenseIdsByCount = (
   expenses: GroupedCommonExpenses,
 ): ExpensesByCount =>
   Object.entries(expenses).reduce(
-    (countReferences: ExpensesByCount, [key, { count, expense }]) => {
-      return {
-        ...countReferences,
-        [count]: !countReferences[count]
-          ? [key]
-          : [...countReferences[count], key],
-      };
-    },
+    (countReferences: ExpensesByCount, [key, { count }]) => ({
+      ...countReferences,
+      [count]: !countReferences[count]
+        ? [key]
+        : [...countReferences[count], key],
+    }),
     {},
   );
 
 export const sortExpenseIdsByCount = (expenses: ExpensesByCount): string[] => {
-  const comparator = (a: number, b: number) => (a > b ? a : b);
+  const comparator = (a: number, b: number): number => (a > b ? a : b);
   const sortedIds: number[] = Object.keys(expenses)
     .map((num) => Number(num))
     .sort(comparator)
     .reverse();
 
   return sortedIds.reduce(
-    (memo: string[], id: number) => {
-      return !memo ? expenses[id] : [...memo, ...expenses[id]];
-    },
-    [] as string[],
+    (memo: string[], id: number) =>
+      !memo ? expenses[id] : [...memo, ...expenses[id]],
+    [],
   );
 };

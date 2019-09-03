@@ -1,19 +1,19 @@
 import React from 'react';
-import { ExpensePopulated } from '../../types/model';
 import { Tag } from 'antd';
 import styled from 'styled-components';
+import { ExpensePopulated } from '../../types/model';
 
 export default function Expense({
   item: { amount, category, tags },
 }: {
   item: ExpensePopulated;
-}) {
+}): JSX.Element {
   return (
     <Inline>
       <h2>{amount}</h2>
       <h3>{category.name}</h3>
       <div>
-        {tags.map(({name, id}) => (
+        {tags.map(({ name, id }) => (
           <Tag color="blue" key={id}>
             {name.toUpperCase()}
           </Tag>

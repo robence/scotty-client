@@ -8,7 +8,8 @@ export default function useRadio(): FormElementProps {
     { id: '+', name: 'Income' },
   ];
   const [radioId, setRadio] = useState('-');
-  const handleRadioSelect = (e: RadioChangeEvent) => setRadio(e.target.value);
+  const handleRadioSelect = (e: RadioChangeEvent): void =>
+    setRadio(e.target.value);
 
   return {
     selected: radioId,

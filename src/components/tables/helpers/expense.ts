@@ -7,11 +7,11 @@ type ExpenseDataItem = { key: number } & {
   created: string;
 };
 
-export const createExpenseDataSource = (
+export default function createExpenseDataSource(
   expenses: Expense[],
   categories: CategoryList,
   tags: TagList,
-): ExpenseDataItem[] => {
+): ExpenseDataItem[] {
   return expenses.map(({ id, amount, categoryId, tagIds, createdTs }) => {
     const category = categories[categoryId];
     const tagNames = tagIds.map((tagId) => tags.byIds[tagId].name);
@@ -24,4 +24,4 @@ export const createExpenseDataSource = (
       created: createdTs.toDateString(),
     };
   });
-};
+}

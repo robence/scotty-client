@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { spaces } from '../../consts/index';
 
 type WithHeadingType = {
   title: string;
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 const Container = styled.div`
@@ -18,7 +18,7 @@ const Hr = styled.hr`
 export default function WithTitleComponent({
   title,
   children,
-}: WithHeadingType) {
+}: WithHeadingType): JSX.Element {
   return (
     <Container>
       <h2>{title}</h2>

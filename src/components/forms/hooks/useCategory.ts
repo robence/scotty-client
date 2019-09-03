@@ -7,7 +7,7 @@ export default function useCategory(
 ): FormElementProps {
   const [categoryId, setCategory] = useState(categories[0].id);
   const categoryOptions = Object.values(categories);
-  const handleCategorySelect = (id: number) => setCategory(id);
+  const handleCategorySelect = (id: number): void => setCategory(id);
 
   return {
     selected: categoryId,

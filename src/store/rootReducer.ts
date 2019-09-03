@@ -1,9 +1,9 @@
 import initialState, { State } from './initialState';
 
-import { accountReducer } from './account/reducer';
-import { tagReducer } from './tag/reducer';
-import { expenseReducer } from './expense/reducer';
-import { periodReducer } from './period/reducer';
+import accountReducer from './account/reducer';
+import tagReducer from './tag/reducer';
+import expenseReducer from './expense/reducer';
+import periodReducer from './period/reducer';
 
 const reducers = [accountReducer, tagReducer, expenseReducer, periodReducer];
 

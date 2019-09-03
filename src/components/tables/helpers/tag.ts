@@ -2,24 +2,20 @@ import { TagList, Expense } from '../../../types/model';
 
 export const groupExpensesByTag = (
   expenses: Expense[],
-): { [key: number]: number } => {
-  return expenses.reduce(
-    (memo: { [tagId: number]: number }, { tagIds, amount }: Expense) => {
-      return tagIds.reduce(
-        (groupedExpenses: { [tagId: number]: number }, tagId: number) => {
-          return {
-            ...groupedExpenses,
-            [tagId]: groupedExpenses[tagId]
-              ? groupedExpenses[tagId] + amount
-              : amount,
-          };
-        },
+): { [key: number]: number } =>
+  expenses.reduce(
+    (memo: { [tagId: number]: number }, { tagIds, amount }: Expense) =>
+      tagIds.reduce(
+        (groupedExpenses: { [tagId: number]: number }, tagId: number) => ({
+          ...groupedExpenses,
+          [tagId]: groupedExpenses[tagId]
+            ? groupedExpenses[tagId] + amount
+            : amount,
+        }),
         memo,
-      );
-    },
+      ),
     {},
   );
-};
 
 type TagDataItem = { key: number } & {
   amount: number;

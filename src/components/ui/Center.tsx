@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 type CenterProps = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
-export default function CenteredComponent({ children }: CenterProps) {
+export default function CenteredComponent({
+  children,
+}: CenterProps): JSX.Element {
   return <Center>{children}</Center>;
 }
 
