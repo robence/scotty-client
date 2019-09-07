@@ -1,4 +1,4 @@
-export const objectify = (list: any, prop = 'id'): any =>
+export const objectify = (list: any, prop = '_id'): any =>
   list.reduce(
     (memo: { [key: number]: any }, acc: any) => ({
       ...memo,
@@ -10,15 +10,15 @@ export const objectify = (list: any, prop = 'id'): any =>
 export const generateArray = (
   size: number,
   name: string,
-): { id: number; name: string }[] =>
+): { _id: string; name: string }[] =>
   Array(size)
     .fill(null)
-    .map((_, id) => ({ id, name: `${name}${id + 1}` }));
+    .map((_, id) => ({ _id: id.toString(), name: `${name}${id + 1}` }));
 
 export const generateObject = (
   size: number,
   name: string,
 ): { [key: string]: any } => objectify(generateArray(size, name));
 
-export const genId = (from: number): number =>
-  Math.floor(Math.random() * 999 + from + 1);
+export const genId = (from: number): string =>
+  Math.floor(Math.random() * 999 + from + 1).toString();

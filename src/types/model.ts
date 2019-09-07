@@ -1,5 +1,5 @@
-type Base = {
-  id: number;
+export type Base = {
+  _id: string;
   name: string;
 };
 
@@ -9,11 +9,11 @@ export type Account = Base;
 export type Period = Base;
 
 export type Expense = {
-  id: number;
+  _id: string;
   amount: number;
-  categoryId: number;
-  tagIds: number[];
-  accountId: number;
+  categoryId: string;
+  tagIds: string[];
+  accountId: string;
   createdTs: Date;
 };
 
@@ -24,11 +24,11 @@ export type ExpensePopulated = {
 };
 
 export type TagList = {
-  byIds: { [key: number]: Tag };
+  byIds: { [key: string]: Tag };
   byNames: { [key: string]: Tag };
 };
 
-export type CategoryList = { [key: number]: Account };
-export type ExpenseList = { [key: number]: Expense };
-export type AccountList = { [key: number]: Account };
-export type PeriodList = { [key: number]: Period };
+export type CategoryList = { [key: string]: Category };
+export type ExpenseList = { [key: string]: Expense };
+export type AccountList = { [key: string]: Account };
+export type PeriodList = { [key: string]: Period };

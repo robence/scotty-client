@@ -8,7 +8,7 @@ type TableComponentProps = {
     key: string;
   }[];
 
-  dataSource: { key: number; [props: string]: any | any[] }[];
+  dataSource: { key: string; [props: string]: any | any[] }[];
 };
 /* eslint-disable-next-line */
 export default function TableComponent({

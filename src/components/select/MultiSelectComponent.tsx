@@ -1,10 +1,10 @@
 import React from 'react';
 import { Select } from 'antd';
-import { IdNameTuple } from '../../types/form';
+import { Base } from '../../types/model';
 
 type PresenterType = {
   selected: string[];
-  options: IdNameTuple[];
+  options: Base[];
   handleSelect: (e: string[]) => void;
   placeholder: string;
 };
@@ -23,8 +23,8 @@ export default function MultiSelectComponent({
       onChange={handleSelect}
       style={{ width: '100%' }}
     >
-      {options.map(({ id, name }) => (
-        <Select.Option key={id} value={name}>
+      {options.map(({ _id, name }) => (
+        <Select.Option key={_id} value={name}>
           {name}
         </Select.Option>
       ))}

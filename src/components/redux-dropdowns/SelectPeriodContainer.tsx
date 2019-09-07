@@ -10,13 +10,13 @@ export default function SelectPeriodContainer(): JSX.Element {
   const { selectedPeriod, periodList } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const boundSelectPeriod = bindActionCreators(selectPeriod, dispatch);
-  const handlePeriodSelect = (id: number): void => {
+  const handlePeriodSelect = (id: string): void => {
     boundSelectPeriod(periodList[id]);
   };
 
   const period: FormElementProps = {
     options: Object.values(periodList),
-    selected: selectedPeriod.id,
+    selected: selectedPeriod._id,
     onChange: handlePeriodSelect,
   };
 

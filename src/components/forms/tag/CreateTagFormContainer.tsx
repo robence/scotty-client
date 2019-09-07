@@ -20,7 +20,7 @@ export default function CreateTagFormContainer(): JSX.Element {
   const disabled = tagExists || input === '';
 
   const handleSubmit = (): void => {
-    boundCreateTag({ id: genId(20), name: input });
+    boundCreateTag({ _id: genId(20), name: input });
     message.success(`Tag ${input} was successfully created`);
     setInput('');
   };

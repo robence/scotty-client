@@ -1,13 +1,9 @@
 import { MouseEvent } from 'react';
-
-export type IdNameTuple = {
-  id: string | number;
-  name: string;
-};
+import { Base } from './model';
 
 export type FormElementProps = {
   selected: any;
-  options: IdNameTuple[];
+  options: Base[];
   onChange: (e: any) => void;
 };
 

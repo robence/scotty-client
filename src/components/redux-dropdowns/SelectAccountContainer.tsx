@@ -23,7 +23,7 @@ export default function SelectAccountContainer(): JSX.Element {
 
   const account: FormElementProps = {
     options: Object.values(accountList),
-    selected: selectedAccount.id,
+    selected: selectedAccount._id,
     onChange: handleAccountSelect,
   };
 

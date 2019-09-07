@@ -1,5 +1,4 @@
 import {
-  categories,
   tags,
   expenses,
   accountList,
@@ -26,6 +25,7 @@ export type State = {
   categories: CategoryList;
   tags: TagList;
   expenses: ExpenseList;
+  loading: boolean;
 };
 
 const selectedAccount = Object.values(accountList)[0];
@@ -36,9 +36,10 @@ const initialState: State = {
   selectedAccount,
   periodList,
   accountList,
-  categories,
+  categories: {},
   tags,
   expenses,
+  loading: false,
 };
 
 export default initialState;

@@ -24,7 +24,7 @@ export default function CommonExpensesListContainer(): JSX.Element {
 
   const accountExpenses = filterExpensesByAccount(
     Object.values(expenses),
-    selectedAccount.id,
+    selectedAccount._id,
   );
 
   const groupedExpenses = groupCommonExpenses(accountExpenses);
@@ -42,11 +42,11 @@ export default function CommonExpensesListContainer(): JSX.Element {
 
   const onClick = (item: ExpensePopulated) => (): void => {
     const expense: Expense = {
-      id: genId(20),
+      _id: genId(20),
       amount: item.amount,
-      categoryId: item.category.id,
-      tagIds: item.tags.map(({ id }) => id),
-      accountId: selectedAccount.id,
+      categoryId: item.category._id,
+      tagIds: item.tags.map(({ _id }) => _id),
+      accountId: selectedAccount._id,
       createdTs: new Date(),
     };
 

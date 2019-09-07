@@ -12,8 +12,8 @@ export default function MoneyFlow(): JSX.Element {
 
   const accountExpenses = filterExpenses(
     Object.values(expenses),
-    selectedAccount.id,
-    selectedPeriod.id,
+    selectedAccount._id,
+    selectedPeriod._id,
   );
 
   const moneyFlow = sumExpenses(accountExpenses);

@@ -9,7 +9,7 @@ export default function tagReducer(
     case CREATE_TAG:
       return {
         ...state,
-        tags: { ...state.tags, [tag.id]: tag },
+        tags: { ...state.tags, [tag._id]: tag },
       };
     default:
       return state;

@@ -4,8 +4,8 @@ import { FormElementProps } from '../../../types/form';
 
 export default function useRadio(): FormElementProps {
   const radioOptions = [
-    { id: '-', name: 'Expense' },
-    { id: '+', name: 'Income' },
+    { _id: '-', name: 'Expense' },
+    { _id: '+', name: 'Income' },
   ];
   const [radioId, setRadio] = useState('-');
   const handleRadioSelect = (e: RadioChangeEvent): void =>

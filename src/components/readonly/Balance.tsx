@@ -9,7 +9,7 @@ export default function Balance(): JSX.Element {
 
   const accountExpenses = filterExpensesByAccount(
     Object.values(expenses),
-    selectedAccount.id,
+    selectedAccount._id,
   );
 
   const balance = sumExpenses(accountExpenses);

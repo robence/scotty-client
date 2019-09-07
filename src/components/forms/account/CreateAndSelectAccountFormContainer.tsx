@@ -39,7 +39,7 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
       handleChange={(e): void => setInput(e)}
       handleCreate={(): void => {
         createAccount({
-          id: genId(20),
+          _id: genId(20),
           name: input,
         });
       }}
@@ -47,7 +47,7 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
         const accountSelected = Object.values(accountList).find(
           ({ name }) => name === input,
         );
-        selectAccount(accountSelected || { id: 2, name: 'Account3' });
+        selectAccount(accountSelected || { _id: '2', name: 'Account3' });
       }}
       disabled={selectDisabled}
     />

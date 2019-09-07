@@ -1,6 +1,6 @@
 import { Expense, CategoryList, TagList } from '../../../types/model';
 
-type ExpenseDataItem = { key: number } & {
+type ExpenseDataItem = { key: string } & {
   amount: number;
   category: string;
   tags: string[];
@@ -12,13 +12,13 @@ export default function createExpenseDataSource(
   categories: CategoryList,
   tags: TagList,
 ): ExpenseDataItem[] {
-  return expenses.map(({ id, amount, categoryId, tagIds, createdTs }) => {
+  return expenses.map(({ _id, amount, categoryId, tagIds, createdTs }) => {
     const category = categories[categoryId];
     const tagNames = tagIds.map((tagId) => tags.byIds[tagId].name);
 
     return {
       amount,
-      key: id,
+      key: _id,
       category: category ? category.name : '',
       tags: tagNames,
       created: createdTs.toDateString(),

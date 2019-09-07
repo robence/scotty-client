@@ -1,12 +1,12 @@
-import { ExpenseList, CategoryList } from '../../../types/model';
+import { Expense, CategoryList } from '../../../types/model';
 
 export const groupExpensesByCategory = (
-  expenses: ExpenseList,
-): { [key: number]: number } =>
-  Object.values(expenses).reduce(
+  expenses: Expense[],
+): { [key: string]: number } =>
+  expenses.reduce(
     (
-      memo: { [categoryId: number]: number },
-      { amount, categoryId }: { amount: number; categoryId: number },
+      memo: { [categoryId: string]: number },
+      { amount, categoryId }: { amount: number; categoryId: string },
     ) => ({
       ...memo,
       [categoryId]: memo[categoryId] ? memo[categoryId] + amount : amount,
@@ -14,14 +14,14 @@ export const groupExpensesByCategory = (
     {},
   );
 
-type CategoryDataItem = { key: number } & {
+type CategoryDataItem = { key: string } & {
   amount: number;
   category: string;
 };
 
 export const createCategoryDataSource = (
   categorizedExpenses: {
-    [key: number]: number;
+    [key: string]: number;
   },
   categories: CategoryList,
 ): CategoryDataItem[] =>
@@ -29,7 +29,7 @@ export const createCategoryDataSource = (
     const category = categories[Number(categoryId)];
     return {
       amount,
-      key: Number(categoryId),
+      key: categoryId,
       category: category ? category.name : '',
     };
   });

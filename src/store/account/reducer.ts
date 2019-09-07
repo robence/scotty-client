@@ -17,7 +17,7 @@ export default function accountReducer(
         selectedAccount: account,
         accountList: {
           ...state.accountList,
-          [account.id]: account,
+          [account._id]: account,
         },
       };
     default:

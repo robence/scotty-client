@@ -1,13 +1,18 @@
 import { useState } from 'react';
-import { CategoryList } from '../../../types/model';
+import { CategoryList, Category } from '../../../types/model';
 import { FormElementProps } from '../../../types/form';
 
 export default function useCategory(
   categories: CategoryList,
 ): FormElementProps {
-  const [categoryId, setCategory] = useState(categories[0].id);
-  const categoryOptions = Object.values(categories);
-  const handleCategorySelect = (id: number): void => setCategory(id);
+  const categoryList: Category[] = Object.values(categories);
+
+  const [categoryId, setCategory] = useState(
+    // !categoryList ? '' : categoryList[0]._id,
+    '',
+  );
+  const categoryOptions = categoryList;
+  const handleCategorySelect = (id: string): void => setCategory(id);
 
   return {
     selected: categoryId,

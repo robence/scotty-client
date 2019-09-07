@@ -7,6 +7,7 @@ import createExpense from '../../../store/expense/actions';
 import * as accountActionCreators from '../../../store/account/actions';
 import { useRadio, useCategory, useTags, useAmount } from '../hooks';
 import { genId } from '../../../utils';
+import { Expense } from '../../../types/model';
 
 export default function CreateExpenseFormContainer(): JSX.Element {
   const { categories, tags, accountList, selectedAccount } = useSelector(
@@ -20,7 +21,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
   );
 
   const accountOptions = Object.values(accountList);
-  const handleAccountSelect = (id: number): void => {
+  const handleAccountSelect = (id: string): void => {
     boundActionsCreators.selectAccount(accountList[id]);
   };
 
@@ -30,23 +31,23 @@ export default function CreateExpenseFormContainer(): JSX.Element {
   const amount = useAmount();
 
   const account = {
-    selected: selectedAccount.id,
+    selected: selectedAccount._id,
     options: accountOptions,
     onChange: handleAccountSelect,
   };
 
   const handleSubmit = (): void => {
-    const tagIds = tag.selected.map((name: string) => tags.byNames[name].id);
+    const tagIds = tag.selected.map((name: string) => tags.byNames[name]._id);
     const signedAmount =
       radio.selected === '-'
         ? amount.unsignedAmount * -1
         : amount.unsignedAmount;
 
-    const newExpense = {
-      id: genId(100),
+    const newExpense: Expense = {
+      _id: genId(100),
       amount: signedAmount,
       categoryId: category.selected,
-      accountId: selectedAccount.id,
+      accountId: selectedAccount._id,
       tagIds,
       createdTs: new Date(),
     };

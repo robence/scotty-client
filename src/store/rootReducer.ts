@@ -4,8 +4,15 @@ import accountReducer from './account/reducer';
 import tagReducer from './tag/reducer';
 import expenseReducer from './expense/reducer';
 import periodReducer from './period/reducer';
+import categoryReducer from './category/reducer';
 
-const reducers = [accountReducer, tagReducer, expenseReducer, periodReducer];
+const reducers = [
+  accountReducer,
+  tagReducer,
+  expenseReducer,
+  periodReducer,
+  categoryReducer,
+];
 
 // the reducer is called whenever a dispatch action is made.
 // the action.type is a string which maps to a function in Actions.

@@ -2,7 +2,7 @@ import { Expense } from '../../../types/model';
 
 export const filterExpensesByAccount = (
   expenses: Expense[],
-  id: number,
+  id: string,
 ): Expense[] => expenses.filter(({ accountId }) => accountId === id);
 
 const filterExpensesByPeriod = (
@@ -12,11 +12,11 @@ const filterExpensesByPeriod = (
 
 export const filterExpenses = (
   expenses: Expense[],
-  accountId: number,
-  periodId: number,
+  accountId: string,
+  periodIdString: string,
 ): Expense[] => {
   const x = filterExpensesByAccount(expenses, accountId);
-
+  const periodId = Number(periodIdString);
   if (periodId === -1) {
     return x;
   }

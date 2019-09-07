@@ -1,16 +1,16 @@
 import { generateArray, generateObject, objectify } from '../utils';
 import {
-  CategoryList,
+  // CategoryList,
   TagList,
   ExpenseList,
   AccountList,
   PeriodList,
 } from '../types/model';
 
-export const categories: CategoryList = generateArray(10, 'Category');
+// export const categories: CategoryList = generateArray(10, 'Category');
 export const tagArray = generateArray(10, 'Tag');
 export const tags: TagList = {
-  byIds: objectify(tagArray, 'id'),
+  byIds: objectify(tagArray),
   byNames: objectify(tagArray, 'name'),
 };
 
@@ -27,11 +27,11 @@ const createDate = (differenceInMinutes: number): Date => {
   return tempDate;
 };
 export const periodList: PeriodList = objectify([
-  { id: DAY_IN_MINUTES, name: 'Last day' },
-  { id: WEEK_IN_MINUTES, name: 'Last 7 days' },
-  { id: MONTH_IN_MINUTES, name: 'Last 30 days' },
-  { id: YEAR_IN_MINUTES, name: 'Last 365 days' },
-  { id: -1, name: 'Full history' },
+  { _id: DAY_IN_MINUTES, name: 'Last day' },
+  { _id: WEEK_IN_MINUTES, name: 'Last 7 days' },
+  { _id: MONTH_IN_MINUTES, name: 'Last 30 days' },
+  { _id: YEAR_IN_MINUTES, name: 'Last 365 days' },
+  { _id: -1, name: 'Full history' },
 ]);
 
 export const expenses: ExpenseList = objectify(

@@ -17,8 +17,8 @@ export default function Container(): JSX.Element {
 
   const filteredExpenses = filterExpenses(
     Object.values(expenses),
-    selectedAccount.id,
-    selectedPeriod.id,
+    selectedAccount._id,
+    selectedPeriod._id,
   );
 
   const dataSource = createExpenseDataSource(

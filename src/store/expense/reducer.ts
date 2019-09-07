@@ -11,7 +11,7 @@ export default function expenseReducer(
         ...state,
         expenses: {
           ...state.expenses,
-          [expense.id]: expense,
+          [expense._id]: expense,
         },
       };
     default:

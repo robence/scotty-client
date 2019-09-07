@@ -2,11 +2,11 @@ import { TagList, Expense } from '../../../types/model';
 
 export const groupExpensesByTag = (
   expenses: Expense[],
-): { [key: number]: number } =>
+): { [key: string]: number } =>
   expenses.reduce(
     (memo: { [tagId: number]: number }, { tagIds, amount }: Expense) =>
       tagIds.reduce(
-        (groupedExpenses: { [tagId: number]: number }, tagId: number) => ({
+        (groupedExpenses: { [tagId: string]: number }, tagId: string) => ({
           ...groupedExpenses,
           [tagId]: groupedExpenses[tagId]
             ? groupedExpenses[tagId] + amount
@@ -17,22 +17,22 @@ export const groupExpensesByTag = (
     {},
   );
 
-type TagDataItem = { key: number } & {
+type TagDataItem = { key: string } & {
   amount: number;
   tag: string;
 };
 
 export const createTagDataSource = (
   categorizedExpenses: {
-    [key: number]: number;
+    [key: string]: number;
   },
   tags: TagList,
 ): TagDataItem[] =>
   Object.entries(categorizedExpenses).map(([tagId, amount]) => {
-    const tag = tags.byIds[Number(tagId)];
+    const tag = tags.byIds[tagId];
     return {
       amount,
-      key: Number(tagId),
+      key: tagId,
       tag: tag ? tag.name : '',
     };
   });

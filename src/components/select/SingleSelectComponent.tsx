@@ -1,11 +1,11 @@
 import React, { SetStateAction } from 'react';
 import { Select } from 'antd';
-import { IdNameTuple } from '../../types/form';
+import { Base } from '../../types/model';
 
 type PresenterProps = {
   props: {
     selected: string;
-    options: IdNameTuple[];
+    options: Base[];
     onChange: (e: SetStateAction<string>) => void;
   };
 };
@@ -14,8 +14,8 @@ export default function SingleSelectComponent({
 }: PresenterProps): JSX.Element {
   return (
     <Select value={selected} onChange={onChange} style={{ width: '100%' }}>
-      {options.map(({ id, name }) => (
-        <Select.Option key={id} value={id}>
+      {options.map(({ _id, name }) => (
+        <Select.Option key={_id} value={_id}>
           {name}
         </Select.Option>
       ))}

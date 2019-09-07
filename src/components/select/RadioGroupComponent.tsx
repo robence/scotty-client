@@ -1,11 +1,11 @@
 import React from 'react';
 import { Radio } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
-import { IdNameTuple } from '../../types/form';
+import { Base } from '../../types/model';
 
 type PresenterType = {
   selected: string | number | string[];
-  options: IdNameTuple[];
+  options: Base[];
   handleSelect: (e: RadioChangeEvent) => void;
 };
 
@@ -16,8 +16,8 @@ export default function RadioGroupComponent({
 }: PresenterType): JSX.Element {
   return (
     <Radio.Group value={selected} onChange={handleSelect}>
-      {options.map(({ id, name }) => (
-        <Radio.Button key={id} value={id}>
+      {options.map(({ _id, name }) => (
+        <Radio.Button key={_id} value={_id}>
           {name}
         </Radio.Button>
       ))}
