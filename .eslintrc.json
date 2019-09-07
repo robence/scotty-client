@@ -3,6 +3,7 @@
     "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
     "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:jest/recommended"

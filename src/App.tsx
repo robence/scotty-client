@@ -7,10 +7,6 @@ import configureMessage from './configs/message';
 
 configureMessage();
 
-const App = styled.div`
-  background-color: rgb(224, 223, 223);
-  height: inherit;
-`;
 export default function AppComponent(): JSX.Element {
   return (
     <App>
@@ -21,3 +17,8 @@ export default function AppComponent(): JSX.Element {
     </App>
   );
 }
+
+const App = styled.div`
+  background-color: rgb(224, 223, 223);
+  height: inherit;
+`;
