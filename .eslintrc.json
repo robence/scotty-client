@@ -23,6 +23,9 @@
       "modules": true
     }
   },
+  "rules": {
+    "no-underscore-dangle": "off"
+  },
   "settings": {
     "import/resolver": {
       "node": {
