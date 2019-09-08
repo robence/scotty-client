@@ -1,10 +1,4 @@
-import {
-  // tags,
-  expenses,
-  // accountList,
-  periodList,
-  MONTH_IN_MINUTES,
-} from '../assets';
+import { periodList, MONTH_IN_MINUTES } from '../assets';
 import {
   CategoryList,
   TagList,
@@ -39,7 +33,7 @@ const initialState: State = {
   accountList: {},
   categories: {},
   tags: { byIds: {}, byNames: {} },
-  expenses,
+  expenses: {},
   loading: false,
 };
 

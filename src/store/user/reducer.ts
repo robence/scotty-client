@@ -4,7 +4,7 @@ import {
   USER_FETCH_SUCCESS,
 } from './types';
 import { State } from '../initialState';
-import { objectify } from '../../utils';
+import objectify from '../../utils';
 
 export default function categoryReducer(
   state: State,
