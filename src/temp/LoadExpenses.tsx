@@ -5,13 +5,13 @@ import { State } from '../store/initialState';
 import { expenseStart } from '../store/expense/actions';
 
 export default function LoadInitialState(): JSX.Element {
-  const { expenses } = useSelector((state: State) => state);
+  const { userId, expenses } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const boundExpenseStart = bindActionCreators(expenseStart, dispatch);
 
   useEffect(() => {
-    if (!Object.entries(expenses).length) {
-      boundExpenseStart();
+    if (userId && !Object.entries(expenses).length) {
+      boundExpenseStart(userId);
     }
   }, [expenses, boundExpenseStart]);
 

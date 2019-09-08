@@ -16,6 +16,7 @@ export default function categoryReducer(
     case USER_FETCH_SUCCESS:
       return {
         ...state,
+        userId: action.payload.user._id,
         selectedAccount: action.payload.user.accounts[0],
         accountList: objectify(action.payload.user.accounts),
         tags: {

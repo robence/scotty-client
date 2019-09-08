@@ -21,6 +21,6 @@ export function getUser(): Promise<GetCategoriesType> {
   return HttpService.get('/api/users/5d2cad1aac3af3d397f8659e');
 }
 
-export function getExpenses(): Promise<GetExpensesType> {
-  return HttpService.get('/api/expenses/user/5d2cad1aac3af3d397f8659e');
+export function getExpenses(userId: string): Promise<GetExpensesType> {
+  return HttpService.get(`/api/expenses/user/${userId}`);
 }

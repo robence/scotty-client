@@ -5,18 +5,22 @@ import { State } from '../store/initialState';
 import { userStart } from '../store/user/actions';
 
 export default function LoadInitialState(): JSX.Element {
-  const { accountList } = useSelector((state: State) => state);
+  const { accountList, categories } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const boundUserStart = bindActionCreators(userStart, dispatch);
 
   useEffect(() => {
-    const fetch = async (): Promise<void> => {
+    const fetchUserData = async (): Promise<void> => {
       boundUserStart();
     };
-    if (!Object.values(accountList).length) {
-      fetch();
+
+    if (
+      Object.values(categories).length &&
+      !Object.values(accountList).length
+    ) {
+      fetchUserData();
     }
-  }, [accountList, boundUserStart]);
+  }, [accountList, categories, boundUserStart]);
 
   return <></>;
 }

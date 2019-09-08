@@ -16,8 +16,8 @@ export default function createExpense(expense: Expense): CreateExpenseAction {
   };
 }
 
-export function expenseStart(): ExpenseFetchRequestAction {
-  return { type: EXPENSE_FETCH_REQUESTED };
+export function expenseStart(userId: string): ExpenseFetchRequestAction {
+  return { type: EXPENSE_FETCH_REQUESTED, userId };
 }
 
 export function expenseSuccess(

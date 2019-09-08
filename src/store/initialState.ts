@@ -12,6 +12,7 @@ import {
 // TODO: move effects to somewhere else
 
 export type State = {
+  userId: string;
   selectedAccount: Account;
   selectedPeriod: Period;
   periodList: PeriodList;
@@ -27,6 +28,7 @@ const selectedAccount = { _id: '-1', name: 'Not Selected' };
 const selectedPeriod = periodList[MONTH_IN_MINUTES];
 
 const initialState: State = {
+  userId: '',
   selectedPeriod,
   selectedAccount,
   periodList,

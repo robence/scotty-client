@@ -12,6 +12,7 @@ export interface CreateExpenseAction {
 
 export interface ExpenseFetchRequestAction {
   type: typeof EXPENSE_FETCH_REQUESTED;
+  userId: string;
 }
 
 export interface ExpenseFetchSuccessAction {
