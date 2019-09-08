@@ -8,6 +8,14 @@ export type Category = Base;
 export type Account = Base;
 export type Period = Base;
 
+export type User = {
+  _id: string;
+  username: string;
+  email: string;
+  tags: Tag[];
+  accounts: Account[];
+};
+
 export type Expense = {
   _id: string;
   amount: number;

@@ -7,13 +7,13 @@ import { categoryStart } from '../store/category/actions';
 export default function LoadInitialState(): JSX.Element {
   const { categories } = useSelector((state: State) => state);
   const dispatch = useDispatch();
-  const fetchCategories = bindActionCreators(categoryStart, dispatch);
+  const boundCategoryStart = bindActionCreators(categoryStart, dispatch);
 
   useEffect(() => {
-    if (Object.values(categories).length === 0) {
-      fetchCategories();
+    if (!Object.entries(categories).length) {
+      boundCategoryStart();
     }
-  }, [categories, fetchCategories]);
+  }, [categories, boundCategoryStart]);
 
   return <></>;
 }

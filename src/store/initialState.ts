@@ -1,7 +1,7 @@
 import {
-  tags,
+  // tags,
   expenses,
-  accountList,
+  // accountList,
   periodList,
   MONTH_IN_MINUTES,
 } from '../assets';
@@ -28,16 +28,17 @@ export type State = {
   loading: boolean;
 };
 
-const selectedAccount = Object.values(accountList)[0];
+// const selectedAccount = Object.values(accountList)[0];
+const selectedAccount = { _id: '-1', name: 'Not Selected' };
 const selectedPeriod = periodList[MONTH_IN_MINUTES];
 
 const initialState: State = {
   selectedPeriod,
   selectedAccount,
   periodList,
-  accountList,
+  accountList: {},
   categories: {},
-  tags,
+  tags: { byIds: {}, byNames: {} },
   expenses,
   loading: false,
 };

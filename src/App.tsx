@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Header from './layout/Header';
 import Main from './layout/Main';
 import configureMessage from './configs/message';
-import LoadInitialState from './temp/LoadInitialState';
+import LoadData from './temp';
 
 configureMessage();
 
@@ -12,7 +12,7 @@ export default function AppComponent(): JSX.Element {
   return (
     <App>
       <BrowserRouter>
-        <LoadInitialState />
+        <LoadData />
         <Header />
         <Main />
       </BrowserRouter>

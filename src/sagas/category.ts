@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { message } from 'antd';
 
 import { categorySuccess } from '../store/category/actions';
-import getCategories from '../api';
+import { getCategories } from '../api';
 import { CATEGORY_FETCH_REQUESTED } from '../store/category/types';
 
 function* fetchCategories() {

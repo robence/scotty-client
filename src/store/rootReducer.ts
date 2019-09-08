@@ -5,6 +5,7 @@ import tagReducer from './tag/reducer';
 import expenseReducer from './expense/reducer';
 import periodReducer from './period/reducer';
 import categoryReducer from './category/reducer';
+import userReducer from './user/reducer';
 
 const reducers = [
   accountReducer,
@@ -12,6 +13,7 @@ const reducers = [
   expenseReducer,
   periodReducer,
   categoryReducer,
+  userReducer,
 ];
 
 // the reducer is called whenever a dispatch action is made.
