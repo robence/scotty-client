@@ -49,7 +49,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
       categoryId: category.selected,
       accountId: selectedAccount._id,
       tagIds,
-      createdTs: new Date(),
+      createdAt: new Date(),
     };
     boundActionsCreators.createExpense(newExpense);
   };

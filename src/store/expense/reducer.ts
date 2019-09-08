@@ -6,6 +6,16 @@ import {
 } from './types';
 import { State } from '../initialState';
 import objectify from '../../utils';
+import { ExpenseList, Expense } from '../../types/model';
+
+function getExpenses(expenses: Expense[]): ExpenseList {
+  return objectify(
+    expenses.map(({ createdAt, ...rest }) => ({
+      ...rest,
+      createdAt: new Date(createdAt),
+    })),
+  );
+}
 
 export default function expenseReducer(
   state: State,
@@ -23,7 +33,7 @@ export default function expenseReducer(
     case EXPENSE_FETCH_REQUESTED:
       return { ...state, loading: true };
     case EXPENSE_FETCH_SUCCESS:
-      return { ...state, expenses: objectify(action.payload.expenses) };
+      return { ...state, expenses: getExpenses(action.payload.expenses) };
     default:
       return state;
   }

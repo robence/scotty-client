@@ -47,7 +47,7 @@ export default function CommonExpensesListContainer(): JSX.Element {
       categoryId: item.category._id,
       tagIds: item.tags.map(({ _id }) => _id),
       accountId: selectedAccount._id,
-      createdTs: new Date(),
+      createdAt: new Date(),
     };
 
     boundCreateExpense(expense);

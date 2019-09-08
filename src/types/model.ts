@@ -22,7 +22,7 @@ export type Expense = {
   categoryId: string;
   tagIds: string[];
   accountId: string;
-  createdTs: Date;
+  createdAt: Date;
 };
 
 export type ExpensePopulated = {

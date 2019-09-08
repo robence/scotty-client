@@ -12,7 +12,7 @@ export default function createExpenseDataSource(
   categories: CategoryList,
   tags: TagList,
 ): ExpenseDataItem[] {
-  return expenses.map(({ _id, amount, categoryId, tagIds, createdTs }) => {
+  return expenses.map(({ _id, amount, categoryId, tagIds, createdAt }) => {
     const category = categories[categoryId];
     const tagNames = tagIds.map((tagId) => tags.byIds[tagId].name);
 
@@ -21,7 +21,7 @@ export default function createExpenseDataSource(
       key: _id,
       category: category ? category.name : '',
       tags: tagNames,
-      created: createdTs.toDateString(),
+      created: createdAt.toDateString(),
     };
   });
 }
