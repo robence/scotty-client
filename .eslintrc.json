@@ -26,6 +26,14 @@
   "rules": {
     "no-underscore-dangle": "off"
   },
+  "overrides": [
+    {
+      "files": ["src/sagas/*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    }
+  ],
   "settings": {
     "import/resolver": {
       "node": {

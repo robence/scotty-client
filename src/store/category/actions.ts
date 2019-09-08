@@ -4,17 +4,17 @@ import {
   CategoryFetchRequestAction,
   CategoryFetchSuccessAction,
 } from './types';
-import { Category } from '../../types/model';
+import { GetCategoriesType } from '../../api';
 
 export function categoryStart(): CategoryFetchRequestAction {
   return { type: CATEGORY_FETCH_REQUESTED };
 }
 
 export function categorySuccess(
-  categories: Category[],
+  payload: GetCategoriesType,
 ): CategoryFetchSuccessAction {
   return {
     type: CATEGORY_FETCH_SUCCESS,
-    categories,
+    payload,
   };
 }

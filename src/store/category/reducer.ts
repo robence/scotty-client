@@ -16,7 +16,7 @@ export default function categoryReducer(
     case CATEGORY_FETCH_SUCCESS:
       return {
         ...state,
-        categories: objectify(action.categories),
+        categories: objectify(action.payload.categories),
         loading: false,
       };
     default:

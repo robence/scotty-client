@@ -12,10 +12,9 @@ export default function AppComponent(): JSX.Element {
   return (
     <App>
       <BrowserRouter>
-        <LoadInitialState>
-          <Header />
-          <Main />
-        </LoadInitialState>
+        <LoadInitialState />
+        <Header />
+        <Main />
       </BrowserRouter>
     </App>
   );

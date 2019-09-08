@@ -1,4 +1,4 @@
-import { Category } from '../../types/model';
+import { GetCategoriesType } from '../../api';
 
 export const CATEGORY_FETCH_REQUESTED = 'CATEGORY_FETCH_REQUESTED';
 export const CATEGORY_FETCH_SUCCESS = 'CATEGORY_FETCH_SUCCESS';
@@ -9,7 +9,7 @@ export interface CategoryFetchRequestAction {
 
 export interface CategoryFetchSuccessAction {
   type: typeof CATEGORY_FETCH_SUCCESS;
-  categories: Category[];
+  payload: GetCategoriesType;
 }
 
 export type CategoryActionTypes =
