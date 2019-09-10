@@ -4,7 +4,7 @@ import {
   UserFetchRequestAction,
   UserFetchSuccessAction,
 } from './types';
-import { GetUserType } from '../../api';
+import { GetUserType } from '../../types/dto';
 
 export function userStart(): UserFetchRequestAction {
   return { type: USER_FETCH_REQUESTED };

@@ -4,7 +4,7 @@ import {
   CategoryFetchRequestAction,
   CategoryFetchSuccessAction,
 } from './types';
-import { GetCategoriesType } from '../../api';
+import { GetCategoriesType } from '../../types/dto';
 
 export function categoryStart(): CategoryFetchRequestAction {
   return { type: CATEGORY_FETCH_REQUESTED };

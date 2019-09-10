@@ -1,9 +1,23 @@
-import CREATE_TAG, { CreateTagAction } from './types';
-import { Tag } from '../../types/model';
+import {
+  TagCreateRequestAction,
+  TagCreateSuccessAction,
+  TAG_CREATE_REQUESTED,
+  TAG_CREATE_SUCCESS,
+} from './types';
+import { TagCreateResponseDTO } from '../../types/dto';
 
-export default function createTag(tag: Tag): CreateTagAction {
+export function createTagStart(payload: {
+  userId: string;
+  name: string;
+}): TagCreateRequestAction {
+  return { type: TAG_CREATE_REQUESTED, payload };
+}
+
+export function createTagSuccess(
+  payload: TagCreateResponseDTO,
+): TagCreateSuccessAction {
   return {
-    type: CREATE_TAG,
-    tag,
+    type: TAG_CREATE_SUCCESS,
+    payload,
   };
 }

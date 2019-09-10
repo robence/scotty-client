@@ -1,5 +1,5 @@
 import { Expense } from '../../types/model';
-import { GetExpensesType } from '../../api';
+import { GetExpensesType } from '../../types/dto';
 
 export const CREATE_EXPENSE = 'CREATE_EXPENSE';
 export const EXPENSE_FETCH_REQUESTED = 'EXPENSE_FETCH_REQUESTED';

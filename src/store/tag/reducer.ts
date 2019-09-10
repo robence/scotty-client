@@ -1,15 +1,30 @@
-import CREATE_TAG, { TagActionTypes } from './types';
+import {
+  TagActionTypes,
+  TAG_CREATE_REQUESTED,
+  TAG_CREATE_SUCCESS,
+} from './types';
 import { State } from '../initialState';
 
 export default function tagReducer(
   state: State,
-  { type, tag }: TagActionTypes,
+  action: TagActionTypes,
 ): State {
-  switch (type) {
-    case CREATE_TAG:
+  switch (action.type) {
+    case TAG_CREATE_REQUESTED:
+      return { ...state, loading: true };
+    case TAG_CREATE_SUCCESS:
       return {
         ...state,
-        tags: { ...state.tags, [tag._id]: tag },
+        tags: {
+          byIds: {
+            ...state.tags.byIds,
+            [action.payload.tag._id]: action.payload.tag,
+          },
+          byNames: {
+            ...state.tags.byNames,
+            [action.payload.tag.name]: action.payload.tag,
+          },
+        },
       };
     default:
       return state;

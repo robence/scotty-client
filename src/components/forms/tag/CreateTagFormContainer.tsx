@@ -1,17 +1,15 @@
 import React, { useState, SetStateAction } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { message } from 'antd';
 import CreateTagFormComponent from './CreateTagFormComponent';
 import { State } from '../../../store/initialState';
-import createTag from '../../../store/tag/actions';
-import { genId } from '../../../utils';
+import { createTagStart } from '../../../store/tag/actions';
 
 export default function CreateTagFormContainer(): JSX.Element {
-  const { tags } = useSelector((state: State) => state);
+  const { tags, userId } = useSelector((state: State) => state);
 
   const dispatch = useDispatch();
-  const boundCreateTag = bindActionCreators(createTag, dispatch);
+  const boundCreateTag = bindActionCreators(createTagStart, dispatch);
 
   const [input, setInput] = useState('');
 
@@ -20,8 +18,7 @@ export default function CreateTagFormContainer(): JSX.Element {
   const disabled = tagExists || input === '';
 
   const handleSubmit = (): void => {
-    boundCreateTag({ _id: genId(20), name: input });
-    message.success(`Tag ${input} was successfully created`);
+    boundCreateTag({ userId, name: input });
     setInput('');
   };
   const handleChange = (e: SetStateAction<string>): void => setInput(e);

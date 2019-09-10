@@ -1,10 +1,16 @@
-import { Tag } from '../../types/model';
+import { TagCreateResponseDTO } from '../../types/dto';
 
-const CREATE_TAG = 'CREATE_TAG';
-export default CREATE_TAG;
-export interface CreateTagAction {
-  type: typeof CREATE_TAG;
-  tag: Tag;
+export const TAG_CREATE_REQUESTED = 'TAG_CREATE_REQUESTED';
+export const TAG_CREATE_SUCCESS = 'TAG_CREATE_SUCCESS';
+
+export interface TagCreateRequestAction {
+  type: typeof TAG_CREATE_REQUESTED;
+  payload: { userId: string; name: string };
 }
 
-export type TagActionTypes = CreateTagAction;
+export interface TagCreateSuccessAction {
+  type: typeof TAG_CREATE_SUCCESS;
+  payload: TagCreateResponseDTO;
+}
+
+export type TagActionTypes = TagCreateRequestAction | TagCreateSuccessAction;

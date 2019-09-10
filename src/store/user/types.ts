@@ -1,4 +1,4 @@
-import { GetUserType } from '../../api';
+import { GetUserType } from '../../types/dto';
 
 export const USER_FETCH_REQUESTED = 'USER_FETCH_REQUESTED';
 export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';

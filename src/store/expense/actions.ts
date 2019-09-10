@@ -7,7 +7,7 @@ import {
   EXPENSE_FETCH_SUCCESS,
 } from './types';
 import { Expense } from '../../types/model';
-import { GetExpensesType } from '../../api';
+import { GetExpensesType } from '../../types/dto';
 
 export default function createExpense(expense: Expense): CreateExpenseAction {
   return {

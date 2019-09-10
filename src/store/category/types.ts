@@ -1,4 +1,4 @@
-import { GetCategoriesType } from '../../api';
+import { GetCategoriesType } from '../../types/dto';
 
 export const CATEGORY_FETCH_REQUESTED = 'CATEGORY_FETCH_REQUESTED';
 export const CATEGORY_FETCH_SUCCESS = 'CATEGORY_FETCH_SUCCESS';
