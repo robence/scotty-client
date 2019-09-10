@@ -1,16 +1,34 @@
 import { Account } from '../../types/model';
+import { AccountCreateResponseDTO } from '../../types/dto';
 
-export const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
-export const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
+export const ACCOUNT_SELECT_REQUESTED = 'ACCOUNT_SELECT_REQUESTED';
+export const ACCOUNT_SELECT_SUCCESS = 'ACCOUNT_SELECT_SUCCESS';
 
-export interface SelectAccountAction {
-  type: typeof SELECT_ACCOUNT;
+export const ACCOUNT_CREATE_REQUESTED = 'ACCOUNT_CREATE_REQUESTED';
+export const ACCOUNT_CREATE_SUCCESS = 'ACCOUNT_CREATE_SUCCESS';
+
+export interface AccountSelectRequestAction {
+  type: typeof ACCOUNT_SELECT_REQUESTED;
   account: Account;
 }
 
-export interface CreateAccountAction {
-  type: typeof CREATE_ACCOUNT;
+export interface AccountSelectSuccessAction {
+  type: typeof ACCOUNT_SELECT_SUCCESS;
   account: Account;
 }
 
-export type AccountActionTypes = SelectAccountAction | CreateAccountAction;
+export interface AccountCreateRequestAction {
+  type: typeof ACCOUNT_CREATE_REQUESTED;
+  payload: { userId: string; name: string };
+}
+
+export interface AccountCreateSuccessAction {
+  type: typeof ACCOUNT_CREATE_SUCCESS;
+  payload: AccountCreateResponseDTO;
+}
+
+export type AccountActionTypes =
+  | AccountSelectRequestAction
+  | AccountSelectSuccessAction
+  | AccountCreateRequestAction
+  | AccountCreateSuccessAction;

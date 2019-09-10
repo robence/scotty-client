@@ -22,7 +22,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
 
   const accountOptions = Object.values(accountList);
   const handleAccountSelect = (id: string): void => {
-    boundActionsCreators.selectAccount(accountList[id]);
+    boundActionsCreators.selectAccountStart(accountList[id]);
   };
 
   const tag = useTags(tags);

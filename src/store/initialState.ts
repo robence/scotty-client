@@ -9,8 +9,6 @@ import {
   PeriodList,
 } from '../types/model';
 
-// TODO: move effects to somewhere else
-
 export type State = {
   userId: string;
   selectedAccount: Account;
@@ -23,7 +21,6 @@ export type State = {
   loading: boolean;
 };
 
-// const selectedAccount = Object.values(accountList)[0];
 const selectedAccount = { _id: '-1', name: 'Not Selected' };
 const selectedPeriod = periodList[MONTH_IN_MINUTES];
 

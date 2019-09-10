@@ -1,4 +1,4 @@
-import { Category, User, Expense, Tag } from './model';
+import { Category, User, Expense, Tag, Account } from './model';
 
 export type GetCategoriesType = {
   categories: Category[];
@@ -14,4 +14,8 @@ export type GetExpensesType = {
 
 export type TagCreateResponseDTO = {
   tag: Tag;
+};
+
+export type AccountCreateResponseDTO = {
+  account: Account;
 };

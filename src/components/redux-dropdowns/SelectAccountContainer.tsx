@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { SingleSelectComponent } from '../select';
@@ -9,9 +9,15 @@ import { FormElementProps } from '../../types/form';
 export default function SelectAccountContainer(): JSX.Element {
   const { selectedAccount, accountList } = useSelector((state: State) => state);
   const dispatch = useDispatch();
-  const { selectAccount } = bindActionCreators(accountActionCreators, dispatch);
-  const handleAccountSelect = (id: SetStateAction<string>): void => {
-    selectAccount(accountList[Number(id)]);
+  const boundActionCreators = bindActionCreators(
+    accountActionCreators,
+    dispatch,
+  );
+
+  const handleAccountSelect = (id: string): void => {
+    const account = accountList[id];
+    if (!account || !account._id) return;
+    boundActionCreators.selectAccountStart(account);
   };
 
   const account: FormElementProps = {

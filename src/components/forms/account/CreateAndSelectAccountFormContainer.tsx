@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
-import { message } from 'antd';
 import CreateAndSelectAccountFormComponent from './CreateAndSelectAccountFormComponent';
 import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';
-import { genId } from '../../../utils';
 
 export default function CreateAndSelectAccountFormContainer(): JSX.Element {
-  const { selectedAccount, accountList } = useSelector((state: State) => state);
+  const { selectedAccount, accountList, userId } = useSelector(
+    (state: State) => state,
+  );
   const dispatch = useDispatch();
-  const { createAccount, selectAccount } = bindActionCreators(
+  const boundActionCreators = bindActionCreators(
     accountActionCreators,
     dispatch,
   );
@@ -24,12 +24,6 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
     Object.values(accountList).find(({ name }) => name === input) !== undefined;
   const selectDisabled = input === selectedAccount.name;
 
-  useEffect(() => {
-    if (selectedAccount) {
-      message.info(`${selectedAccount.name} is now the default account.`);
-    }
-  }, [selectedAccount]);
-
   return (
     <CreateAndSelectAccountFormComponent
       input={input}
@@ -38,8 +32,8 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
       dataSource={Object.values(accountList).map(({ name }) => name)}
       handleChange={(e): void => setInput(e)}
       handleCreate={(): void => {
-        createAccount({
-          _id: genId(20),
+        boundActionCreators.createAccountStart({
+          userId,
           name: input,
         });
       }}
@@ -47,7 +41,9 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
         const accountSelected = Object.values(accountList).find(
           ({ name }) => name === input,
         );
-        selectAccount(accountSelected || { _id: '2', name: 'Account3' });
+        if (!accountSelected) return;
+
+        boundActionCreators.selectAccountStart(accountSelected);
       }}
       disabled={selectDisabled}
     />

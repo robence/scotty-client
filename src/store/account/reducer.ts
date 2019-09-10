@@ -1,23 +1,29 @@
-import { SELECT_ACCOUNT, CREATE_ACCOUNT, AccountActionTypes } from './types';
+import {
+  ACCOUNT_CREATE_SUCCESS,
+  AccountActionTypes,
+  ACCOUNT_SELECT_SUCCESS,
+  ACCOUNT_SELECT_REQUESTED,
+} from './types';
 import { State } from '../initialState';
 
 export default function accountReducer(
   state: State,
-  { type, account }: AccountActionTypes,
+  action: AccountActionTypes,
 ): State {
-  switch (type) {
-    case SELECT_ACCOUNT:
+  switch (action.type) {
+    case ACCOUNT_SELECT_SUCCESS:
       return {
         ...state,
-        selectedAccount: account,
+        selectedAccount: action.account,
       };
-    case CREATE_ACCOUNT:
+    case ACCOUNT_SELECT_REQUESTED:
+      return state;
+    case ACCOUNT_CREATE_SUCCESS:
       return {
         ...state,
-        selectedAccount: account,
         accountList: {
           ...state.accountList,
-          [account._id]: account,
+          [action.payload.account._id]: action.payload.account,
         },
       };
     default:
