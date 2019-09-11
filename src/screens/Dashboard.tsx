@@ -1,8 +1,11 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import AllExpenses from '../components/tables/ExpenseTableContainer';
-import ExpensesByCategory from '../components/tables/CategoryTableContainer';
-import ExpensesByTags from '../components/tables/TagTableContainer';
+import {
+  AllExpenses,
+  ExpensesByCategory,
+  ExpensesByTags,
+  MoneyFlowSplineChart,
+} from '../components/tables';
 import SelectAccountContainer from '../components/redux-dropdowns/SelectAccountContainer';
 import SelectPeriodContainer from '../components/redux-dropdowns/SelectPeriodContainer';
 import Balance from '../components/readonly/Balance';
@@ -34,6 +37,13 @@ export default function PresenterComponent(): JSX.Element {
           <Card>
             <WithHeading title="Expenses by Tags">
               <ExpensesByTags />
+            </WithHeading>
+          </Card>
+        </TabPane>
+        <TabPane tab="Chart" key="4">
+          <Card>
+            <WithHeading title="Chart">
+              <MoneyFlowSplineChart />
             </WithHeading>
           </Card>
         </TabPane>
