@@ -14,7 +14,7 @@ import {
 } from './utils';
 
 export default function CommonExpensesListContainer(): JSX.Element {
-  const { expenses, categories, tags, selectedAccount } = useSelector(
+  const { userId, expenses, categories, tags, selectedAccount } = useSelector(
     (state: State) => state,
   );
 
@@ -44,6 +44,7 @@ export default function CommonExpensesListContainer(): JSX.Element {
 
   const onClick = (item: ExpensePopulated) => (): void => {
     const expense: ExpensePost = {
+      userId,
       amount: item.amount,
       categoryId: item.category._id,
       tagIds: item.tags.map(({ _id }) => _id),

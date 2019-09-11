@@ -9,9 +9,13 @@ import { useRadio, useCategory, useTags, useAmount } from '../hooks';
 import { ExpensePost } from '../../../types/model';
 
 export default function CreateExpenseFormContainer(): JSX.Element {
-  const { categories, tags, accountList, selectedAccount } = useSelector(
-    (state: State) => state,
-  );
+  const {
+    userId,
+    categories,
+    tags,
+    accountList,
+    selectedAccount,
+  } = useSelector((state: State) => state);
 
   const dispatch = useDispatch();
   const boundActionsCreators = bindActionCreators(
@@ -43,6 +47,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
         : amount.unsignedAmount;
 
     const newExpense: ExpensePost = {
+      userId,
       amount: signedAmount,
       categoryId: category.selected,
       accountId: selectedAccount._id,

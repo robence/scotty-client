@@ -17,6 +17,7 @@ export type User = {
 };
 
 export type ExpensePost = {
+  userId: string;
   amount: number;
   categoryId: string;
   tagIds: string[];
