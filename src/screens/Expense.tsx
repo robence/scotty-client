@@ -1,8 +1,8 @@
 import React from 'react';
 import { Center, Align, Card } from '../components/ui';
 import { WithHeading } from '../components/enhancer';
-import CreateExpenseFormContainer from '../components/forms/expense/CreateExpenseFormContainer';
-import CommonExpensesListContainer from '../components/list/common-expenses/CommonExpensesListContainer';
+import { CreateExpenseFormContainer } from '../components/forms';
+import CommonExpensesListContainer from '../components/list';
 
 export default function ExpenseComponent(): JSX.Element {
   return (

@@ -1,17 +1,16 @@
 import React from 'react';
-import Card from '../components/ui/Card';
-import Centered from '../components/ui/Center';
-import CreateAndSelectAccountContainer from '../components/forms/account/CreateAndSelectAccountFormContainer';
-import WithHeading from '../components/enhancer/WithHeading';
+import { Card, Center } from '../components/ui';
+import { CreateAndSelectAccountFormContainer } from '../components/forms';
+import { WithHeading } from '../components/enhancer';
 
 export default function Container(): JSX.Element {
   return (
-    <Centered>
+    <Center>
       <Card width="325px">
         <WithHeading title="Create or Select account">
-          <CreateAndSelectAccountContainer />
+          <CreateAndSelectAccountFormContainer />
         </WithHeading>
       </Card>
-    </Centered>
+    </Center>
   );
 }

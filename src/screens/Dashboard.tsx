@@ -4,14 +4,15 @@ import {
   AllExpenses,
   ExpensesByCategory,
   ExpensesByTags,
-  MoneyFlowSplineChart,
 } from '../components/tables';
-import SelectAccountContainer from '../components/redux-dropdowns/SelectAccountContainer';
-import SelectPeriodContainer from '../components/redux-dropdowns/SelectPeriodContainer';
-import Balance from '../components/readonly/Balance';
-import MoneyFlow from '../components/readonly/MoneyFlow';
+import MoneyFlowSplineChart from '../components/charts';
+import {
+  SelectAccountContainer,
+  SelectPeriodContainer,
+} from '../components/redux-dropdowns';
+import { Balance, MoneyFlow } from '../components/readonly';
 import { Card, Center, Align } from '../components/ui';
-import WithHeading from '../components/enhancer/WithHeading';
+import { WithHeading } from '../components/enhancer';
 
 const { TabPane } = Tabs;
 
