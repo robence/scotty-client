@@ -26,7 +26,7 @@ export const createCategoryDataSource = (
   categories: CategoryList,
 ): CategoryDataItem[] =>
   Object.entries(categorizedExpenses).map(([categoryId, amount]) => {
-    const category = categories[Number(categoryId)];
+    const category = categories[categoryId];
     return {
       amount,
       key: categoryId,
