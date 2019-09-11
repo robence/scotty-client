@@ -5,7 +5,10 @@ import {
   GetExpensesType,
   TagCreateResponseDTO,
   AccountCreateResponseDTO,
+  ExpenseCreateResponseDTO,
 } from '../types/dto';
+
+import { ExpensePost } from '../types/model';
 
 export function getCategories(): Promise<GetCategoriesType> {
   return HttpService.get('/api/categories/');
@@ -31,4 +34,10 @@ export function createAccount(body: {
   name: string;
 }): Promise<AccountCreateResponseDTO> {
   return HttpService.post(`/api/users/account`, body);
+}
+
+export function createExpense(
+  body: ExpensePost,
+): Promise<ExpenseCreateResponseDTO> {
+  return HttpService.post(`/api/expenses/`, body);
 }

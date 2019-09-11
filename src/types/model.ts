@@ -16,14 +16,16 @@ export type User = {
   accounts: Account[];
 };
 
-export type Expense = {
-  _id: string;
+export type ExpensePost = {
   amount: number;
   categoryId: string;
   tagIds: string[];
   accountId: string;
   createdAt: Date;
 };
+export type Expense = {
+  _id: string;
+} & ExpensePost;
 
 export type ExpensePopulated = {
   amount: number;

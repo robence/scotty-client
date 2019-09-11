@@ -1,6 +1,7 @@
 import {
   ExpenseActionTypes,
-  CREATE_EXPENSE,
+  EXPENSE_CREATE_REQUESTED,
+  EXPENSE_CREATE_SUCCESS,
   EXPENSE_FETCH_SUCCESS,
   EXPENSE_FETCH_REQUESTED,
 } from './types';
@@ -22,12 +23,14 @@ export default function expenseReducer(
   action: ExpenseActionTypes,
 ): State {
   switch (action.type) {
-    case CREATE_EXPENSE:
+    case EXPENSE_CREATE_REQUESTED:
+      return { ...state, loading: true };
+    case EXPENSE_CREATE_SUCCESS:
       return {
         ...state,
         expenses: {
           ...state.expenses,
-          [action.expense._id]: action.expense,
+          [action.payload.expense._id]: action.payload.expense,
         },
       };
     case EXPENSE_FETCH_REQUESTED:

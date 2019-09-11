@@ -12,6 +12,3 @@ export default function objectify<R>(
     {},
   );
 }
-
-export const genId = (from: number): string =>
-  Math.floor(Math.random() * 999 + from + 1).toString();

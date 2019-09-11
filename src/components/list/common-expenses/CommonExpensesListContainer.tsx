@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import CommonExpensesList from './CommonExpensesList';
 import { State } from '../../../store/initialState';
-import { ExpensePopulated, Expense } from '../../../types/model';
+import { ExpensePopulated, ExpensePost } from '../../../types/model';
 import { filterExpensesByAccount } from '../../tables/helpers/common';
-import createExpense from '../../../store/expense/actions';
-import { genId } from '../../../utils';
+import * as expenseActionCreators from '../../../store/expense/actions';
 
 import {
   groupCommonExpenses,
@@ -20,7 +19,10 @@ export default function CommonExpensesListContainer(): JSX.Element {
   );
 
   const dispatch = useDispatch();
-  const boundCreateExpense = bindActionCreators(createExpense, dispatch);
+  const boundActionCreators = bindActionCreators(
+    expenseActionCreators,
+    dispatch,
+  );
 
   const accountExpenses = filterExpensesByAccount(
     Object.values(expenses),
@@ -41,8 +43,7 @@ export default function CommonExpensesListContainer(): JSX.Element {
     });
 
   const onClick = (item: ExpensePopulated) => (): void => {
-    const expense: Expense = {
-      _id: genId(20),
+    const expense: ExpensePost = {
       amount: item.amount,
       categoryId: item.category._id,
       tagIds: item.tags.map(({ _id }) => _id),
@@ -50,7 +51,7 @@ export default function CommonExpensesListContainer(): JSX.Element {
       createdAt: new Date(),
     };
 
-    boundCreateExpense(expense);
+    boundActionCreators.createExpenseStart(expense);
   };
 
   return (

@@ -19,3 +19,7 @@ export type TagCreateResponseDTO = {
 export type AccountCreateResponseDTO = {
   account: Account;
 };
+
+export type ExpenseCreateResponseDTO = {
+  expense: Expense;
+};
