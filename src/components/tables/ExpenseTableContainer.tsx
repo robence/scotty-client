@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Table from './TableComponent';
 import { State } from '../../store/initialState';
 import columns from './column-configurations/expense';
-import createExpenseDataSource from './helpers/expense';
+import createExpenseDataSource, { ExpenseDataItem } from './helpers/expense';
 import { filterExpenses } from './helpers/common';
 
 export default function Container(): JSX.Element {
@@ -21,11 +21,15 @@ export default function Container(): JSX.Element {
     selectedPeriod._id,
   );
 
-  const dataSource = createExpenseDataSource(
+  const dataSource: ExpenseDataItem[] = createExpenseDataSource(
     filteredExpenses,
     categories,
     tags,
-  );
+  )
+    .sort((a: ExpenseDataItem, b: ExpenseDataItem) =>
+      a.created.localeCompare(b.created),
+    )
+    .reverse();
 
   return <Table columns={columns} dataSource={dataSource} />;
 }
