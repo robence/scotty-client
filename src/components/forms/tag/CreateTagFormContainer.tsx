@@ -1,6 +1,7 @@
-import React, { useState, SetStateAction } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { SelectValue } from 'antd/lib/select';
 import CreateTagFormComponent from './CreateTagFormComponent';
 import { State } from '../../../store/initialState';
 import { createTagStart } from '../../../store/tag/actions';
@@ -21,7 +22,9 @@ export default function CreateTagFormContainer(): JSX.Element {
     boundCreateTag({ userId, name: input });
     setInput('');
   };
-  const handleChange = (e: SetStateAction<string>): void => setInput(e);
+  const handleChange = (e: SelectValue): void => {
+    setInput(e.toString());
+  };
 
   return (
     <CreateTagFormComponent

@@ -3,11 +3,10 @@ import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import CreateExpenseFormComponent from './CreateExpenseFormComponent';
 import { State } from '../../../store/initialState';
-import createExpense from '../../../store/expense/actions';
+import * as expenseActionCreators from '../../../store/expense/actions';
 import * as accountActionCreators from '../../../store/account/actions';
 import { useRadio, useCategory, useTags, useAmount } from '../hooks';
-import { genId } from '../../../utils';
-import { Expense } from '../../../types/model';
+import { ExpensePost } from '../../../types/model';
 
 export default function CreateExpenseFormContainer(): JSX.Element {
   const { categories, tags, accountList, selectedAccount } = useSelector(
@@ -16,7 +15,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
 
   const dispatch = useDispatch();
   const boundActionsCreators = bindActionCreators(
-    { createExpense, ...accountActionCreators },
+    { ...expenseActionCreators, ...accountActionCreators },
     dispatch,
   );
 
@@ -43,15 +42,14 @@ export default function CreateExpenseFormContainer(): JSX.Element {
         ? amount.unsignedAmount * -1
         : amount.unsignedAmount;
 
-    const newExpense: Expense = {
-      _id: genId(100),
+    const newExpense: ExpensePost = {
       amount: signedAmount,
       categoryId: category.selected,
       accountId: selectedAccount._id,
       tagIds,
       createdAt: new Date(),
     };
-    boundActionsCreators.createExpense(newExpense);
+    boundActionsCreators.createExpenseStart(newExpense);
   };
 
   return (

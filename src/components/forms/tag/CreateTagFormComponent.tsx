@@ -1,5 +1,6 @@
 import React from 'react';
 import { AutoComplete, Button } from 'antd';
+import { SelectValue } from 'antd/lib/select';
 import Label from './Label';
 import Align from '../../ui/Align';
 
@@ -7,7 +8,7 @@ type PresenterProps = {
   input: string;
   tagExists: boolean;
   tagNames: string[];
-  handleChange: (e: any) => void;
+  handleChange: (e: SelectValue) => void;
   disabled: boolean;
   handleSubmit: () => void;
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
+import { SelectValue } from 'antd/lib/select';
 import CreateAndSelectAccountFormComponent from './CreateAndSelectAccountFormComponent';
 import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';
@@ -18,6 +19,25 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
   const [input, setInput] = useState(
     selectedAccount ? selectedAccount.name : '',
   );
+
+  const handleChange = (e: SelectValue): void => {
+    setInput(e.toString());
+  };
+  const handleCreate = (): void => {
+    boundActionCreators.createAccountStart({
+      userId,
+      name: input,
+    });
+  };
+  const handleSelect = (): void => {
+    const accountSelected = Object.values(accountList).find(
+      ({ name }) => name === input,
+    );
+    if (!accountSelected) return;
+
+    boundActionCreators.selectAccountStart(accountSelected);
+  };
+
   const [loading] = useState(false);
 
   const accountExists =
@@ -30,21 +50,9 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
       loading={loading}
       accountExists={accountExists}
       dataSource={Object.values(accountList).map(({ name }) => name)}
-      handleChange={(e): void => setInput(e)}
-      handleCreate={(): void => {
-        boundActionCreators.createAccountStart({
-          userId,
-          name: input,
-        });
-      }}
-      handleSelect={(): void => {
-        const accountSelected = Object.values(accountList).find(
-          ({ name }) => name === input,
-        );
-        if (!accountSelected) return;
-
-        boundActionCreators.selectAccountStart(accountSelected);
-      }}
+      handleChange={handleChange}
+      handleCreate={handleCreate}
+      handleSelect={handleSelect}
       disabled={selectDisabled}
     />
   );
