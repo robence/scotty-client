@@ -11,7 +11,7 @@ import {
 export default function MoneyFlowSplineChart({
   data,
 }: {
-  data: { name: string; uv: number; amt: number }[];
+  data: { name: string; amount: number }[];
 }): JSX.Element {
   return (
     <AreaChart
@@ -32,7 +32,7 @@ export default function MoneyFlowSplineChart({
       <Tooltip />
       <Area
         type="monotone"
-        dataKey="uv"
+        dataKey="amount"
         stroke="#8884d8"
         fillOpacity={1}
         fill="url(#colorUv)"

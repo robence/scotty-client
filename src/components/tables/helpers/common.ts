@@ -8,12 +8,17 @@ export const filterExpensesByAccount = (
 const filterExpensesByPeriod = (
   expenses: Expense[],
   startPeriod: Date,
-): Expense[] => expenses.filter(({ createdAt }) => createdAt > startPeriod);
+  isEndPeriod = false,
+): Expense[] =>
+  isEndPeriod
+    ? expenses.filter(({ createdAt }) => createdAt < startPeriod)
+    : expenses.filter(({ createdAt }) => createdAt > startPeriod);
 
 export const filterExpenses = (
   expenses: Expense[],
   accountId: string,
   periodIdString: string,
+  isEndPeriod = false,
 ): Expense[] => {
   const x = filterExpensesByAccount(expenses, accountId);
   const periodId = Number(periodIdString);
@@ -24,6 +29,6 @@ export const filterExpenses = (
   const startPeriod = new Date();
   startPeriod.setMinutes(startPeriod.getMinutes() - periodId);
 
-  const y = filterExpensesByPeriod(x, startPeriod);
+  const y = filterExpensesByPeriod(x, startPeriod, isEndPeriod);
   return y;
 };

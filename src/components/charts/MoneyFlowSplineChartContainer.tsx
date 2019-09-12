@@ -1,43 +1,49 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { State } from '../../store/initialState';
 import MoneyFlowSplineChartComponent from './MoneyFlowSplineChartComponent';
+import { WEEK_IN_MINUTES, DAY_IN_MINUTES } from '../../assets';
+import { filterExpenses } from '../tables/helpers/common';
+import sumExpenses from '../readonly/utils';
 
 export default function MoneyFlowSplineChartContainer(): JSX.Element {
-  const data = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      amt: 2100,
-    },
-  ];
-  return <MoneyFlowSplineChartComponent data={data} />;
+  const { expenses, selectedAccount } = useSelector((state: State) => state);
+
+  const now = new Date();
+
+  const GetMoneyFlowForPeriod = (index: number): number => {
+    if (index > 4 || index < 0) return 0;
+
+    const a = filterExpenses(
+      Object.values(expenses),
+      selectedAccount._id,
+      (DAY_IN_MINUTES * (4 - index)).toString(),
+      // (WEEK_IN_MINUTES * (4 - index)).toString(),
+      true,
+    );
+
+    return sumExpenses(a);
+  };
+
+  const data2 = !expenses
+    ? []
+    : Array(5)
+        .fill(null)
+        .map((_, id) => {
+          const lastDate = new Date(now);
+          // lastDate.setMinutes(lastDate.getMinutes() - WEEK_IN_MINUTES);
+          lastDate.setMinutes(
+            lastDate.getMinutes() - DAY_IN_MINUTES * (4 - id),
+          );
+          const lastDateString = lastDate.toLocaleDateString('hu-hu');
+
+          const xyz = GetMoneyFlowForPeriod(id);
+
+          return {
+            name: lastDateString,
+            amount: xyz,
+          };
+        });
+
+  return <MoneyFlowSplineChartComponent data={data2} />;
 }

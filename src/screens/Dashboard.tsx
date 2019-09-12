@@ -20,31 +20,31 @@ export default function PresenterComponent(): JSX.Element {
   return (
     <Align content="evenly">
       <Tabs type="card">
-        <TabPane tab="All Expenses" key="1">
+        <TabPane tab="Chart" key="1">
+          <Card>
+            <WithHeading title="Chart">
+              <MoneyFlowSplineChart />
+            </WithHeading>
+          </Card>
+        </TabPane>
+        <TabPane tab="All Expenses" key="2">
           <Card>
             <WithHeading title="All Expenses">
               <AllExpenses />
             </WithHeading>
           </Card>
         </TabPane>
-        <TabPane tab="Expenses by Categories" key="2">
+        <TabPane tab="Expenses by Categories" key="3">
           <Card>
             <WithHeading title="Expenses by Categories">
               <ExpensesByCategory />
             </WithHeading>
           </Card>
         </TabPane>
-        <TabPane tab="Expenses by Tags" key="3">
+        <TabPane tab="Expenses by Tags" key="4">
           <Card>
             <WithHeading title="Expenses by Tags">
               <ExpensesByTags />
-            </WithHeading>
-          </Card>
-        </TabPane>
-        <TabPane tab="Chart" key="4">
-          <Card>
-            <WithHeading title="Chart">
-              <MoneyFlowSplineChart />
             </WithHeading>
           </Card>
         </TabPane>
