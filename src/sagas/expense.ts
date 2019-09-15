@@ -12,13 +12,14 @@ import {
   EXPENSE_FETCH_REQUESTED,
   EXPENSE_CREATE_REQUESTED,
 } from '../store/expense/types';
+import text from '../i18n';
 
 function* fetchExpenses(action: ReturnType<typeof expenseStart>) {
   try {
     const data = yield call(getExpenses, action.userId);
     yield put(expenseSuccess(data));
   } catch (e) {
-    yield call(message.error, 'Could not load expenses from server');
+    yield call(message.error, text.sagas.expense.fetch.error);
   }
 }
 
@@ -26,9 +27,9 @@ function* addExpense(action: ReturnType<typeof createExpenseStart>) {
   try {
     const data = yield call(createExpense, action.payload);
     yield put(createExpenseSuccess(data));
-    yield call(message.success, `Transaction was successfully created.`);
+    yield call(message.success, text.sagas.expense.add.success);
   } catch (e) {
-    yield call(message.error, 'Could not save transaction.');
+    yield call(message.error, text.sagas.expense.add.error);
   }
 }
 export default function* expenseSaga() {

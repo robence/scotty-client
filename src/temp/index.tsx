@@ -7,8 +7,6 @@ export default function LoadData(): JSX.Element {
   return (
     <>
       <LoadCategories />
-      <LoadUser />
-      <LoadExpenses />
     </>
   );
 }

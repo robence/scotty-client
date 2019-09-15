@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { message } from 'antd';
-
+import text from '../i18n';
 import {
   createAccountStart,
   createAccountSuccess,
@@ -19,10 +19,10 @@ function* addAccount(action: ReturnType<typeof createAccountStart>) {
     yield put(createAccountSuccess(data));
     yield call(
       message.success,
-      `Account ${data.account.name} was successfully created.`,
+      `${text.sagas.account.add.successBefore} ${data.account.name} ${text.sagas.account.add.successBefore}`,
     );
   } catch (e) {
-    yield call(message.error, 'Could not load accounts from server');
+    yield call(message.error, text.sagas.account.add.error);
   }
 }
 
@@ -31,10 +31,10 @@ function* selectAccountAsync(action: ReturnType<typeof selectAccountStart>) {
     yield put(selectAccountSuccess(action.account));
     yield call(
       message.success,
-      `${action.account.name} is now the default account.`,
+      `${action.account.name} ${text.sagas.account.select.success}`,
     );
   } catch (e) {
-    yield call(message.error, 'Could not select accounts');
+    yield call(message.error, text.sagas.account.select.error);
   }
 }
 

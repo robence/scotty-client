@@ -4,6 +4,7 @@ import { message } from 'antd';
 import { createTagStart, createTagSuccess } from '../store/tag/actions';
 import { createTag } from '../api';
 import { TAG_CREATE_REQUESTED } from '../store/tag/types';
+import text from '../i18n';
 
 function* addTag(action: ReturnType<typeof createTagStart>) {
   try {
@@ -11,10 +12,10 @@ function* addTag(action: ReturnType<typeof createTagStart>) {
     yield put(createTagSuccess(data));
     yield call(
       message.success,
-      `Tag ${data.tag.name} was successfully created.`,
+      `${text.sagas.tag.add.successBefore} ${data.tag.name} ${text.sagas.tag.add.successAfter}`,
     );
   } catch (e) {
-    yield call(message.error, 'Could not load tags from server');
+    yield call(message.error, text.sagas.tag.add.error);
   }
 }
 

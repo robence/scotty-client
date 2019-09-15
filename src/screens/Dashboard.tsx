@@ -13,6 +13,7 @@ import {
 import { Balance, MoneyFlow } from '../components/readonly';
 import { Card, Center, Align } from '../components/ui';
 import { WithHeading } from '../components/enhancer';
+import text from '../i18n';
 
 const { TabPane } = Tabs;
 
@@ -20,30 +21,30 @@ export default function PresenterComponent(): JSX.Element {
   return (
     <Align content="evenly">
       <Tabs type="card">
-        <TabPane tab="Chart" key="1">
+        <TabPane tab={text.screens.dashboard.tabs.chart} key="1">
           <Card>
-            <WithHeading title="Chart">
+            <WithHeading title={text.screens.dashboard.tabs.chart}>
               <MoneyFlowSplineChart />
             </WithHeading>
           </Card>
         </TabPane>
-        <TabPane tab="All Expenses" key="2">
+        <TabPane tab={text.screens.dashboard.tabs.expense} key="2">
           <Card>
-            <WithHeading title="All Expenses">
+            <WithHeading title={text.screens.dashboard.tabs.expense}>
               <AllExpenses />
             </WithHeading>
           </Card>
         </TabPane>
-        <TabPane tab="Expenses by Categories" key="3">
+        <TabPane tab={text.screens.dashboard.tabs.category} key="3">
           <Card>
-            <WithHeading title="Expenses by Categories">
+            <WithHeading title={text.screens.dashboard.tabs.category}>
               <ExpensesByCategory />
             </WithHeading>
           </Card>
         </TabPane>
-        <TabPane tab="Expenses by Tags" key="4">
+        <TabPane tab={text.screens.dashboard.tabs.tag} key="4">
           <Card>
-            <WithHeading title="Expenses by Tags">
+            <WithHeading title={text.screens.dashboard.tabs.tag}>
               <ExpensesByTags />
             </WithHeading>
           </Card>
@@ -52,22 +53,22 @@ export default function PresenterComponent(): JSX.Element {
       <Center>
         <Align type="vertical">
           <Card>
-            <WithHeading title="Current Balance">
+            <WithHeading title={text.screens.dashboard.cards.balance}>
               <Balance />
             </WithHeading>
           </Card>
           <Card>
-            <WithHeading title="Money Flow">
+            <WithHeading title={text.screens.dashboard.cards.money}>
               <MoneyFlow />
             </WithHeading>
           </Card>
           <Card>
-            <WithHeading title="Select Account">
+            <WithHeading title={text.screens.dashboard.cards.account}>
               <SelectAccountContainer />
             </WithHeading>
           </Card>
           <Card>
-            <WithHeading title="Select Period">
+            <WithHeading title={text.screens.dashboard.cards.period}>
               <SelectPeriodContainer />
             </WithHeading>
           </Card>
