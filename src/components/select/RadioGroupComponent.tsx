@@ -1,7 +1,7 @@
 import React from 'react';
 import { Radio } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
-import { Base } from '../../types/model';
+import { Base } from '../../types/base';
 
 type PresenterType = {
   selected: string | number | string[];

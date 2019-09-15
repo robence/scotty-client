@@ -16,7 +16,9 @@ export default class HttpService {
     return axios
       .post(url, data)
       .then((response) => response.data)
-      .catch((error) => Promise.reject(error));
+      .catch((error) => {
+        return Promise.reject(error.response.data.error);
+      });
   }
 
   static delete(url: string): Promise<any> {

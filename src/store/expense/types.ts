@@ -1,5 +1,5 @@
 import { GetExpensesType, ExpenseCreateResponseDTO } from '../../types/dto';
-import { ExpensePost } from '../../types/model';
+import { ExpenseBase } from '../../types/base';
 
 export const EXPENSE_CREATE_REQUESTED = 'EXPENSE_CREATE_REQUESTED';
 export const EXPENSE_CREATE_SUCCESS = 'EXPENSE_CREATE_SUCCESS';
@@ -13,7 +13,7 @@ export interface ExpenseFetchRequestAction {
 
 export interface ExpenseCreateRequestAction {
   type: typeof EXPENSE_CREATE_REQUESTED;
-  payload: ExpensePost;
+  payload: ExpenseBase;
 }
 
 export interface ExpenseCreateSuccessAction {

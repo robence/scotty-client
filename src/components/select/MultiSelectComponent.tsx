@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select } from 'antd';
-import { Base } from '../../types/model';
+import { Base } from '../../types/base';
 
 type PresenterType = {
   selected: string[];

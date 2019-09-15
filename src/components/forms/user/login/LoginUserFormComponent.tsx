@@ -1,12 +1,11 @@
 import React from 'react';
 import { Input, Button } from 'antd';
 import styled from 'styled-components';
-import { InputElementProps } from '../../../types/form';
+import { InputElementProps } from '../../../../types/form';
 
 type PresenterProps = {
   username: InputElementProps;
   password: InputElementProps;
-  email: InputElementProps;
   disabled: boolean;
   handleSubmit: () => void;
 };
@@ -14,21 +13,11 @@ type PresenterProps = {
 export default function CreateUserFormComponent({
   username,
   password,
-  email,
   disabled,
   handleSubmit,
 }: PresenterProps): JSX.Element {
   return (
     <Grid>
-      <div>
-        <div>
-          <Input
-            placeholder="email"
-            value={email.value}
-            onChange={email.onChange}
-          />
-        </div>
-      </div>
       <div>
         <Input
           placeholder="username"
@@ -37,7 +26,7 @@ export default function CreateUserFormComponent({
         />
       </div>
       <div>
-        <Input
+        <Input.Password
           placeholder="password"
           value={password.value}
           onChange={password.onChange}
@@ -45,7 +34,7 @@ export default function CreateUserFormComponent({
       </div>
 
       <Button type="primary" disabled={disabled} onClick={handleSubmit}>
-        Register
+        Login
       </Button>
     </Grid>
   );

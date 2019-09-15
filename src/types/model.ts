@@ -1,32 +1,19 @@
-export type Base = {
-  _id: string;
-  name: string;
-};
+import { Base, ExpenseBase, UserBase } from './base';
 
 export type Tag = Base;
 export type Category = Base;
 export type Account = Base;
 export type Period = Base;
 
-export type User = {
+export type User = UserBase & {
   _id: string;
-  username: string;
-  email: string;
   tags: Tag[];
   accounts: Account[];
 };
 
-export type ExpensePost = {
-  userId: string;
-  amount: number;
-  categoryId: string;
-  tagIds: string[];
-  accountId: string;
-  createdAt: Date;
-};
 export type Expense = {
   _id: string;
-} & ExpensePost;
+} & ExpenseBase;
 
 export type ExpensePopulated = {
   amount: number;

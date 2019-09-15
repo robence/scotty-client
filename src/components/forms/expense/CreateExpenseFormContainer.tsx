@@ -6,7 +6,7 @@ import { State } from '../../../store/initialState';
 import * as expenseActionCreators from '../../../store/expense/actions';
 import * as accountActionCreators from '../../../store/account/actions';
 import { useRadio, useCategory, useTags, useAmount } from '../hooks';
-import { ExpensePost } from '../../../types/model';
+import { ExpenseBase } from '../../../types/base';
 
 export default function CreateExpenseFormContainer(): JSX.Element {
   const {
@@ -46,7 +46,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
         ? amount.unsignedAmount * -1
         : amount.unsignedAmount;
 
-    const newExpense: ExpensePost = {
+    const newExpense: ExpenseBase = {
       userId,
       amount: signedAmount,
       categoryId: category.selected,

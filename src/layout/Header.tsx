@@ -14,8 +14,9 @@ export default function HeaderComponent(): JSX.Element {
       <StyledNavLink to="/account">New Account</StyledNavLink>
 
       <div style={{ marginLeft: 'auto' }}>
-        <StyledNavLink to="/register">Register</StyledNavLink>
+        <StyledNavLink to="/login">Login</StyledNavLink>
       </div>
+      <StyledNavLink to="/register">Register</StyledNavLink>
     </Header>
   );
 }

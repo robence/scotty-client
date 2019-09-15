@@ -1,5 +1,5 @@
 import { MouseEvent, ChangeEvent } from 'react';
-import { Base } from './model';
+import { Base } from './base';
 
 export type FormElementProps = {
   selected: any;

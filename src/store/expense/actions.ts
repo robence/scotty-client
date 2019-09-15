@@ -9,7 +9,7 @@ import {
   EXPENSE_FETCH_SUCCESS,
 } from './types';
 import { GetExpensesType, ExpenseCreateResponseDTO } from '../../types/dto';
-import { ExpensePost } from '../../types/model';
+import { ExpenseBase } from '../../types/base';
 
 export function expenseStart(userId: string): ExpenseFetchRequestAction {
   return { type: EXPENSE_FETCH_REQUESTED, userId };
@@ -25,7 +25,7 @@ export function expenseSuccess(
 }
 
 export function createExpenseStart(
-  payload: ExpensePost,
+  payload: ExpenseBase,
 ): ExpenseCreateRequestAction {
   return { type: EXPENSE_CREATE_REQUESTED, payload };
 }

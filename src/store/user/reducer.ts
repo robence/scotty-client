@@ -1,5 +1,7 @@
 import {
   UserActionTypes,
+  USER_CREATE_REQUESTED,
+  USER_CREATE_SUCCESS,
   USER_FETCH_REQUESTED,
   USER_FETCH_SUCCESS,
 } from './types';
@@ -11,6 +13,10 @@ export default function categoryReducer(
   action: UserActionTypes,
 ): State {
   switch (action.type) {
+    case USER_CREATE_REQUESTED:
+      return { ...state, loading: true };
+    case USER_CREATE_SUCCESS:
+      return state;
     case USER_FETCH_REQUESTED:
       return { ...state, loading: true };
     case USER_FETCH_SUCCESS:

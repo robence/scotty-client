@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import CommonExpensesList from './CommonExpensesList';
 import { State } from '../../../store/initialState';
-import { ExpensePopulated, ExpensePost } from '../../../types/model';
+import { ExpensePopulated } from '../../../types/model';
+import { ExpenseBase } from '../../../types/base';
 import { filterExpensesByAccount } from '../../tables/helpers/common';
 import * as expenseActionCreators from '../../../store/expense/actions';
 
@@ -43,7 +44,7 @@ export default function CommonExpensesListContainer(): JSX.Element {
     });
 
   const onClick = (item: ExpensePopulated) => (): void => {
-    const expense: ExpensePost = {
+    const expense: ExpenseBase = {
       userId,
       amount: item.amount,
       categoryId: item.category._id,

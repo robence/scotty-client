@@ -6,9 +6,10 @@ import {
   TagCreateResponseDTO,
   AccountCreateResponseDTO,
   ExpenseCreateResponseDTO,
+  UserCreateResponseDTO,
 } from '../types/dto';
 
-import { ExpensePost } from '../types/model';
+import { ExpenseBase, UserBase } from '../types/base';
 
 export function getCategories(): Promise<GetCategoriesType> {
   return HttpService.get('/api/categories/');
@@ -37,7 +38,20 @@ export function createAccount(body: {
 }
 
 export function createExpense(
-  body: ExpensePost,
+  body: ExpenseBase,
 ): Promise<ExpenseCreateResponseDTO> {
   return HttpService.post(`/api/expenses/`, body);
+}
+
+export function createUser(
+  user: UserBase & { password: string },
+): Promise<UserCreateResponseDTO> {
+  const body = {
+    ...user,
+    accounts: [],
+    tags: [],
+  };
+  return HttpService.post(`/api/users/`, body).catch((e) => {
+    return Promise.reject(e);
+  });
 }
