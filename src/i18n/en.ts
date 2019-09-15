@@ -72,6 +72,46 @@ const en = {
       title: 'Create a new tag',
     },
   },
+  assets: {
+    period: {
+      day: 'Last day',
+      week: 'Last 7 days',
+      month: 'Last 30 days',
+      year: 'Last 365 days',
+      full: 'Full history',
+    },
+  },
+  components: {
+    forms: {
+      account: {
+        placeholder: 'Type to create a new account:',
+        create: 'Create',
+        select: 'Select',
+      },
+      expense: {
+        amount: {
+          title: 'Amount',
+          placeholder: 'Enter Amount',
+        },
+        category: {
+          title: 'Category',
+        },
+        tag: {
+          title: 'Tags',
+          placeholder: 'Select tags',
+        },
+        account: {
+          title: 'Account',
+        },
+        create: 'Create',
+      },
+      tag: {
+        label: 'This tag already exists. Please enter a new one.',
+        placeholder: 'Type to create a new tag',
+        create: 'Create',
+      },
+    },
+  },
 };
 
 export default en;

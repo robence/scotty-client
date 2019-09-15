@@ -3,6 +3,7 @@ import { AutoComplete, Button } from 'antd';
 import { SelectValue } from 'antd/lib/select';
 import Label from './Label';
 import Align from '../../ui/Align';
+import text from '../../../i18n';
 
 type PresenterProps = {
   input: string;
@@ -24,10 +25,7 @@ export default function CreateTagFormComponent({
   return (
     <div>
       {tagExists && (
-        <Label
-          title="This tag already exists. Please enter a new one."
-          color="red"
-        />
+        <Label title={text.components.forms.tag.label} color="red" />
       )}
       <Align>
         <AutoComplete
@@ -36,7 +34,7 @@ export default function CreateTagFormComponent({
             marginRight: '1rem',
           }}
           dataSource={tagNames}
-          placeholder="Type to create a new tag"
+          placeholder={text.components.forms.tag.placeholder}
           allowClear
           value={input}
           onChange={handleChange}
@@ -47,7 +45,7 @@ export default function CreateTagFormComponent({
           }
         />
         <Button type="primary" disabled={disabled} onClick={handleSubmit}>
-          Create
+          {text.components.forms.tag.create}
         </Button>
       </Align>
     </div>

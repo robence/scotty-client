@@ -54,14 +54,14 @@ const hu = {
       tabs: {
         chart: 'Grafikon',
         expense: 'Összes tranzakció',
-        category: 'Tranzakciók (kategória)',
-        tag: 'Tranzakciók (címke)',
+        category: 'Tranzakciók kategóriák szerint',
+        tag: 'Tranzakciók címkék szerint',
       },
       cards: {
         balance: 'Egyenleg',
         money: 'Pénzmozgás',
         account: 'Számla kiválasztása',
-        period: 'Időtartam kiválasztása',
+        period: 'Időszak kiválasztása',
       },
     },
     expense: {
@@ -70,6 +70,46 @@ const hu = {
     },
     tag: {
       title: 'Új címke létrehozása',
+    },
+  },
+  assets: {
+    period: {
+      day: 'Utolsó nap',
+      week: 'Utolsó 7 nap',
+      month: 'Utolsó 30 nap',
+      year: 'Utolsó 365 nap',
+      full: 'Teljes időszak',
+    },
+  },
+  components: {
+    forms: {
+      account: {
+        placeholder: 'Gépeljen új számla létrehozásához',
+        create: 'Létrehozás',
+        select: 'Kiválasztás',
+      },
+      expense: {
+        amount: {
+          title: 'Összeg',
+          placeholder: 'Írjon be egy összeget',
+        },
+        category: {
+          title: 'Kategória',
+        },
+        tag: {
+          title: 'Címkék',
+          placeholder: 'Válasszon címkéket',
+        },
+        account: {
+          title: 'Számla',
+        },
+        create: 'Létrehozás',
+      },
+      tag: {
+        label: 'Ez a címke már létezik. Adjon meg egy másikat.',
+        placeholder: 'Gépeljen új címke létrehozásához',
+        create: 'Létrehozás',
+      },
     },
   },
 };
