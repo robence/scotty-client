@@ -92,6 +92,10 @@ const en = {
         amount: {
           title: 'Amount',
           placeholder: 'Enter Amount',
+          radio: {
+            plus: 'Income',
+            minus: 'Expense',
+          },
         },
         category: {
           title: 'Category',

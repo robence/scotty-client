@@ -93,6 +93,10 @@ const hu = {
           title: 'Összeg',
           placeholder: 'Írjon be egy összeget',
         },
+        radio: {
+          plus: 'Bevétel',
+          minus: 'Kiadás',
+        },
         category: {
           title: 'Kategória',
         },
