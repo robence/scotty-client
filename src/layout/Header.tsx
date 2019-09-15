@@ -12,6 +12,10 @@ export default function HeaderComponent(): JSX.Element {
       <StyledNavLink to="/expense">New Transaction</StyledNavLink>
       <StyledNavLink to="/tag">New Tag</StyledNavLink>
       <StyledNavLink to="/account">New Account</StyledNavLink>
+
+      <div style={{ marginLeft: 'auto' }}>
+        <StyledNavLink to="/register">Register</StyledNavLink>
+      </div>
     </Header>
   );
 }
