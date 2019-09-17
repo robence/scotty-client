@@ -115,6 +115,12 @@ const hu = {
         create: 'Létrehozás',
       },
     },
+    tables: {
+      amount: 'Összeg',
+      category: 'Kategória',
+      tags: 'Címkék',
+      created: 'Létrehozva',
+    },
   },
 };
 

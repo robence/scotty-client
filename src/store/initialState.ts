@@ -21,7 +21,7 @@ export type State = {
   loading: boolean;
 };
 
-const selectedAccount = { _id: '-1', name: 'Not Selected' };
+const selectedAccount = { _id: '-1', name: '' };
 const selectedPeriod = periodList[MONTH_IN_MINUTES];
 
 const initialState: State = {

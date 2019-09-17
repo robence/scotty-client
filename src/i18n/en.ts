@@ -92,10 +92,10 @@ const en = {
         amount: {
           title: 'Amount',
           placeholder: 'Enter Amount',
-          radio: {
-            plus: 'Income',
-            minus: 'Expense',
-          },
+        },
+        radio: {
+          plus: 'Income',
+          minus: 'Expense',
         },
         category: {
           title: 'Category',
@@ -114,6 +114,12 @@ const en = {
         placeholder: 'Type to create a new tag',
         create: 'Create',
       },
+    },
+    tables: {
+      amount: 'Amount',
+      category: 'Category',
+      tags: 'Tags',
+      created: 'added',
     },
   },
 };

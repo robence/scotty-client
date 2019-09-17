@@ -1,19 +1,20 @@
 import { Tag } from 'antd';
 import React from 'react';
+import text from '../../../i18n';
 
 const columns = [
   {
-    title: 'Category',
+    title: text.components.tables.category,
     dataIndex: 'category',
     key: 'category',
   },
   {
-    title: 'Amount',
+    title: text.components.tables.amount,
     dataIndex: 'amount',
     key: 'amount',
   },
   {
-    title: 'Tags',
+    title: text.components.tables.tags,
     dataIndex: 'tags',
     key: 'tags',
     /* eslint-disable-next-line react/display-name */
@@ -34,7 +35,7 @@ const columns = [
     ),
   },
   {
-    title: 'Added',
+    title: text.components.tables.created,
     dataIndex: 'created',
     key: 'created',
   },

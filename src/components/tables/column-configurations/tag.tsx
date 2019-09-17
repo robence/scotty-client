@@ -1,11 +1,13 @@
+import text from '../../../i18n';
+
 const columns = [
   {
-    title: 'Tag',
+    title: text.components.tables.tags,
     dataIndex: 'tag',
     key: 'tag',
   },
   {
-    title: 'Amount',
+    title: text.components.tables.amount,
     dataIndex: 'amount',
     key: 'amount',
   },
