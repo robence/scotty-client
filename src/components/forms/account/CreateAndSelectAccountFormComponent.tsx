@@ -27,7 +27,7 @@ export default function CreateAndSelectAccountFormComponent({
   return (
     <Align>
       <AutoComplete
-        style={{ width: 200, marginRight: '1rem' }}
+        style={{ width: 'inherit', marginRight: '1rem' }}
         dataSource={dataSource}
         placeholder={text.components.forms.account.placeholder}
         allowClear

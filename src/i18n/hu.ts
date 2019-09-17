@@ -48,7 +48,7 @@ const hu = {
   },
   screens: {
     account: {
-      title: 'Válassz vagy hozz létre számlát',
+      title: 'Új számla létrehozása',
     },
     dashboard: {
       tabs: {
@@ -84,7 +84,7 @@ const hu = {
   components: {
     forms: {
       account: {
-        placeholder: 'Gépeljen új számla létrehozásához',
+        placeholder: 'Gépelje be az új számla nevét',
         create: 'Létrehozás',
         select: 'Kiválasztás',
       },
@@ -111,7 +111,7 @@ const hu = {
       },
       tag: {
         label: 'Ez a címke már létezik. Adjon meg egy másikat.',
-        placeholder: 'Gépeljen új címke létrehozásához',
+        placeholder: 'Gépeljen be egy új címkét',
         create: 'Létrehozás',
       },
     },

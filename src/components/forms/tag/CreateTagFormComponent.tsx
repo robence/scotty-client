@@ -30,7 +30,7 @@ export default function CreateTagFormComponent({
       <Align>
         <AutoComplete
           style={{
-            width: 200,
+            width: 'inherit',
             marginRight: '1rem',
           }}
           dataSource={tagNames}
