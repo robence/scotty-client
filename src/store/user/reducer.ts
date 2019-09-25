@@ -2,7 +2,6 @@ import {
   UserActionTypes,
   USER_CREATE_REQUESTED,
   USER_LOGIN_REQUESTED,
-  USER_LOGIN_SUCCESS,
   USER_FETCH_REQUESTED,
   USER_FETCH_SUCCESS,
   TOKEN_SELECT_SUCCESS,
@@ -40,12 +39,6 @@ export default function userReducer(
       return {
         ...state,
         ...getUserProps(action.payload.user),
-      };
-    case USER_LOGIN_SUCCESS:
-      return {
-        ...state,
-        ...getUserProps(action.payload.user),
-        token: action.payload.token,
         loading: false,
       };
     default:

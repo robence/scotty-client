@@ -39,8 +39,9 @@ function* register({ payload }: ReturnType<typeof createUserStart>) {
  */
 function* login({ payload }: ReturnType<typeof loginUserStart>) {
   try {
-    const data = yield call(loginUser, payload);
-    yield put(loginUserSuccess(data));
+    const { token, user } = yield call(loginUser, payload);
+    yield put(selectTokenStart({ token }));
+    // yield put(fetchUserSuccess({ user }));
     yield call(message.info, 'User was successfully logged in', 10);
     yield put(expenseStart());
     yield put(categoryStart());
