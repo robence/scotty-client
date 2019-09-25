@@ -3,7 +3,6 @@ import { message } from 'antd';
 
 import {
   loginUserStart,
-  loginUserSuccess,
   createUserStart,
   selectTokenStart,
   fetchUserStart,
@@ -23,6 +22,7 @@ import {
 } from '../store/user/types';
 import { expenseStart } from '../store/expense/actions';
 import { categoryStart } from '../store/category/actions';
+import text from '../i18n';
 
 function* register({ payload }: ReturnType<typeof createUserStart>) {
   try {
@@ -75,7 +75,7 @@ function* fetchUser() {
     yield put(expenseStart());
     yield put(categoryStart());
   } catch (e) {
-    yield call(message.error, 'Something went wrong.');
+    yield call(message.error, text.sagas.user.fetch.error);
   }
 }
 

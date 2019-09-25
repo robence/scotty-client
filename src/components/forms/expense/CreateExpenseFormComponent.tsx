@@ -9,6 +9,7 @@ import {
 import { FormElementProps } from '../../../types/form';
 import { WithTitle } from '../../enhancer';
 import { spaces } from '../../../consts';
+import text from '../../../i18n';
 
 type CreateExpenseFormProps = {
   category: FormElementProps;
@@ -32,7 +33,7 @@ export default function CreateExpenseComponent({
 }: CreateExpenseFormProps): JSX.Element {
   return (
     <Expense>
-      <WithTitle title="Amount">
+      <WithTitle title={text.components.forms.expense.amount.title}>
         <RadioGroupComponent
           selected={radio.selected}
           options={radio.options}
@@ -43,28 +44,28 @@ export default function CreateExpenseComponent({
       <StyledInput
         value={`${radio.selected} ${unsignedAmount}`}
         onChange={handleAmount}
-        placeholder="Enter amount"
+        placeholder={text.components.forms.expense.amount.placeholder}
       />
 
-      <WithTitle title="Category">
+      <WithTitle title={text.components.forms.expense.category.title}>
         <SingleSelectComponent props={category} />
       </WithTitle>
 
-      <WithTitle title="Tags">
+      <WithTitle title={text.components.forms.expense.tag.title}>
         <MultiSelectComponent
           options={tag.options}
           selected={tag.selected}
           handleSelect={tag.onChange}
-          placeholder="Select tags"
+          placeholder={text.components.forms.expense.tag.placeholder}
         />
       </WithTitle>
 
-      <WithTitle title="Account">
+      <WithTitle title={text.components.forms.expense.account.title}>
         <SingleSelectComponent props={account} />
       </WithTitle>
 
       <Button type="primary" onClick={handleSubmit}>
-        Submit
+        {text.components.forms.expense.create}
       </Button>
     </Expense>
   );

@@ -3,16 +3,16 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors, spaces, headerSize } from '../consts';
 import Logo from '../components/ui/Logo';
+import text from '../i18n';
 
 export default function HeaderComponent(): JSX.Element {
   return (
     <Header>
       <Logo />
-      <StyledNavLink to="/">Dashboard</StyledNavLink>
-      <StyledNavLink to="/expense">New Transaction</StyledNavLink>
-      <StyledNavLink to="/tag">New Tag</StyledNavLink>
-      <StyledNavLink to="/account">New Account</StyledNavLink>
-
+      <StyledNavLink to="/">{text.layout.header.dashboard}</StyledNavLink>
+      <StyledNavLink to="/expense">{text.layout.header.expense}</StyledNavLink>
+      <StyledNavLink to="/tag">{text.layout.header.tag}</StyledNavLink>
+      <StyledNavLink to="/account">{text.layout.header.account}</StyledNavLink>
       <div style={{ marginLeft: 'auto' }}>
         <StyledNavLink to="/login">Login</StyledNavLink>
       </div>
