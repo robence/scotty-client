@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { State } from '../store/initialState';
 import { categoryStart } from '../store/category/actions';
 
-export default function LoadInitialState(): JSX.Element {
+export default function LoadCategories(): JSX.Element {
   const { categories } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const boundCategoryStart = bindActionCreators(categoryStart, dispatch);

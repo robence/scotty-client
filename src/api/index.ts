@@ -1,57 +1,65 @@
 import HttpService from '../services/HttpService';
 import {
-  GetCategoriesType,
-  GetUserType,
-  GetExpensesType,
+  CategoryFetchResponseDTO,
+  ExpenseFetchResponseDTO,
   TagCreateResponseDTO,
   AccountCreateResponseDTO,
   ExpenseCreateResponseDTO,
-  UserCreateResponseDTO,
-} from '../types/dto';
+  UserLoginResponseDTO,
+  UserLoginRequestDTO,
+  UserCreateRequestDTO,
+  ExpenseCreateRequestDTO,
+  TagCreateRequestDTO,
+  AccountCreateRequestDTO,
+  UserFetchResponseDTO,
+} from './dto';
 
-import { ExpenseBase, UserBase } from '../types/base';
-
-export function getCategories(): Promise<GetCategoriesType> {
-  return HttpService.get('/api/categories/');
+export default function addTokenToHttpService(token: string): void {
+  const config = { headers: { Authorization: `Bearer ${token}` } };
+  HttpService.addConfiguration(config);
 }
 
-export function getUser(): Promise<GetUserType> {
-  return HttpService.get('/api/users/5d2cad1aac3af3d397f8659e');
+export function loginUser(
+  request: UserLoginRequestDTO,
+): Promise<UserLoginResponseDTO> {
+  return HttpService.post('/api/auth/login', request);
 }
 
-export function getExpenses(userId: string): Promise<GetExpensesType> {
-  return HttpService.get(`/api/expenses/user/${userId}`);
-}
-
-export function createTag(body: {
-  userId: string;
-  name: string;
-}): Promise<TagCreateResponseDTO> {
-  return HttpService.post(`/api/users/tag`, body);
-}
-
-export function createAccount(body: {
-  userId: string;
-  name: string;
-}): Promise<AccountCreateResponseDTO> {
-  return HttpService.post(`/api/users/account`, body);
-}
-
-export function createExpense(
-  body: ExpenseBase,
-): Promise<ExpenseCreateResponseDTO> {
-  return HttpService.post(`/api/expenses/`, body);
-}
-
-export function createUser(
-  user: UserBase & { password: string },
-): Promise<UserCreateResponseDTO> {
+export function createUser(user: UserCreateRequestDTO): Promise<{}> {
   const body = {
     ...user,
     accounts: [],
     tags: [],
   };
-  return HttpService.post(`/api/users/`, body).catch((e) => {
-    return Promise.reject(e);
-  });
+  return HttpService.post(`/api/users/`, body);
+}
+
+export function createTag(
+  tag: TagCreateRequestDTO,
+): Promise<TagCreateResponseDTO> {
+  return HttpService.post(`/api/users/tag`, tag);
+}
+
+export function createAccount(
+  account: AccountCreateRequestDTO,
+): Promise<AccountCreateResponseDTO> {
+  return HttpService.post(`/api/users/account`, account);
+}
+
+export function createExpense(
+  expense: ExpenseCreateRequestDTO,
+): Promise<ExpenseCreateResponseDTO> {
+  return HttpService.post(`/api/expenses/`, expense);
+}
+
+export function getUserByToken(): Promise<UserFetchResponseDTO> {
+  return HttpService.get('/api/users/user');
+}
+
+export function getCategories(): Promise<CategoryFetchResponseDTO> {
+  return HttpService.get('/api/categories/');
+}
+
+export function getExpenses(): Promise<ExpenseFetchResponseDTO> {
+  return HttpService.get(`/api/expenses/user/`);
 }

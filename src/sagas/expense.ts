@@ -3,7 +3,6 @@ import { message } from 'antd';
 
 import {
   expenseSuccess,
-  expenseStart,
   createExpenseStart,
   createExpenseSuccess,
 } from '../store/expense/actions';
@@ -13,9 +12,9 @@ import {
   EXPENSE_CREATE_REQUESTED,
 } from '../store/expense/types';
 
-function* fetchExpenses(action: ReturnType<typeof expenseStart>) {
+function* fetchExpenses() {
   try {
-    const data = yield call(getExpenses, action.userId);
+    const data = yield call(getExpenses);
     yield put(expenseSuccess(data));
   } catch (e) {
     yield call(message.error, 'Could not load expenses from server');

@@ -4,14 +4,14 @@ import {
   CategoryFetchRequestAction,
   CategoryFetchSuccessAction,
 } from './types';
-import { GetCategoriesType } from '../../types/dto';
+import { CategoryFetchResponseDTO } from '../../api/dto';
 
 export function categoryStart(): CategoryFetchRequestAction {
   return { type: CATEGORY_FETCH_REQUESTED };
 }
 
 export function categorySuccess(
-  payload: GetCategoriesType,
+  payload: CategoryFetchResponseDTO,
 ): CategoryFetchSuccessAction {
   return {
     type: CATEGORY_FETCH_SUCCESS,

@@ -1,41 +1,59 @@
 import {
   USER_CREATE_REQUESTED,
-  USER_CREATE_SUCCESS,
-  USER_FETCH_REQUESTED,
-  USER_FETCH_SUCCESS,
+  USER_LOGIN_REQUESTED,
+  USER_LOGIN_SUCCESS,
   UserCreateRequestAction,
-  UserCreateSuccessAction,
+  UserLoginRequestAction,
+  UserLoginSuccessAction,
   UserFetchRequestAction,
+  USER_FETCH_REQUESTED,
   UserFetchSuccessAction,
+  USER_FETCH_SUCCESS,
+  TokenSelectRequestAction,
+  TokenSelectSuccessAction,
+  TOKEN_SELECT_REQUESTED,
+  TOKEN_SELECT_SUCCESS,
 } from './types';
-import { GetUserType, UserCreateResponseDTO } from '../../types/dto';
-import { UserBase } from '../../types/base';
+import {
+  UserLoginResponseDTO,
+  UserCreateRequestDTO,
+  UserLoginRequestDTO,
+  UserFetchResponseDTO,
+} from '../../api/dto';
+import { Token } from '../../types/base';
 
 export function createUserStart(
-  payload: UserBase & { password: string },
+  payload: UserCreateRequestDTO,
 ): UserCreateRequestAction {
-  return {
-    type: USER_CREATE_REQUESTED,
-    payload,
-  };
+  return { type: USER_CREATE_REQUESTED, payload };
 }
 
-export function createUserSuccess(
-  payload: UserCreateResponseDTO,
-): UserCreateSuccessAction {
-  return {
-    type: USER_CREATE_SUCCESS,
-    payload,
-  };
+export function loginUserStart(
+  payload: UserLoginRequestDTO,
+): UserLoginRequestAction {
+  return { type: USER_LOGIN_REQUESTED, payload };
 }
 
-export function userStart(): UserFetchRequestAction {
+export function loginUserSuccess(
+  payload: UserLoginResponseDTO,
+): UserLoginSuccessAction {
+  return { type: USER_LOGIN_SUCCESS, payload };
+}
+
+export function fetchUserStart(): UserFetchRequestAction {
   return { type: USER_FETCH_REQUESTED };
 }
 
-export function userSuccess(payload: GetUserType): UserFetchSuccessAction {
-  return {
-    type: USER_FETCH_SUCCESS,
-    payload,
-  };
+export function fetchUserSuccess(
+  payload: UserFetchResponseDTO,
+): UserFetchSuccessAction {
+  return { type: USER_FETCH_SUCCESS, payload };
+}
+
+export function selectTokenStart(payload: Token): TokenSelectRequestAction {
+  return { type: TOKEN_SELECT_REQUESTED, payload };
+}
+
+export function selectTokenSuccess(payload: Token): TokenSelectSuccessAction {
+  return { type: TOKEN_SELECT_SUCCESS, payload };
 }

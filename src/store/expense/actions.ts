@@ -8,15 +8,18 @@ import {
   EXPENSE_FETCH_REQUESTED,
   EXPENSE_FETCH_SUCCESS,
 } from './types';
-import { GetExpensesType, ExpenseCreateResponseDTO } from '../../types/dto';
+import {
+  ExpenseFetchResponseDTO,
+  ExpenseCreateResponseDTO,
+} from '../../api/dto';
 import { ExpenseBase } from '../../types/base';
 
-export function expenseStart(userId: string): ExpenseFetchRequestAction {
-  return { type: EXPENSE_FETCH_REQUESTED, userId };
+export function expenseStart(): ExpenseFetchRequestAction {
+  return { type: EXPENSE_FETCH_REQUESTED };
 }
 
 export function expenseSuccess(
-  payload: GetExpensesType,
+  payload: ExpenseFetchResponseDTO,
 ): ExpenseFetchSuccessAction {
   return {
     type: EXPENSE_FETCH_SUCCESS,

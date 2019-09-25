@@ -1,31 +1,58 @@
-import { GetUserType, UserCreateResponseDTO } from '../../types/dto';
-import { UserBase } from '../../types/base';
+import {
+  UserCreateRequestDTO,
+  UserLoginRequestDTO,
+  UserLoginResponseDTO,
+  UserFetchResponseDTO,
+} from '../../api/dto';
+import { Token } from '../../types/base';
 
 export const USER_CREATE_REQUESTED = 'USER_CREATE_REQUESTED';
-export const USER_CREATE_SUCCESS = 'USER_CREATE_SUCCESS';
+export const USER_LOGIN_REQUESTED = 'USER_LOGIN_REQUESTED';
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 export const USER_FETCH_REQUESTED = 'USER_FETCH_REQUESTED';
 export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';
+export const TOKEN_SELECT_REQUESTED = 'TOKEN_SELECT_REQUESTED';
+export const TOKEN_SELECT_SUCCESS = 'TOKEN_SELECT_SUCCESS';
 
 export interface UserCreateRequestAction {
   type: typeof USER_CREATE_REQUESTED;
-  payload: UserBase & { password: string };
+  payload: UserCreateRequestDTO;
 }
 
-export interface UserCreateSuccessAction {
-  type: typeof USER_CREATE_SUCCESS;
-  payload: UserCreateResponseDTO;
+export interface UserLoginRequestAction {
+  type: typeof USER_LOGIN_REQUESTED;
+  payload: UserLoginRequestDTO;
 }
+
+export interface UserLoginSuccessAction {
+  type: typeof USER_LOGIN_SUCCESS;
+  payload: UserLoginResponseDTO;
+}
+
 export interface UserFetchRequestAction {
   type: typeof USER_FETCH_REQUESTED;
 }
 
 export interface UserFetchSuccessAction {
   type: typeof USER_FETCH_SUCCESS;
-  payload: GetUserType;
+  payload: UserFetchResponseDTO;
+}
+
+export interface TokenSelectRequestAction {
+  type: typeof TOKEN_SELECT_REQUESTED;
+  payload: Token;
+}
+
+export interface TokenSelectSuccessAction {
+  type: typeof TOKEN_SELECT_SUCCESS;
+  payload: Token;
 }
 
 export type UserActionTypes =
   | UserCreateRequestAction
-  | UserCreateSuccessAction
+  | UserLoginRequestAction
+  | UserLoginSuccessAction
   | UserFetchRequestAction
-  | UserFetchSuccessAction;
+  | UserFetchSuccessAction
+  | TokenSelectRequestAction
+  | TokenSelectSuccessAction;

@@ -15,12 +15,12 @@ export default function CreateUserFormContainer(): JSX.Element {
   const disabled = false;
 
   const handleSubmit = (): void => {
-    // boundActionCreators.createUserStart({
-    //   username: username.value,
-    //   password: password.value,
-    // });
-    username.clear();
-    password.clear();
+    boundActionCreators.loginUserStart({
+      username: username.value,
+      password: password.value,
+    });
+    // username.clear();
+    // password.clear();
   };
 
   return (

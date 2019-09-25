@@ -7,7 +7,7 @@ import { State } from '../../../store/initialState';
 import { createTagStart } from '../../../store/tag/actions';
 
 export default function CreateTagFormContainer(): JSX.Element {
-  const { tags, userId } = useSelector((state: State) => state);
+  const { tags } = useSelector((state: State) => state);
 
   const dispatch = useDispatch();
   const boundCreateTag = bindActionCreators(createTagStart, dispatch);
@@ -19,7 +19,7 @@ export default function CreateTagFormContainer(): JSX.Element {
   const disabled = tagExists || input === '';
 
   const handleSubmit = (): void => {
-    boundCreateTag({ userId, name: input });
+    boundCreateTag({ name: input });
     setInput('');
   };
   const handleChange = (e: SelectValue): void => {

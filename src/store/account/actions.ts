@@ -9,7 +9,7 @@ import {
   ACCOUNT_CREATE_SUCCESS,
 } from './types';
 import { Account } from '../../types/model';
-import { AccountCreateResponseDTO } from '../../types/dto';
+import { AccountCreateResponseDTO } from '../../api/dto';
 
 export const selectAccountStart = (
   account: Account,
@@ -26,7 +26,6 @@ export const selectAccountSuccess = (
 });
 
 export function createAccountStart(payload: {
-  userId: string;
   name: string;
 }): AccountCreateRequestAction {
   return { type: ACCOUNT_CREATE_REQUESTED, payload };

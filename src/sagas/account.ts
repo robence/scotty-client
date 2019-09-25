@@ -26,7 +26,7 @@ function* addAccount(action: ReturnType<typeof createAccountStart>) {
   }
 }
 
-function* selectAccountAsync(action: ReturnType<typeof selectAccountStart>) {
+function* selectAccount(action: ReturnType<typeof selectAccountStart>) {
   try {
     yield put(selectAccountSuccess(action.account));
     yield call(
@@ -40,5 +40,5 @@ function* selectAccountAsync(action: ReturnType<typeof selectAccountStart>) {
 
 export default function* accountSaga() {
   yield takeLatest(ACCOUNT_CREATE_REQUESTED, addAccount);
-  yield takeLatest(ACCOUNT_SELECT_REQUESTED, selectAccountAsync);
+  yield takeLatest(ACCOUNT_SELECT_REQUESTED, selectAccount);
 }

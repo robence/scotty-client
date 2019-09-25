@@ -16,3 +16,7 @@ export type UserBase = {
   username: string;
   email: string;
 };
+
+export type Token = {
+  token: string;
+};

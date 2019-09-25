@@ -1,5 +1,5 @@
 import { Account } from '../../types/model';
-import { AccountCreateResponseDTO } from '../../types/dto';
+import { AccountCreateResponseDTO } from '../../api/dto';
 
 export const ACCOUNT_SELECT_REQUESTED = 'ACCOUNT_SELECT_REQUESTED';
 export const ACCOUNT_SELECT_SUCCESS = 'ACCOUNT_SELECT_SUCCESS';
@@ -19,7 +19,7 @@ export interface AccountSelectSuccessAction {
 
 export interface AccountCreateRequestAction {
   type: typeof ACCOUNT_CREATE_REQUESTED;
-  payload: { userId: string; name: string };
+  payload: { name: string };
 }
 
 export interface AccountCreateSuccessAction {

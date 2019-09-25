@@ -7,9 +7,7 @@ import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';
 
 export default function CreateAndSelectAccountFormContainer(): JSX.Element {
-  const { selectedAccount, accountList, userId } = useSelector(
-    (state: State) => state,
-  );
+  const { selectedAccount, accountList } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const boundActionCreators = bindActionCreators(
     accountActionCreators,
@@ -25,7 +23,6 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
   };
   const handleCreate = (): void => {
     boundActionCreators.createAccountStart({
-      userId,
       name: input,
     });
   };

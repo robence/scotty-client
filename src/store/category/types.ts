@@ -1,4 +1,4 @@
-import { GetCategoriesType } from '../../types/dto';
+import { CategoryFetchResponseDTO } from '../../api/dto';
 
 export const CATEGORY_FETCH_REQUESTED = 'CATEGORY_FETCH_REQUESTED';
 export const CATEGORY_FETCH_SUCCESS = 'CATEGORY_FETCH_SUCCESS';
@@ -9,7 +9,7 @@ export interface CategoryFetchRequestAction {
 
 export interface CategoryFetchSuccessAction {
   type: typeof CATEGORY_FETCH_SUCCESS;
-  payload: GetCategoriesType;
+  payload: CategoryFetchResponseDTO;
 }
 
 export type CategoryActionTypes =

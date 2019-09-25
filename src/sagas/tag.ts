@@ -5,9 +5,9 @@ import { createTagStart, createTagSuccess } from '../store/tag/actions';
 import { createTag } from '../api';
 import { TAG_CREATE_REQUESTED } from '../store/tag/types';
 
-function* addTag(action: ReturnType<typeof createTagStart>) {
+function* addTag({ payload }: ReturnType<typeof createTagStart>) {
   try {
-    const data = yield call(createTag, action.payload);
+    const data = yield call(createTag, payload);
     yield put(createTagSuccess(data));
     yield call(
       message.success,

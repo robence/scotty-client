@@ -19,6 +19,7 @@ export type State = {
   tags: TagList;
   expenses: ExpenseList;
   loading: boolean;
+  token?: string;
 };
 
 const selectedAccount = { _id: '-1', name: 'Not Selected' };
