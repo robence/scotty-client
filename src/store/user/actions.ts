@@ -13,6 +13,8 @@ import {
   TokenSelectSuccessAction,
   TOKEN_SELECT_REQUESTED,
   TOKEN_SELECT_SUCCESS,
+  TOKEN_REMOVE_REQUESTED,
+  TokenRemoveRequestAction,
 } from './types';
 import {
   UserLoginResponseDTO,
@@ -56,4 +58,8 @@ export function selectTokenStart(payload: Token): TokenSelectRequestAction {
 
 export function selectTokenSuccess(payload: Token): TokenSelectSuccessAction {
   return { type: TOKEN_SELECT_SUCCESS, payload };
+}
+
+export function removeTokenStart(): TokenRemoveRequestAction {
+  return { type: TOKEN_REMOVE_REQUESTED };
 }

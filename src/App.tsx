@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import Header from './layout/Header';
+import Header from './layout/HeaderContainer';
 import Main from './layout/Main';
 import configureMessage from './configs/message';
 import LoadData from './temp';

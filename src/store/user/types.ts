@@ -13,6 +13,7 @@ export const USER_FETCH_REQUESTED = 'USER_FETCH_REQUESTED';
 export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';
 export const TOKEN_SELECT_REQUESTED = 'TOKEN_SELECT_REQUESTED';
 export const TOKEN_SELECT_SUCCESS = 'TOKEN_SELECT_SUCCESS';
+export const TOKEN_REMOVE_REQUESTED = 'TOKEN_REMOVE_REQUESTED';
 
 export interface UserCreateRequestAction {
   type: typeof USER_CREATE_REQUESTED;
@@ -48,6 +49,10 @@ export interface TokenSelectSuccessAction {
   payload: Token;
 }
 
+export interface TokenRemoveRequestAction {
+  type: typeof TOKEN_REMOVE_REQUESTED;
+}
+
 export type UserActionTypes =
   | UserCreateRequestAction
   | UserLoginRequestAction
@@ -55,4 +60,5 @@ export type UserActionTypes =
   | UserFetchRequestAction
   | UserFetchSuccessAction
   | TokenSelectRequestAction
-  | TokenSelectSuccessAction;
+  | TokenSelectSuccessAction
+  | TokenRemoveRequestAction;

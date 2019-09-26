@@ -5,14 +5,25 @@ import { colors, spaces, headerSize } from '../consts';
 import Logo from '../components/ui/Logo';
 import text from '../i18n';
 
-export default function HeaderComponent(): JSX.Element {
-  return (
+export default function HeaderComponent({
+  isLoggedIn,
+}: {
+  isLoggedIn: boolean;
+}): JSX.Element {
+  return isLoggedIn ? (
     <Header>
       <Logo />
       <StyledNavLink to="/">{text.layout.header.dashboard}</StyledNavLink>
       <StyledNavLink to="/expense">{text.layout.header.expense}</StyledNavLink>
       <StyledNavLink to="/tag">{text.layout.header.tag}</StyledNavLink>
       <StyledNavLink to="/account">{text.layout.header.account}</StyledNavLink>
+      <div style={{ marginLeft: 'auto' }}>
+        <StyledNavLink to="/logout">Logout</StyledNavLink>
+      </div>
+    </Header>
+  ) : (
+    <Header>
+      <Logo />
       <div style={{ marginLeft: 'auto' }}>
         <StyledNavLink to="/login">Login</StyledNavLink>
       </div>

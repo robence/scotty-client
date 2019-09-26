@@ -1,7 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { Expense, Tag, Account, Dashboard, Register, Login } from '../screens';
+import {
+  Expense,
+  Tag,
+  Account,
+  Dashboard,
+  Register,
+  Login,
+  Logout,
+} from '../screens';
+
 import { spaces, headerSize } from '../consts';
 
 export default function MainComponent(): JSX.Element {
@@ -14,6 +23,7 @@ export default function MainComponent(): JSX.Element {
         <Route path="/account" component={Account} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
       </Switch>
     </Main>
   );

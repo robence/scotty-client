@@ -5,6 +5,7 @@ import {
   USER_FETCH_REQUESTED,
   USER_FETCH_SUCCESS,
   TOKEN_SELECT_SUCCESS,
+  TOKEN_REMOVE_REQUESTED,
 } from './types';
 import { State } from '../initialState';
 import objectify from '../../utils';
@@ -33,6 +34,8 @@ export default function userReducer(
       return { ...state, loading: true };
     case TOKEN_SELECT_SUCCESS:
       return { ...state, token: action.payload.token };
+    case TOKEN_REMOVE_REQUESTED:
+      return { ...state, token: '', userId: '' };
     case USER_FETCH_REQUESTED:
       return { ...state, loading: true };
     case USER_FETCH_SUCCESS:
