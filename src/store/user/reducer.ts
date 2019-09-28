@@ -33,7 +33,7 @@ export default function userReducer(
     case USER_LOGIN_REQUESTED:
       return { ...state, loading: true };
     case TOKEN_SELECT_SUCCESS:
-      return { ...state, token: action.payload.token };
+      return { ...state, token: action.payload.token, loading: false };
     case TOKEN_REMOVE_REQUESTED:
       return { ...state, token: '', userId: '' };
     case USER_FETCH_REQUESTED:

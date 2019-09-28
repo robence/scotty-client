@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import Header from './layout/HeaderContainer';
-import Main from './layout/Main';
+import { Header, Main } from './layout';
 import configureMessage from './configs/message';
-import LoadData from './temp';
+import { TokenHandler } from './auth';
 
 configureMessage();
 
@@ -12,7 +11,7 @@ export default function AppComponent(): JSX.Element {
   return (
     <App>
       <BrowserRouter>
-        <LoadData />
+        <TokenHandler />
         <Header />
         <Main />
       </BrowserRouter>

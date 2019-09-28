@@ -1,15 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { State } from '../store/initialState';
 import { colors, spaces, headerSize } from '../consts';
 import Logo from '../components/ui/Logo';
 import text from '../i18n';
 
-export default function HeaderComponent({
-  isLoggedIn,
-}: {
-  isLoggedIn: boolean;
-}): JSX.Element {
+export default function HeaderContainer(): JSX.Element {
+  const { userId } = useSelector((state: State) => state);
+  const isLoggedIn = !!userId;
+  return <HeaderComponent isLoggedIn={isLoggedIn} />;
+}
+
+function HeaderComponent({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element {
   return isLoggedIn ? (
     <Header>
       <Logo />

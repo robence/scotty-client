@@ -12,18 +12,19 @@ import {
 } from '../screens';
 
 import { spaces, headerSize } from '../consts';
+import { PrivateRoute } from '../auth';
 
 export default function MainComponent(): JSX.Element {
   return (
     <Main>
       <Switch>
-        <Route path="/" exact component={Dashboard} />
-        <Route path="/expense" component={Expense} />
-        <Route path="/tag" component={Tag} />
-        <Route path="/account" component={Account} />
+        <PrivateRoute path="/" exact component={Dashboard} />
+        <PrivateRoute path="/expense" component={Expense} />
+        <PrivateRoute path="/tag" component={Tag} />
+        <PrivateRoute path="/account" component={Account} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/logout" component={Logout} />
+        <PrivateRoute path="/logout" component={Logout} />
       </Switch>
     </Main>
   );
