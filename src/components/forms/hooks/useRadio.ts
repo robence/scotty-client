@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { FormElementProps } from '../../../types/form';
-import text from '../../../i18n';
+import { useLang } from '../../../hooks';
 
 export default function useRadio(): FormElementProps {
+  const text = useLang();
+
   const radioOptions = [
     { _id: '-', name: text.components.forms.expense.radio.minus },
     { _id: '+', name: text.components.forms.expense.radio.plus },

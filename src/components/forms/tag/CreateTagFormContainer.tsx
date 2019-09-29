@@ -5,6 +5,7 @@ import { SelectValue } from 'antd/lib/select';
 import CreateTagFormComponent from './CreateTagFormComponent';
 import { State } from '../../../store/initialState';
 import { createTagStart } from '../../../store/tag/actions';
+import { useLang } from '../../../hooks';
 
 export default function CreateTagFormContainer(): JSX.Element {
   const { tags } = useSelector((state: State) => state);
@@ -13,6 +14,7 @@ export default function CreateTagFormContainer(): JSX.Element {
   const boundCreateTag = bindActionCreators(createTagStart, dispatch);
 
   const [input, setInput] = useState('');
+  const text = useLang();
 
   const tagNames = Object.keys(tags.byNames);
   const tagExists = tagNames.includes(input);
@@ -34,6 +36,7 @@ export default function CreateTagFormContainer(): JSX.Element {
       tagNames={tagNames}
       handleSubmit={handleSubmit}
       handleChange={handleChange}
+      text={text}
     />
   );
 }

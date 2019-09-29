@@ -36,6 +36,9 @@ const hu = {
       fetch: {
         error: 'Sikertelen felhasználó betöltés.',
       },
+      register: {
+        success: 'Sikeres regisztráció! Jelentkezzen be.',
+      },
     },
   },
   layout: {
@@ -44,6 +47,9 @@ const hu = {
       expense: 'Új tranzakció',
       tag: 'Új címke',
       account: 'Új számla',
+      login: 'Bejelentkezés',
+      logout: 'Kijelentkezés',
+      register: 'Regisztráció',
     },
   },
   screens: {
@@ -70,6 +76,12 @@ const hu = {
     },
     tag: {
       title: 'Új címke létrehozása',
+    },
+    register: {
+      title: 'Új felhasználó létrehozása',
+    },
+    login: {
+      title: 'Bejelentkezés',
     },
   },
   assets: {
@@ -113,6 +125,17 @@ const hu = {
         label: 'Ez a címke már létezik. Adjon meg egy másikat.',
         placeholder: 'Gépeljen be egy új címkét',
         create: 'Létrehozás',
+      },
+      login: {
+        username: 'felhasználónév',
+        password: 'jelszó',
+        submit: 'Bejelentkezés',
+      },
+      register: {
+        email: 'email',
+        username: 'felhasználónév',
+        password: 'jelszó',
+        submit: 'Regisztráció',
       },
     },
     tables: {

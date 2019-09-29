@@ -3,9 +3,11 @@ import { Center, Align, Card } from '../components/ui';
 import { WithHeading } from '../components/enhancer';
 import { CreateExpenseFormContainer } from '../components/forms';
 import CommonExpensesListContainer from '../components/list';
-import text from '../i18n';
+import { useLang } from '../hooks';
 
 export default function ExpenseComponent(): JSX.Element {
+  const text = useLang();
+
   return (
     <Center>
       <Align content="evenly">

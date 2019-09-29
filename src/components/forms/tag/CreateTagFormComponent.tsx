@@ -3,7 +3,6 @@ import { AutoComplete, Button } from 'antd';
 import { SelectValue } from 'antd/lib/select';
 import Label from './Label';
 import Align from '../../ui/Align';
-import text from '../../../i18n';
 
 type PresenterProps = {
   input: string;
@@ -12,6 +11,7 @@ type PresenterProps = {
   handleChange: (e: SelectValue) => void;
   disabled: boolean;
   handleSubmit: () => void;
+  text: any;
 };
 
 export default function CreateTagFormComponent({
@@ -21,6 +21,7 @@ export default function CreateTagFormComponent({
   handleChange,
   disabled,
   handleSubmit,
+  text,
 }: PresenterProps): JSX.Element {
   return (
     <div>

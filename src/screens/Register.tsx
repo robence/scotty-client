@@ -5,12 +5,15 @@ import { CreateUserFormContainer } from '../components/forms';
 import { Center, Card } from '../components/ui';
 import { WithHeading } from '../components/enhancer';
 import { State } from '../store/initialState';
+import { useLang } from '../hooks';
 
 function Register(): JSX.Element {
+  const text = useLang();
+
   return (
     <Center>
       <Card width="325px">
-        <WithHeading title="Create a new user">
+        <WithHeading title={text.screens.register.title}>
           <CreateUserFormContainer />
         </WithHeading>
       </Card>

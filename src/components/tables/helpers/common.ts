@@ -17,11 +17,10 @@ const filterExpensesByPeriod = (
 export const filterExpenses = (
   expenses: Expense[],
   accountId: string,
-  periodIdString: string,
+  periodId: number,
   isEndPeriod = false,
 ): Expense[] => {
   const x = filterExpensesByAccount(expenses, accountId);
-  const periodId = Number(periodIdString);
   if (periodId === -1) {
     return x;
   }

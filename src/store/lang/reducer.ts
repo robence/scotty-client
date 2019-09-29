@@ -1,15 +1,15 @@
-import SELECT_PERIOD, { PeriodActionTypes } from './types';
+import SELECT_LANG, { LangActionTypes } from './types';
 import { State } from '../initialState';
 
 export default function periodReducer(
   state: State,
-  { type, periodId }: PeriodActionTypes,
+  { type, lang }: LangActionTypes,
 ): State {
   switch (type) {
-    case SELECT_PERIOD:
+    case SELECT_LANG:
       return {
         ...state,
-        selectedPeriodId: Number(periodId),
+        lang,
       };
 
     default:

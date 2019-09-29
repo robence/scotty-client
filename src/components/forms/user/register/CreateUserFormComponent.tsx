@@ -9,6 +9,7 @@ type PresenterProps = {
   email: InputElementProps;
   disabled: boolean;
   handleSubmit: () => void;
+  text: any;
 };
 
 export default function CreateUserFormComponent({
@@ -17,13 +18,14 @@ export default function CreateUserFormComponent({
   email,
   disabled,
   handleSubmit,
+  text,
 }: PresenterProps): JSX.Element {
   return (
     <Grid>
       <div>
         <div>
           <Input
-            placeholder="email"
+            placeholder={text.components.forms.register.email}
             value={email.value}
             onChange={email.onChange}
           />
@@ -31,21 +33,21 @@ export default function CreateUserFormComponent({
       </div>
       <div>
         <Input
-          placeholder="username"
+          placeholder={text.components.forms.register.username}
           value={username.value}
           onChange={username.onChange}
         />
       </div>
       <div>
         <Input.Password
-          placeholder="password"
+          placeholder={text.components.forms.register.password}
           value={password.value}
           onChange={password.onChange}
         />
       </div>
 
       <Button type="primary" disabled={disabled} onClick={handleSubmit}>
-        Register
+        {text.components.forms.register.submit}
       </Button>
     </Grid>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { State } from '../../store/initialState';
 import MoneyFlowSplineChartComponent from './MoneyFlowSplineChartComponent';
-import { WEEK_IN_MINUTES, DAY_IN_MINUTES } from '../../assets';
+import { periods } from '../../consts';
 import { filterExpenses } from '../tables/helpers/common';
 import sumExpenses from '../readonly/utils';
 
@@ -17,7 +17,7 @@ export default function MoneyFlowSplineChartContainer(): JSX.Element {
     const a = filterExpenses(
       Object.values(expenses),
       selectedAccount._id,
-      (DAY_IN_MINUTES * (4 - index)).toString(),
+      periods.DAY_IN_MINUTES * (4 - index),
       // (WEEK_IN_MINUTES * (4 - index)).toString(),
       true,
     );
@@ -33,7 +33,7 @@ export default function MoneyFlowSplineChartContainer(): JSX.Element {
           const lastDate = new Date(now);
           // lastDate.setMinutes(lastDate.getMinutes() - WEEK_IN_MINUTES);
           lastDate.setMinutes(
-            lastDate.getMinutes() - DAY_IN_MINUTES * (4 - id),
+            lastDate.getMinutes() - periods.DAY_IN_MINUTES * (4 - id),
           );
           const lastDateString = lastDate.toLocaleDateString('hu-hu');
 

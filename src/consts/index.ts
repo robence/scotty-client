@@ -12,3 +12,15 @@ export const spaces = {
 };
 
 export const headerSize = '4.8rem';
+
+const DAY_IN_MINUTES = 24 * 60;
+const WEEK_IN_MINUTES = 7 * DAY_IN_MINUTES;
+const MONTH_IN_MINUTES = 30 * DAY_IN_MINUTES;
+const YEAR_IN_MINUTES = 365 * DAY_IN_MINUTES;
+
+export const periods = {
+  DAY_IN_MINUTES,
+  WEEK_IN_MINUTES,
+  MONTH_IN_MINUTES,
+  YEAR_IN_MINUTES,
+};

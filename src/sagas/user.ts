@@ -27,9 +27,9 @@ import text from '../i18n';
 function* register({ payload }: ReturnType<typeof createUserStart>) {
   try {
     yield call(createUser, payload);
-    yield call(message.info, 'User was successfully created', 10);
+    yield call(message.info, text.sagas.user.register.success);
   } catch (e) {
-    yield call(message.error, 'Something went wrong.');
+    console.log(e);
   }
 }
 
@@ -42,11 +42,10 @@ function* login({ payload }: ReturnType<typeof loginUserStart>) {
     const { token, user } = yield call(loginUser, payload);
     yield put(selectTokenStart({ token }));
     // yield put(fetchUserSuccess({ user }));
-    yield call(message.info, 'User was successfully logged in', 10);
     yield put(expenseStart());
     yield put(categoryStart());
   } catch (e) {
-    yield call(message.error, 'Something went wrong.', 10);
+    console.log(e);
   }
 }
 
@@ -60,7 +59,7 @@ function* selectToken({ payload }: ReturnType<typeof selectTokenStart>) {
     yield call(addTokenToHttpService, payload.token);
     yield put(fetchUserStart());
   } catch (e) {
-    yield call(message.error, 'Something went wrong.');
+    console.log(e);
   }
 }
 

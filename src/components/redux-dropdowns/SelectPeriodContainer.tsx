@@ -5,18 +5,20 @@ import { SingleSelectComponent } from '../select';
 import selectPeriod from '../../store/period/actions';
 import { State } from '../../store/initialState';
 import { FormElementProps } from '../../types/form';
+import { usePeriod } from '../../hooks';
 
 export default function SelectPeriodContainer(): JSX.Element {
-  const { selectedPeriod, periodList } = useSelector((state: State) => state);
+  const { selectedPeriodId } = useSelector((state: State) => state);
+  const periodList = usePeriod();
   const dispatch = useDispatch();
   const boundSelectPeriod = bindActionCreators(selectPeriod, dispatch);
   const handlePeriodSelect = (id: string): void => {
-    boundSelectPeriod(periodList[id]);
+    boundSelectPeriod(id);
   };
 
   const period: FormElementProps = {
     options: Object.values(periodList),
-    selected: selectedPeriod._id,
+    selected: selectedPeriodId.toString(),
     onChange: handlePeriodSelect,
   };
 

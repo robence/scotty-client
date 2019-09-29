@@ -26,7 +26,7 @@ export default function PrivateRoute({ component, ...rest }: any): JSX.Element {
 
     switch (props.match.url) {
       case '/':
-        return <Dashboard {...props} />;
+        return <Dashboard />;
       case '/expense':
         return <Expense />;
       case '/tag':

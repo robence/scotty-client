@@ -5,12 +5,15 @@ import { LoginUserFormContainer } from '../components/forms';
 import { Center, Card } from '../components/ui';
 import { WithHeading } from '../components/enhancer';
 import { State } from '../store/initialState';
+import { useLang } from '../hooks';
 
 function Login(): JSX.Element {
+  const { screens } = useLang();
+
   return (
     <Center>
       <Card width="325px">
-        <WithHeading title="Log In">
+        <WithHeading title={screens.login.title}>
           <LoginUserFormContainer />
         </WithHeading>
       </Card>

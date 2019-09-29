@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Table from './TableComponent';
 import { State } from '../../store/initialState';
-import columns from './column-configurations/expense';
+import getColumns from './column-configurations/expense';
 import createExpenseDataSource, { ExpenseDataItem } from './helpers/expense';
 import { filterExpenses } from './helpers/common';
+import { useLang } from '../../hooks';
 
 export default function Container(): JSX.Element {
   const {
@@ -12,13 +13,15 @@ export default function Container(): JSX.Element {
     expenses,
     categories,
     selectedAccount,
-    selectedPeriod,
+    selectedPeriodId,
   } = useSelector((state: State) => state);
+
+  const text = useLang();
 
   const filteredExpenses = filterExpenses(
     Object.values(expenses),
     selectedAccount._id,
-    selectedPeriod._id,
+    selectedPeriodId,
   );
 
   const dataSource: ExpenseDataItem[] = createExpenseDataSource(
@@ -31,5 +34,5 @@ export default function Container(): JSX.Element {
     )
     .reverse();
 
-  return <Table columns={columns} dataSource={dataSource} />;
+  return <Table columns={getColumns(text)} dataSource={dataSource} />;
 }

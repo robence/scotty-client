@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import LoginUserFormComponent from './LoginUserFormComponent';
 import * as userActionCreators from '../../../../store/user/actions';
 import { useInput } from '../../hooks';
+import { useLang } from '../../../../hooks';
 
 export default function CreateUserFormContainer(): JSX.Element {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ export default function CreateUserFormContainer(): JSX.Element {
 
   const username = useInput();
   const password = useInput();
+  const text = useLang();
 
   const disabled = false;
 
@@ -19,8 +21,6 @@ export default function CreateUserFormContainer(): JSX.Element {
       username: username.value,
       password: password.value,
     });
-    // username.clear();
-    // password.clear();
   };
 
   return (
@@ -29,6 +29,7 @@ export default function CreateUserFormContainer(): JSX.Element {
       password={password}
       disabled={disabled}
       handleSubmit={handleSubmit}
+      text={text}
     />
   );
 }

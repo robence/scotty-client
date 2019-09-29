@@ -9,7 +9,6 @@ import {
 import { FormElementProps } from '../../../types/form';
 import { WithTitle } from '../../enhancer';
 import { spaces } from '../../../consts';
-import text from '../../../i18n';
 
 type CreateExpenseFormProps = {
   category: FormElementProps;
@@ -21,6 +20,7 @@ type CreateExpenseFormProps = {
     handleAmount: (e: ChangeEvent<HTMLInputElement>) => void;
   };
   handleSubmit: () => void;
+  text: any;
 };
 
 export default function CreateExpenseComponent({
@@ -28,8 +28,9 @@ export default function CreateExpenseComponent({
   tag,
   radio,
   account,
-  handleSubmit,
   amount: { unsignedAmount, handleAmount },
+  handleSubmit,
+  text,
 }: CreateExpenseFormProps): JSX.Element {
   return (
     <Expense>

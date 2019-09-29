@@ -5,6 +5,7 @@ import { SelectValue } from 'antd/lib/select';
 import CreateAndSelectAccountFormComponent from './CreateAndSelectAccountFormComponent';
 import * as accountActionCreators from '../../../store/account/actions';
 import { State } from '../../../store/initialState';
+import { useLang } from '../../../hooks';
 
 export default function CreateAndSelectAccountFormContainer(): JSX.Element {
   const { selectedAccount, accountList } = useSelector((state: State) => state);
@@ -18,8 +19,10 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
     selectedAccount ? selectedAccount.name : '',
   );
 
+  const text = useLang();
+
   const handleChange = (e: SelectValue): void => {
-    setInput(e.toString());
+    setInput(e ? e.toString() : '');
   };
   const handleCreate = (): void => {
     boundActionCreators.createAccountStart({
@@ -51,6 +54,7 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
       handleCreate={handleCreate}
       handleSelect={handleSelect}
       disabled={selectDisabled}
+      text={text}
     />
   );
 }

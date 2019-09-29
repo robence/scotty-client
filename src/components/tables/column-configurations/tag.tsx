@@ -1,16 +1,14 @@
-import text from '../../../i18n';
-
-const columns = [
-  {
-    title: text.components.tables.tags,
-    dataIndex: 'tag',
-    key: 'tag',
-  },
-  {
-    title: text.components.tables.amount,
-    dataIndex: 'amount',
-    key: 'amount',
-  },
-];
-
-export default columns;
+export default function getColumns(text: any): any {
+  return [
+    {
+      title: text.components.tables.tags,
+      dataIndex: 'tag',
+      key: 'tag',
+    },
+    {
+      title: text.components.tables.amount,
+      dataIndex: 'amount',
+      key: 'amount',
+    },
+  ];
+}

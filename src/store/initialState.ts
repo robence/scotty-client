@@ -1,40 +1,38 @@
-import { periodList, MONTH_IN_MINUTES } from '../assets';
+import { periods } from '../consts';
 import {
   CategoryList,
   TagList,
   ExpenseList,
   Account,
   AccountList,
-  Period,
-  PeriodList,
 } from '../types/model';
 
 export type State = {
   userId: string;
   selectedAccount: Account;
-  selectedPeriod: Period;
-  periodList: PeriodList;
+  selectedPeriodId: number;
   accountList: AccountList;
   categories: CategoryList;
   tags: TagList;
   expenses: ExpenseList;
   loading: boolean;
   token?: string;
+  lang: string;
 };
 
 const selectedAccount = { _id: '-1', name: '' };
-const selectedPeriod = periodList[MONTH_IN_MINUTES];
+const selectedPeriodId = periods.MONTH_IN_MINUTES;
 
 const initialState: State = {
   userId: '',
-  selectedPeriod,
+  selectedPeriodId,
   selectedAccount,
-  periodList,
   accountList: {},
   categories: {},
   tags: { byIds: {}, byNames: {} },
   expenses: {},
   loading: false,
+  lang: 'hu',
 };
 
 export default initialState;

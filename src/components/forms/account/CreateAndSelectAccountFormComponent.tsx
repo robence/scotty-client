@@ -2,7 +2,6 @@ import React, { MouseEvent } from 'react';
 import { AutoComplete, Button } from 'antd';
 import { SelectValue } from 'antd/lib/select';
 import { Align } from '../../ui';
-import text from '../../../i18n';
 
 type CreateAndSelectAccountProps = {
   input: string;
@@ -13,6 +12,7 @@ type CreateAndSelectAccountProps = {
   handleCreate: (e: MouseEvent) => void;
   handleChange: (e: SelectValue) => void;
   handleSelect: (e: MouseEvent) => void;
+  text: any;
 };
 export default function CreateAndSelectAccountFormComponent({
   input,
@@ -23,6 +23,7 @@ export default function CreateAndSelectAccountFormComponent({
   handleChange,
   handleCreate,
   handleSelect,
+  text,
 }: CreateAndSelectAccountProps): JSX.Element {
   return (
     <Align>

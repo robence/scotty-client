@@ -6,33 +6,43 @@ import styled from 'styled-components';
 import { State } from '../store/initialState';
 import { colors, spaces, headerSize } from '../consts';
 import Logo from '../components/ui/Logo';
-import text from '../i18n';
+import { useLang } from '../hooks';
+import { SelectLanguageContainer } from '../components/redux-dropdowns';
 
 export default function HeaderContainer(): JSX.Element {
   const { userId } = useSelector((state: State) => state);
+  const { layout } = useLang();
   const isLoggedIn = !!userId;
-  return <HeaderComponent isLoggedIn={isLoggedIn} />;
+  return <HeaderComponent isLoggedIn={isLoggedIn} layout={layout} />;
 }
 
-function HeaderComponent({ isLoggedIn }: { isLoggedIn: boolean }): JSX.Element {
+function HeaderComponent({
+  isLoggedIn,
+  layout,
+}: {
+  isLoggedIn: boolean;
+  layout: any;
+}): JSX.Element {
   return isLoggedIn ? (
     <Header>
       <Logo />
-      <StyledNavLink to="/">{text.layout.header.dashboard}</StyledNavLink>
-      <StyledNavLink to="/expense">{text.layout.header.expense}</StyledNavLink>
-      <StyledNavLink to="/tag">{text.layout.header.tag}</StyledNavLink>
-      <StyledNavLink to="/account">{text.layout.header.account}</StyledNavLink>
+      <StyledNavLink to="/">{layout.header.dashboard}</StyledNavLink>
+      <StyledNavLink to="/expense">{layout.header.expense}</StyledNavLink>
+      <StyledNavLink to="/tag">{layout.header.tag}</StyledNavLink>
+      <StyledNavLink to="/account">{layout.header.account}</StyledNavLink>
       <div style={{ marginLeft: 'auto' }}>
-        <StyledNavLink to="/logout">Logout</StyledNavLink>
+        <StyledNavLink to="/logout">{layout.header.logout}</StyledNavLink>
       </div>
+      <SelectLanguageContainer />
     </Header>
   ) : (
     <Header>
       <Logo />
       <div style={{ marginLeft: 'auto' }}>
-        <StyledNavLink to="/login">Login</StyledNavLink>
+        <StyledNavLink to="/login">{layout.header.login}</StyledNavLink>
       </div>
-      <StyledNavLink to="/register">Register</StyledNavLink>
+      <StyledNavLink to="/register">{layout.header.register}</StyledNavLink>
+      <SelectLanguageContainer />
     </Header>
   );
 }

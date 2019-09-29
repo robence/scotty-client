@@ -7,6 +7,7 @@ import * as expenseActionCreators from '../../../store/expense/actions';
 import * as accountActionCreators from '../../../store/account/actions';
 import { useRadio, useCategory, useTags, useAmount } from '../hooks';
 import { ExpenseBase } from '../../../types/base';
+import { useLang } from '../../../hooks';
 
 export default function CreateExpenseFormContainer(): JSX.Element {
   const {
@@ -16,6 +17,8 @@ export default function CreateExpenseFormContainer(): JSX.Element {
     accountList,
     selectedAccount,
   } = useSelector((state: State) => state);
+
+  const text = useLang();
 
   const dispatch = useDispatch();
   const boundActionsCreators = bindActionCreators(
@@ -65,6 +68,7 @@ export default function CreateExpenseFormContainer(): JSX.Element {
       radio={radio}
       amount={amount}
       handleSubmit={handleSubmit}
+      text={text}
     />
   );
 }

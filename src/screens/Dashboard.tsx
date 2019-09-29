@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import { RouteComponentProps } from 'react-router-dom';
 import {
   AllExpenses,
   ExpensesByCategory,
@@ -14,13 +13,13 @@ import {
 import { Balance, MoneyFlow } from '../components/readonly';
 import { Card, Center, Align } from '../components/ui';
 import { WithHeading } from '../components/enhancer';
-import text from '../i18n';
+import { useLang } from '../hooks';
 
 const { TabPane } = Tabs;
 
-export default function PresenterComponent(
-  props: RouteComponentProps,
-): JSX.Element {
+export default function PresenterComponent(): JSX.Element {
+  const text = useLang();
+
   return (
     <Align content="evenly">
       <Tabs type="card">

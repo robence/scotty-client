@@ -2,9 +2,11 @@ import React from 'react';
 import { Card, Center } from '../components/ui';
 import { CreateTagFormContainer } from '../components/forms';
 import { WithHeading } from '../components/enhancer';
-import text from '../i18n';
+import { useLang } from '../hooks';
 
 export default function Container(): JSX.Element {
+  const text = useLang();
+
   return (
     <Center>
       <Card width="400px">

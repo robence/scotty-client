@@ -36,6 +36,9 @@ const en = {
       fetch: {
         error: 'Could not load user from server',
       },
+      register: {
+        success: 'Registration was successful. Please log in.',
+      },
     },
   },
   layout: {
@@ -44,6 +47,9 @@ const en = {
       expense: 'New Transaction',
       tag: 'New Tag',
       account: 'New Account',
+      login: 'Login',
+      logout: 'Logout',
+      register: 'Register',
     },
   },
   screens: {
@@ -70,6 +76,12 @@ const en = {
     },
     tag: {
       title: 'Create a new tag',
+    },
+    register: {
+      title: 'Register a new user',
+    },
+    login: {
+      title: 'Log in',
     },
   },
   assets: {
@@ -113,6 +125,17 @@ const en = {
         label: 'This tag already exists. Please enter a new one.',
         placeholder: 'Type to create a new tag',
         create: 'Create',
+      },
+      login: {
+        username: 'username',
+        password: 'password',
+        submit: 'Login',
+      },
+      register: {
+        email: 'email',
+        username: 'username',
+        password: 'password',
+        submit: 'Register',
       },
     },
     tables: {

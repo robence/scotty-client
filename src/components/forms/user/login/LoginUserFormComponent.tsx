@@ -8,6 +8,7 @@ type PresenterProps = {
   password: InputElementProps;
   disabled: boolean;
   handleSubmit: () => void;
+  text: any;
 };
 
 export default function CreateUserFormComponent({
@@ -15,26 +16,27 @@ export default function CreateUserFormComponent({
   password,
   disabled,
   handleSubmit,
+  text,
 }: PresenterProps): JSX.Element {
   return (
     <Grid>
       <div>
         <Input
-          placeholder="username"
+          placeholder={text.components.forms.login.username}
           value={username.value}
           onChange={username.onChange}
         />
       </div>
       <div>
         <Input.Password
-          placeholder="password"
+          placeholder={text.components.forms.login.password}
           value={password.value}
           onChange={password.onChange}
         />
       </div>
 
       <Button type="primary" disabled={disabled} onClick={handleSubmit}>
-        Login
+        {text.components.forms.login.submit}
       </Button>
     </Grid>
   );
