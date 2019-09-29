@@ -15,9 +15,7 @@ export default function CreateAndSelectAccountFormContainer(): JSX.Element {
     dispatch,
   );
 
-  const [input, setInput] = useState(
-    selectedAccount ? selectedAccount.name : '',
-  );
+  const [input, setInput] = useState('');
 
   const text = useLang();
 
