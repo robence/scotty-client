@@ -52,14 +52,14 @@ export function createExpense(
   return HttpService.post(`/api/expenses/`, expense);
 }
 
-export function getUserByToken(): Promise<UserFetchResponseDTO> {
-  return HttpService.get('/api/users/user');
-}
-
 export function getCategories(): Promise<CategoryFetchResponseDTO> {
   return HttpService.get('/api/categories/');
 }
 
+export function getUser(): Promise<UserFetchResponseDTO> {
+  return HttpService.get('/api/users/token/');
+}
+
 export function getExpenses(): Promise<ExpenseFetchResponseDTO> {
-  return HttpService.get(`/api/expenses/user/`);
+  return HttpService.get(`/api/expenses/token/`);
 }

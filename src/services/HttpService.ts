@@ -21,7 +21,7 @@ class HttpService {
   /* eslint-disable-next-line class-methods-use-this */
   public post(url: string, data: any): Promise<any> {
     return axios
-      .post(url, data)
+      .post(url, data, this.config)
       .then((response) => response.data)
       .catch((error) => {
         return Promise.reject(error.response.data.error);

@@ -9,11 +9,7 @@ import {
   fetchUserSuccess,
   selectTokenSuccess,
 } from '../store/user/actions';
-import addTokenToHttpService, {
-  loginUser,
-  createUser,
-  getUserByToken,
-} from '../api';
+import addTokenToHttpService, { loginUser, createUser, getUser } from '../api';
 import {
   USER_LOGIN_REQUESTED,
   USER_CREATE_REQUESTED,
@@ -69,7 +65,7 @@ function* selectToken({ payload }: ReturnType<typeof selectTokenStart>) {
  */
 function* fetchUser() {
   try {
-    const data = yield call(getUserByToken);
+    const data = yield call(getUser);
     yield put(fetchUserSuccess(data));
     yield put(expenseStart());
     yield put(categoryStart());

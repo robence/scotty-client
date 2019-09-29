@@ -19,7 +19,7 @@ function* addAccount(action: ReturnType<typeof createAccountStart>) {
     yield put(createAccountSuccess(data));
     yield call(
       message.success,
-      `${text.sagas.account.add.successBefore} ${data.account.name} ${text.sagas.account.add.successBefore}`,
+      `${text.sagas.account.add.successBefore} ${data.account.name} ${text.sagas.account.add.successAfter}`,
     );
   } catch (e) {
     yield call(message.error, text.sagas.account.add.error);

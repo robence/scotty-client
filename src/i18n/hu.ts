@@ -28,7 +28,7 @@ const hu = {
     tag: {
       add: {
         successBefore: 'Címke',
-        successAfter: 'sikeresen étrehozva.',
+        successAfter: 'sikeresen létrehozva.',
         error: 'Sikertelen címke létrehozás',
       },
     },
