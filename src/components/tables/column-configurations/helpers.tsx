@@ -21,3 +21,12 @@ export const renderTags = (tagNames: string[]): JSX.Element => {
 export const renderTag = (tagName: string): JSX.Element => {
   return <span>{createTags([tagName])}</span>;
 };
+
+type R1 = (s: string) => JSX.Element;
+type R2 = (s: string[]) => JSX.Element;
+export type Column = {
+  title: string;
+  dataIndex: string;
+  key: string;
+  render?: R1 | R2;
+};

@@ -25,6 +25,7 @@ function* register({ payload }: ReturnType<typeof createUserStart>) {
     yield call(createUser, payload);
     yield call(message.info, text.sagas.user.register.success);
   } catch (e) {
+    /* eslint-disable-next-line no-console */
     console.log(e);
   }
 }
@@ -35,12 +36,13 @@ function* register({ payload }: ReturnType<typeof createUserStart>) {
  */
 function* login({ payload }: ReturnType<typeof loginUserStart>) {
   try {
-    const { token, user } = yield call(loginUser, payload);
+    const { token } = yield call(loginUser, payload);
     yield put(selectTokenStart({ token }));
     // yield put(fetchUserSuccess({ user }));
     yield put(expenseStart());
     yield put(categoryStart());
   } catch (e) {
+    /* eslint-disable-next-line no-console */
     console.log(e);
   }
 }
@@ -55,6 +57,7 @@ function* selectToken({ payload }: ReturnType<typeof selectTokenStart>) {
     yield call(addTokenToHttpService, payload.token);
     yield put(fetchUserStart());
   } catch (e) {
+    /* eslint-disable-next-line no-console */
     console.log(e);
   }
 }

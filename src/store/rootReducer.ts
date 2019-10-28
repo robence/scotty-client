@@ -21,6 +21,8 @@ const reducers = [
 // the reducer is called whenever a dispatch action is made.
 // the action.type is a string which maps to a function in Actions.
 // We apply the update to existing state, and return a new copy of state.
+
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 const rootReducer = (state: State = initialState, action: any): State => {
   const update = reducers.reduce(
     (previousState, reducer) => reducer(previousState, action),

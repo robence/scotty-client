@@ -5,6 +5,7 @@ import { TagList } from '../../../types/model';
 export default function useTags(tags: TagList): FormElementProps {
   const [tagNames, setTagNames]: [
     string[],
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     (newSelection: any) => void,
   ] = useState([]);
 

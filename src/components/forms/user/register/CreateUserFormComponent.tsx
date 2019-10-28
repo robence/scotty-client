@@ -2,6 +2,7 @@ import React from 'react';
 import { Input, Button } from 'antd';
 import styled from 'styled-components';
 import { InputElementProps } from '../../../../types/form';
+import { Lang } from '../../../../hooks/useLang';
 
 type PresenterProps = {
   username: InputElementProps;
@@ -9,7 +10,7 @@ type PresenterProps = {
   email: InputElementProps;
   disabled: boolean;
   handleSubmit: () => void;
-  text: any;
+  text: Lang;
 };
 
 export default function CreateUserFormComponent({

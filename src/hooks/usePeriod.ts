@@ -1,5 +1,3 @@
-import React from 'react';
-
 import useLang from './useLang';
 import { PeriodList } from '../types/model';
 import objectify from '../utils';

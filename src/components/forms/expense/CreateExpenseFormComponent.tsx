@@ -9,6 +9,7 @@ import {
 import { FormElementProps } from '../../../types/form';
 import { WithTitle } from '../../enhancer';
 import { spaces } from '../../../consts';
+import { Lang } from '../../../hooks/useLang';
 
 type CreateExpenseFormProps = {
   category: FormElementProps;
@@ -20,7 +21,7 @@ type CreateExpenseFormProps = {
     handleAmount: (e: ChangeEvent<HTMLInputElement>) => void;
   };
   handleSubmit: () => void;
-  text: any;
+  text: Lang;
 };
 
 export default function CreateExpenseComponent({

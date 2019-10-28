@@ -21,7 +21,7 @@ export default function TokenHandler(): JSX.Element {
         localStorage.setItem('scottyUserToken', token);
       }
     }
-  }, [token]);
+  }, [token, boundActionCreators]);
 
   return <></>;
 }

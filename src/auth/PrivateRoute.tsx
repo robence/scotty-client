@@ -1,5 +1,10 @@
 import React from 'react';
-import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import {
+  Route,
+  Redirect,
+  RouteComponentProps,
+  RouteProps,
+} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { State } from '../store/initialState';
 import {
@@ -12,7 +17,7 @@ import {
   Tag,
 } from '../screens';
 
-export default function PrivateRoute({ component, ...rest }: any): JSX.Element {
+export default function PrivateRoute(rest: RouteProps): JSX.Element {
   const { userId } = useSelector((state: State) => state);
 
   const goToLogin = ({ location }: RouteComponentProps): JSX.Element => (

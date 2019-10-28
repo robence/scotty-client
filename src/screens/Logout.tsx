@@ -14,7 +14,7 @@ export default function Register(): JSX.Element {
       localStorage.removeItem('scottyUserToken');
       boundActionCreators.removeTokenStart();
     }
-  }, [token]);
+  }, [token, boundActionCreators]);
 
   return <></>;
 }

@@ -1,6 +1,7 @@
-import { renderTag } from './helpers';
+import { renderTag, Column } from './helpers';
+import { Lang } from '../../../hooks/useLang';
 
-export default function getColumns(text: any): any {
+export default function getColumns(text: Lang): Column[] {
   return [
     {
       title: text.components.tables.tags,

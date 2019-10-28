@@ -8,6 +8,7 @@ type TableComponentProps = {
     key: string;
   }[];
 
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   dataSource: { key: string; [props: string]: any | any[] }[];
 };
 /* eslint-disable-next-line */

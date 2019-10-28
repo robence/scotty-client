@@ -1,18 +1,24 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
-import { Menu, Dropdown, message } from 'antd';
+import { Menu, Dropdown } from 'antd';
+import { ClickParam } from 'antd/lib/menu';
 import styled from 'styled-components';
 
 import selectLangAction from '../../store/lang/actions';
+import { State } from '../../store/initialState';
 
 export default function SelectPeriodContainer(): JSX.Element {
-  const { lang } = useSelector((state: any) => state);
+  const { lang } = useSelector((state: State) => state);
   const dispatch = useDispatch();
   const selectLang = bindActionCreators(selectLangAction, dispatch);
 
   const menu = (
-    <Menu onClick={({ key }: any) => selectLang(key)}>
+    <Menu
+      onClick={({ key }: ClickParam): void => {
+        selectLang(key);
+      }}
+    >
       <Menu.Item key="hu">
         <span>
           <Img src="flag-hu.png" alt="Hungarian flag" />

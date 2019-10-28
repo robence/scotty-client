@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { AutoComplete, Button } from 'antd';
 import { SelectValue } from 'antd/lib/select';
 import Label from './Label';
 import Align from '../../ui/Align';
+import { Lang } from '../../../hooks/useLang';
 
 type PresenterProps = {
   input: string;
@@ -11,7 +12,7 @@ type PresenterProps = {
   handleChange: (e: SelectValue) => void;
   disabled: boolean;
   handleSubmit: () => void;
-  text: any;
+  text: Lang;
 };
 
 export default function CreateTagFormComponent({
@@ -39,7 +40,7 @@ export default function CreateTagFormComponent({
           allowClear
           value={input}
           onChange={handleChange}
-          filterOption={(inputValue: string, option: any): boolean =>
+          filterOption={(inputValue: string, option: ReactElement): boolean =>
             option.props.children
               .toUpperCase()
               .indexOf(inputValue.toUpperCase()) !== -1

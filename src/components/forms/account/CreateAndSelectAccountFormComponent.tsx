@@ -2,6 +2,7 @@ import React, { MouseEvent } from 'react';
 import { AutoComplete, Button } from 'antd';
 import { SelectValue } from 'antd/lib/select';
 import { Align } from '../../ui';
+import { Lang } from '../../../hooks/useLang';
 
 type CreateAndSelectAccountProps = {
   input: string;
@@ -12,7 +13,7 @@ type CreateAndSelectAccountProps = {
   handleCreate: (e: MouseEvent) => void;
   handleChange: (e: SelectValue) => void;
   handleSelect: (e: MouseEvent) => void;
-  text: any;
+  text: Lang;
 };
 export default function CreateAndSelectAccountFormComponent({
   input,
